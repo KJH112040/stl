@@ -1,0 +1,54 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\github_local_repository\\stl\\2025stl\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{4A322C24-9286-4666-8767-90D6FB1CBD8A}|2025stl\\2025stl.vcxproj|C:\\github_local_repository\\stl\\2025stl\\2025stl\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{4A322C24-9286-4666-8767-90D6FB1CBD8A}|2025stl\\2025stl.vcxproj|solutionrelative:2025stl\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\github_local_repository\\stl\\2025stl\\2025stl\\2025 1 STL \uD65456\uBAA978 \uAC15\uC758\uC800\uC7A5.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:2025stl\\2025 1 STL \uD65456\uBAA978 \uAC15\uC758\uC800\uC7A5.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "2025 1 STL \uD65456\uBAA978 \uAC15\uC758\uC800\uC7A5.txt",
+              "DocumentMoniker": "C:\\github_local_repository\\stl\\2025stl\\2025stl\\2025 1 STL \uD65456\uBAA978 \uAC15\uC758\uC800\uC7A5.txt",
+              "RelativeDocumentMoniker": "2025stl\\2025 1 STL \uD65456\uBAA978 \uAC15\uC758\uC800\uC7A5.txt",
+              "ToolTip": "C:\\github_local_repository\\stl\\2025stl\\2025stl\\2025 1 STL \uD65456\uBAA978 \uAC15\uC758\uC800\uC7A5.txt",
+              "RelativeToolTip": "2025stl\\2025 1 STL \uD65456\uBAA978 \uAC15\uC758\uC800\uC7A5.txt",
+              "ViewState": "AgIAAJEAAAAAAAAAAAAAALQAAAATAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
+              "WhenOpened": "2025-03-06T08:04:45.142Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "main.cpp",
+              "DocumentMoniker": "C:\\github_local_repository\\stl\\2025stl\\2025stl\\main.cpp",
+              "RelativeDocumentMoniker": "2025stl\\main.cpp",
+              "ToolTip": "C:\\github_local_repository\\stl\\2025stl\\2025stl\\main.cpp*",
+              "RelativeToolTip": "2025stl\\main.cpp*",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-03-06T06:37:07.376Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
