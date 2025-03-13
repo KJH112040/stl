@@ -8,3 +8,5 @@
 2025stl/2025stl/2025stl.vcxproj
 2025stl/2025stl/2025stl.vcxproj.filters
 2025stl/2025stl/2025stl.vcxproj.user
+*.vsidx
+*.ipch

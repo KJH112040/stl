@@ -1,8 +1,7 @@
 ﻿  main.cpp
-C:\github_local_repository\stl\2025stl\2025stl\main.cpp(57,17): warning C4996: 'localtime': This function or variable may be unsafe. Consider using localtime_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
   코드를 생성하고 있습니다.
-  0 of 392 functions ( 0.0%) were compiled, the rest were copied from previous compilation.
-    0 functions were new in current compilation
-    0 functions had inline decision re-evaluated but remain unchanged
+  850 of 1048 functions (81.1%) were compiled, the rest were copied from previous compilation.
+    634 functions were new in current compilation
+    50 functions had inline decision re-evaluated but remain unchanged
   코드를 생성했습니다.
   2025stl.vcxproj -> C:\github_local_repository\stl\2025stl\x64\Release\2025stl.exe
