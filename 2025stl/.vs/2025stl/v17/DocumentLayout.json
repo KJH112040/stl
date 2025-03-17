@@ -5,6 +5,10 @@
     {
       "AbsoluteMoniker": "D:0:0:{4A322C24-9286-4666-8767-90D6FB1CBD8A}|2025stl\\2025stl.vcxproj|C:\\github_local_repository\\stl\\2025stl\\2025stl\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{4A322C24-9286-4666-8767-90D6FB1CBD8A}|2025stl\\2025stl.vcxproj|solutionrelative:2025stl\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4A322C24-9286-4666-8767-90D6FB1CBD8A}|2025stl\\2025stl.vcxproj|C:\\github_local_repository\\stl\\2025stl\\2025stl\\save.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{4A322C24-9286-4666-8767-90D6FB1CBD8A}|2025stl\\2025stl.vcxproj|solutionrelative:2025stl\\save.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     }
   ],
   "DocumentGroupContainers": [
@@ -14,8 +18,21 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "save.cpp",
+              "DocumentMoniker": "C:\\github_local_repository\\stl\\2025stl\\2025stl\\save.cpp",
+              "RelativeDocumentMoniker": "2025stl\\save.cpp",
+              "ToolTip": "C:\\github_local_repository\\stl\\2025stl\\2025stl\\save.cpp",
+              "RelativeToolTip": "2025stl\\save.cpp",
+              "ViewState": "AgIAABIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-03-13T07:45:00.027Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
@@ -24,7 +41,7 @@
               "RelativeDocumentMoniker": "2025stl\\main.cpp",
               "ToolTip": "C:\\github_local_repository\\stl\\2025stl\\2025stl\\main.cpp",
               "RelativeToolTip": "2025stl\\main.cpp",
-              "ViewState": "AgIAABIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAABUAAAAAAAAAAAAAAB8AAAAZAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2025-03-06T08:06:36.584Z",
               "EditorCaption": ""
