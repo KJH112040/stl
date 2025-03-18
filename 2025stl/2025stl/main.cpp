@@ -1,41 +1,28 @@
 //------------------------------------------------------------------------------------------------
-//	2025 STL 화56목78	3월 13일 목요일				(2주 2일)
+//	2025 STL 화56목78	3월 18일 화요일				(3주 1일)
 //------------------------------------------------------------------------------------------------
-//	많은 수의 자료를 처리하기	-	파일에 저장하고 읽어 오기
+//	많은 수의 자료를 처리하기	-	Dog를 읽고 쓴다. read/write
 //------------------------------------------------------------------------------------------------
 #include <iostream>
-#include<fstream>
-#include<algorithm>
-#include<array>
-#include<print>
+#include<string>
 #include "save.h"
 using namespace std;
 
-//	[문제] 파일 "int 1000개.txt"에는 int 값 1000개가 text로 기록되어 있다.
-//	이 데이터를 메모리에 저장하라.
-//	메모리에 있는 데이터를 화면에 출력하라.		(5분)
+class Dog {
+public:
+	Dog() {
+		// 다음 시간에 만들어 보겠습니다.
+	}
+private:
+	string name;		// 32
+	size_t id;			// 8
+};
+
+//	Dog 만마리를 생성하여 파일에 저장(write). 메모리로 읽어와서 처리(정렬).
 
 //---------
 int main() 
 //---------
 {
-	ifstream in{ "int 1000개.txt" };
-	if (not in)
-		return 20250313;
-
-	array<int, 1000> arr;
-	int num;/*, cnt{0};
-	while (in >> num) {
-		in >> arr[cnt];
-		++cnt;
-	}*/
-	for (int i = 0; i < 1000; ++i) {
-		in >> num;
-		arr[i] = num;
-	}
-
-	for (int num : arr)
-		print("{:8}", num);
-
 	save("main.cpp");
 }
