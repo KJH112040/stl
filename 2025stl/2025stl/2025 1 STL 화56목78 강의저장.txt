@@ -2196,3 +2196,776 @@ int main()
 {
 	save("main.cpp");
 }
+
+
+=================================================
+저장한 시간: 2025-03-20 오후 3:39:38 목요일
+=================================================
+
+//------------------------------------------------------------------------------------------------
+//	2025 STL 화56목78	3월 20일 목요일				(3주 2일)
+//------------------------------------------------------------------------------------------------
+//	많은 수의 자료를 처리하기	-	Dog를 읽고 쓴다. read/write
+//------------------------------------------------------------------------------------------------
+#include <iostream>
+#include <fstream>
+#include<array>
+#include "save.h"
+using namespace std;
+
+//	[문제] binary mode로 열어 write 함수로 iint 10만개를 기록한
+//	파일 "int 10만개를 바이너리모드 write함수로 기록"이 있다.
+//	읽어서 메모리에 모두 저장하라.
+//	메모리에 있는 값 중에서 가장 작은 것과 가장 큰 것을 찾아 화면에 출력하라.
+//	출력된 값을 답지에도 적어라.
+
+//---------
+int main() 
+//---------
+{
+	ifstream in{ "int 10만개를 바이너리모드 write함수로 기록",ios::binary };
+
+	array<int, 10'0000>a;
+	in.read((char*)a.data(), a.size() * sizeof(int));
+
+	int min{ a[0]}, max{0};
+
+	for (int num : a) {
+		if (min > num)min = num;
+		if (max < num)max = num;
+	}
+
+	cout << "가장 작은 값 - " << min << ", 가장 큰 값 - " << max << endl;
+
+	save("main.cpp");
+}
+
+
+=================================================
+저장한 시간: 2025-03-20 오후 3:43:29 목요일
+=================================================
+
+//------------------------------------------------------------------------------------------------
+//	2025 STL 화56목78	3월 20일 목요일				(3주 2일)
+//------------------------------------------------------------------------------------------------
+//	많은 수의 자료를 처리하기	-	Dog를 읽고 쓴다. read/write
+//------------------------------------------------------------------------------------------------
+#include <iostream>
+#include <fstream>
+#include<array>
+#include<algorithm>
+#include "save.h"
+using namespace std;
+
+//	[문제] binary mode로 열어 write 함수로 iint 10만개를 기록한
+//	파일 "int 10만개를 바이너리모드 write함수로 기록"이 있다.
+//	읽어서 메모리에 모두 저장하라.
+//	메모리에 있는 값 중에서 가장 작은 것과 가장 큰 것을 찾아 화면에 출력하라.
+//	출력된 값을 답지에도 적어라.
+
+//---------
+int main() 
+//---------
+{
+	ifstream in{ "int 10만개를 바이너리모드 write함수로 기록",ios::binary };
+
+	array<int, 10'0000>a;
+	in.read((char*)a.data(), a.size() * sizeof(int));
+
+	cout << "최댓값 - " << *max_element(a.begin(), a.end()) << endl;		//역참조 operator
+	cout << "최솟값 - " << *min_element(a.begin(), a.end()) << endl;
+
+	save("main.cpp");
+}
+
+
+=================================================
+저장한 시간: 2025-03-20 오후 3:49:29 목요일
+=================================================
+
+//------------------------------------------------------------------------------------------------
+//	2025 STL 화56목78	3월 20일 목요일				(3주 2일)
+//------------------------------------------------------------------------------------------------
+//	많은 수의 자료를 처리하기	-	Dog를 읽고 쓴다. read/write
+//------------------------------------------------------------------------------------------------
+#include <iostream>
+#include <fstream>
+#include<array>
+#include<algorithm>
+#include "save.h"
+using namespace std;
+
+//	[문제] binary mode로 열어 write 함수로 iint 10만개를 기록한
+//	파일 "int 10만개를 바이너리모드 write함수로 기록"이 있다.
+//	읽어서 메모리에 모두 저장하라.
+//	메모리에 있는 값 중에서 가장 작은 것과 가장 큰 것을 찾아 화면에 출력하라.
+//	출력된 값을 답지에도 적어라.
+
+//---------
+int main() 
+//---------
+{
+	ifstream in{ "int 10만개를 바이너리모드 write함수로 기록",ios::binary };
+
+	array<int, 10'0000>a;
+	in.read((char*)a.data(), a.size() * sizeof(int));
+
+	auto p = minmax_element(a.begin(), a.end());
+	cout << "최솟값 - " << *p.first << endl;
+	cout << "최댓값 - " << *p.second << endl;
+
+	save("main.cpp");
+}
+
+
+=================================================
+저장한 시간: 2025-03-20 오후 3:51:23 목요일
+=================================================
+
+//------------------------------------------------------------------------------------------------
+//	2025 STL 화56목78	3월 20일 목요일				(3주 2일)
+//------------------------------------------------------------------------------------------------
+//	많은 수의 자료를 처리하기	-	Dog를 읽고 쓴다. read/write
+//------------------------------------------------------------------------------------------------
+#include <iostream>
+#include <fstream>
+#include<array>
+#include<algorithm>
+#include "save.h"
+using namespace std;
+
+//	[문제] binary mode로 열어 write 함수로 iint 10만개를 기록한
+//	파일 "int 10만개를 바이너리모드 write함수로 기록"이 있다.
+//	읽어서 메모리에 모두 저장하라.
+//	메모리에 있는 값 중에서 가장 작은 것과 가장 큰 것을 찾아 화면에 출력하라.
+//	출력된 값을 답지에도 적어라.
+
+//---------
+int main() 
+//---------
+{
+	ifstream in{ "int 10만개를 바이너리모드 write함수로 기록",ios::binary };
+
+	array<int, 10'0000>a;
+	in.read((char*)a.data(), a.size() * sizeof(int));
+
+	auto [최솟값의위치, 최댓값의위치] = minmax_element(a.begin(), a.end());
+	cout << "최솟값 - " << *최솟값의위치 << endl;
+	cout << "최댓값 - " << *최댓값의위치 << endl;
+
+	save("main.cpp");
+}
+
+
+=================================================
+저장한 시간: 2025-03-20 오후 4:14:20 목요일
+=================================================
+
+//------------------------------------------------------------------------------------------------
+//	2025 STL 화56목78	3월 20일 목요일				(3주 2일)
+//------------------------------------------------------------------------------------------------
+//	많은 수의 자료를 처리하기	-	Dog를 읽고 쓴다. read/write
+//------------------------------------------------------------------------------------------------
+#include <iostream>
+#include<string>
+#include<random>
+#include<print>
+#include "save.h"
+using namespace std;
+
+//	[문제] class Dog 객체 10만개를 binary mode로 연 파일 "Dog 10만마리"에 저장하였다.
+//	객체 크기 그대로 write 함수를 사용하여 저장하였다.
+
+default_random_engine dre;
+uniform_int_distribution<int> uid{'a','z'};
+
+class Dog {
+public:
+	Dog() {				// name(15글자고정, 임의의 소문자)과 id를 초기화
+		id = ++sid;
+
+		for (int i = 0; i < 15; ++i)
+			name += uid(dre);
+	}
+
+	void show() const{
+		println("[{:7}] - { }", id, name);
+	}
+
+private:
+	string name;
+	int id{};
+
+	static int sid;			// scope - local, life time - global
+};
+
+int Dog::sid{};
+
+
+//---------
+int main() 
+//---------
+{
+	Dog dog;
+
+//	dog.show();
+
+	save("main.cpp");
+}
+
+
+=================================================
+저장한 시간: 2025-03-20 오후 4:14:51 목요일
+=================================================
+
+//------------------------------------------------------------------------------------------------
+//	2025 STL 화56목78	3월 20일 목요일				(3주 2일)
+//------------------------------------------------------------------------------------------------
+//	많은 수의 자료를 처리하기	-	Dog를 읽고 쓴다. read/write
+//------------------------------------------------------------------------------------------------
+#include <iostream>
+#include<string>
+#include<random>
+#include<print>
+#include "save.h"
+using namespace std;
+
+//	[문제] class Dog 객체 10만개를 binary mode로 연 파일 "Dog 10만마리"에 저장하였다.
+//	객체 크기 그대로 write 함수를 사용하여 저장하였다.
+
+default_random_engine dre;
+uniform_int_distribution<int> uid{'a','z'};
+
+class Dog {
+public:
+	Dog() {				// name(15글자고정, 임의의 소문자)과 id를 초기화
+		id = ++sid;
+
+		for (int i = 0; i < 15; ++i)
+			name += uid(dre);
+	}
+
+	void show() const{
+//		println("[{:7}] - { }", id, name);
+	}
+
+private:
+	string name;
+	int id{};
+
+	static int sid;			// scope - local, life time - global
+};
+
+int Dog::sid{};
+
+
+//---------
+int main() 
+//---------
+{
+	Dog dog;
+
+	dog.show();
+
+	save("main.cpp");
+}
+
+
+=================================================
+저장한 시간: 2025-03-20 오후 4:15:19 목요일
+=================================================
+
+//------------------------------------------------------------------------------------------------
+//	2025 STL 화56목78	3월 20일 목요일				(3주 2일)
+//------------------------------------------------------------------------------------------------
+//	많은 수의 자료를 처리하기	-	Dog를 읽고 쓴다. read/write
+//------------------------------------------------------------------------------------------------
+#include <iostream>
+#include<string>
+#include<random>
+#include<print>
+#include "save.h"
+using namespace std;
+
+//	[문제] class Dog 객체 10만개를 binary mode로 연 파일 "Dog 10만마리"에 저장하였다.
+//	객체 크기 그대로 write 함수를 사용하여 저장하였다.
+
+default_random_engine dre;
+uniform_int_distribution<int> uid{'a','z'};
+
+class Dog {
+public:
+	Dog() {				// name(15글자고정, 임의의 소문자)과 id를 초기화
+		id = ++sid;
+
+		for (int i = 0; i < 15; ++i)
+			name += uid(dre);
+	}
+
+	void show() const{
+		println("[{:7}]", id);
+	}
+
+private:
+	string name;
+	int id{};
+
+	static int sid;			// scope - local, life time - global
+};
+
+int Dog::sid{};
+
+
+//---------
+int main() 
+//---------
+{
+	Dog dog;
+
+	dog.show();
+
+	save("main.cpp");
+}
+
+
+=================================================
+저장한 시간: 2025-03-20 오후 4:15:41 목요일
+=================================================
+
+//------------------------------------------------------------------------------------------------
+//	2025 STL 화56목78	3월 20일 목요일				(3주 2일)
+//------------------------------------------------------------------------------------------------
+//	많은 수의 자료를 처리하기	-	Dog를 읽고 쓴다. read/write
+//------------------------------------------------------------------------------------------------
+#include <iostream>
+#include<string>
+#include<random>
+#include<print>
+#include "save.h"
+using namespace std;
+
+//	[문제] class Dog 객체 10만개를 binary mode로 연 파일 "Dog 10만마리"에 저장하였다.
+//	객체 크기 그대로 write 함수를 사용하여 저장하였다.
+
+default_random_engine dre;
+uniform_int_distribution<int> uid{'a','z'};
+
+class Dog {
+public:
+	Dog() {				// name(15글자고정, 임의의 소문자)과 id를 초기화
+		id = ++sid;
+
+		for (int i = 0; i < 15; ++i)
+			name += uid(dre);
+	}
+
+	void show() const{
+		println("[{:7}] - ", id, name);
+	}
+
+private:
+	string name;
+	int id{};
+
+	static int sid;			// scope - local, life time - global
+};
+
+int Dog::sid{};
+
+
+//---------
+int main() 
+//---------
+{
+	Dog dog;
+
+	dog.show();
+
+	save("main.cpp");
+}
+
+
+=================================================
+저장한 시간: 2025-03-20 오후 4:16:54 목요일
+=================================================
+
+//------------------------------------------------------------------------------------------------
+//	2025 STL 화56목78	3월 20일 목요일				(3주 2일)
+//------------------------------------------------------------------------------------------------
+//	많은 수의 자료를 처리하기	-	Dog를 읽고 쓴다. read/write
+//------------------------------------------------------------------------------------------------
+#include <iostream>
+#include<string>
+#include<random>
+#include<print>
+#include "save.h"
+using namespace std;
+
+//	[문제] class Dog 객체 10만개를 binary mode로 연 파일 "Dog 10만마리"에 저장하였다.
+//	객체 크기 그대로 write 함수를 사용하여 저장하였다.
+
+default_random_engine dre;
+uniform_int_distribution<int> uid{'a','z'};
+
+class Dog {
+public:
+	Dog() {				// name(15글자고정, 임의의 소문자)과 id를 초기화
+		id = ++sid;
+
+		for (int i = 0; i < 15; ++i)
+			name += uid(dre);
+	}
+
+	void show() const{
+		println("[{:7}] - {:15}", id, name);
+	}
+
+private:
+	string name;
+	int id{};
+
+	static int sid;			// scope - local, life time - global
+};
+
+int Dog::sid{};
+
+
+//---------
+int main() 
+//---------
+{
+	Dog dog;
+
+	dog.show();
+
+	save("main.cpp");
+}
+
+
+=================================================
+저장한 시간: 2025-03-20 오후 4:17:16 목요일
+=================================================
+
+//------------------------------------------------------------------------------------------------
+//	2025 STL 화56목78	3월 20일 목요일				(3주 2일)
+//------------------------------------------------------------------------------------------------
+//	많은 수의 자료를 처리하기	-	Dog를 읽고 쓴다. read/write
+//------------------------------------------------------------------------------------------------
+#include <iostream>
+#include<string>
+#include<random>
+#include<print>
+#include "save.h"
+using namespace std;
+
+//	[문제] class Dog 객체 10만개를 binary mode로 연 파일 "Dog 10만마리"에 저장하였다.
+//	객체 크기 그대로 write 함수를 사용하여 저장하였다.
+
+default_random_engine dre;
+uniform_int_distribution<int> uid{'a','z'};
+
+class Dog {
+public:
+	Dog() {				// name(15글자고정, 임의의 소문자)과 id를 초기화
+		id = ++sid;
+
+		for (int i = 0; i < 15; ++i)
+			name += uid(dre);
+	}
+
+	void show() const{
+		println("[{:7}] - {}", id, name);
+	}
+
+private:
+	string name;
+	int id{};
+
+	static int sid;			// scope - local, life time - global
+};
+
+int Dog::sid{};
+
+
+//---------
+int main() 
+//---------
+{
+	Dog dog;
+
+	dog.show();
+
+	save("main.cpp");
+}
+
+
+=================================================
+저장한 시간: 2025-03-20 오후 4:18:38 목요일
+=================================================
+
+//------------------------------------------------------------------------------------------------
+//	2025 STL 화56목78	3월 20일 목요일				(3주 2일)
+//------------------------------------------------------------------------------------------------
+//	많은 수의 자료를 처리하기	-	Dog를 읽고 쓴다. read/write
+//------------------------------------------------------------------------------------------------
+#include <iostream>
+#include<string>
+#include<random>
+#include<print>
+#include "save.h"
+using namespace std;
+
+//	[문제] class Dog 객체 10만개를 binary mode로 연 파일 "Dog 10만마리"에 저장하였다.
+//	객체 크기 그대로 write 함수를 사용하여 저장하였다.
+
+default_random_engine dre;
+uniform_int_distribution<int> uid{'a','z'};
+
+class Dog {
+public:
+	Dog() {				// name(15글자고정, 임의의 소문자)과 id를 초기화
+		id = ++sid;
+
+		for (int i = 0; i < 15; ++i)
+			name += uid(dre);
+	}
+
+	void show() const{
+		println("[{:7}] - {}", id, name);		// { } <<이렇게 하면 안됨. {} <<이렇게 붙이거나 해야함.
+	}
+
+private:
+	string name;
+	int id{};
+
+	static int sid;			// scope - local, life time - global
+};
+
+int Dog::sid{};
+
+
+//---------
+int main() 
+//---------
+{
+	for (int i = 0; i < 10'0000; ++i) {
+		Dog dog;
+		dog.show();
+	}
+
+	save("main.cpp");
+}
+
+
+=================================================
+저장한 시간: 2025-03-20 오후 4:21:33 목요일
+=================================================
+
+//------------------------------------------------------------------------------------------------
+//	2025 STL 화56목78	3월 20일 목요일				(3주 2일)
+//------------------------------------------------------------------------------------------------
+//	많은 수의 자료를 처리하기	-	Dog를 읽고 쓴다. read/write
+//------------------------------------------------------------------------------------------------
+#include <iostream>
+#include<string>
+#include<random>
+#include<print>
+#include<fstream>
+#include "save.h"
+using namespace std;
+
+//	[문제] class Dog 객체 10만개를 binary mode로 연 파일 "Dog 10만마리"에 저장하였다.
+//	객체 크기 그대로 write 함수를 사용하여 저장하였다.
+
+default_random_engine dre;
+uniform_int_distribution<int> uid{'a','z'};
+
+class Dog {
+public:
+	Dog() {				// name(15글자고정, 임의의 소문자)과 id를 초기화
+		id = ++sid;
+
+		for (int i = 0; i < 15; ++i)
+			name += uid(dre);
+	}
+
+	void show() const{
+		println("[{:7}] - {}", id, name);		// { } <<이렇게 하면 안됨. {} <<이렇게 붙이거나 해야함.
+	}
+
+private:
+	string name;
+	int id{};
+
+	static int sid;			// scope - local, life time - global
+};
+
+int Dog::sid{};
+
+
+//---------
+int main() 
+//---------
+{
+	ofstream out{ "Dog 10만마리",ios::binary };
+
+	for (int i = 0; i < 10'0000; ++i) {
+		Dog dog;
+		out.write((char*)&dog,sizeof(Dog));
+	}
+
+	save("main.cpp");
+}
+
+
+=================================================
+저장한 시간: 2025-03-20 오후 4:40:51 목요일
+=================================================
+
+//------------------------------------------------------------------------------------------------
+//	2025 STL 화56목78	3월 20일 목요일				(3주 2일)
+//------------------------------------------------------------------------------------------------
+//	많은 수의 자료를 처리하기	-	Dog를 읽고 쓴다. read/write
+//------------------------------------------------------------------------------------------------
+#include <iostream>
+#include<fstream>
+#include<array>
+#include "save.h"
+using namespace std;
+
+class Dog {
+	friend ostream& operator<<(ostream& os,const Dog& dog) {
+		cout << "id - " << dog.id << ", name - " << dog.name << endl;
+	}
+private:
+	string name;
+	int id{};
+
+	static int sid;			// scope - local, life time - global
+};
+
+//	[문제] e-classㅔ서 다운 받은 파일 "Dog 10만마리"는 binary 모드로 열었고,
+//	위에 적은 class Dog를 스트림의 write 함수를 사용하여 메모리 그대로 저장하였다.
+//	Dog 객체 10만개를 메모리에 저장하라.
+//	가장 마지막 객체의 정보를 cout을 사용하여 화면에 출력하라.	(10분)
+
+//---------
+int main() 
+//---------
+{
+	ifstream in{ "Dog 10만마리",ios::binary };
+	if (!in)
+		return 20250320;
+
+	Dog dog;
+	int cnt{};
+	while (in.read((char*)&dog, sizeof(Dog))) {
+		++cnt;
+	}
+
+	cout << "읽은 객체 수 - " << cnt << endl;
+
+	save("main.cpp");
+}
+
+
+=================================================
+저장한 시간: 2025-03-20 오후 4:48:40 목요일
+=================================================
+
+//------------------------------------------------------------------------------------------------
+//	2025 STL 화56목78	3월 20일 목요일				(3주 2일)
+//------------------------------------------------------------------------------------------------
+//	많은 수의 자료를 처리하기	-	Dog를 읽고 쓴다. read/write
+//------------------------------------------------------------------------------------------------
+#include <iostream>
+#include<fstream>
+#include<array>
+#include "save.h"
+using namespace std;
+
+class Dog {
+private:			// 접근 지시자
+	string name;
+	int id{};
+
+	friend ostream& operator<<(ostream& os, const Dog& dog) {			// friend는 우선순위가 최하위?
+		return os << dog.name <<" - "<< dog.id << endl;
+	}
+};
+
+//	[문제] e-classㅔ서 다운 받은 파일 "Dog 10만마리"는 binary 모드로 열었고,
+//	위에 적은 class Dog를 스트림의 write 함수를 사용하여 메모리 그대로 저장하였다.
+//	Dog 객체 10만개를 메모리에 저장하라.
+//	가장 마지막 객체의 정보를 cout을 사용하여 화면에 출력하라.	(10분)
+
+array<Dog, 10'0000> dogs;
+
+//---------
+int main() 
+//---------
+{
+	ifstream in{ "Dog 10만마리",ios::binary };
+	if (!in)
+		return 20250320;
+
+	in.read((char*)dogs.data(), dogs.size() * sizeof(Dog));
+
+	cout << dogs.back() << endl;
+
+	save("main.cpp");
+}
+
+
+=================================================
+저장한 시간: 2025-03-20 오후 5:02:48 목요일
+=================================================
+
+//------------------------------------------------------------------------------------------------
+//	2025 STL 화56목78	3월 20일 목요일				(3주 2일)
+//------------------------------------------------------------------------------------------------
+//	많은 수의 자료를 처리하기	-	Dog를 읽고 쓴다. read/write
+//------------------------------------------------------------------------------------------------
+#include <iostream>
+#include<fstream>
+#include<array>
+#include "save.h"
+using namespace std;
+
+class Dog {
+private:			// 접근 지시자
+	string name;
+	int id{};
+
+
+	friend ostream& operator<<(ostream& os, const Dog& dog) {			// friend는 우선순위가 최하위?
+		return os << dog.name << " - " << dog.id;
+	}
+
+	friend istream& operator>>(ifstream& is, const Dog& dog) {
+		return is.read((char*)&dog, sizeof(Dog));
+	}
+};
+
+//	[문제] e-classㅔ서 다운 받은 파일 "Dog 10만마리"는 binary 모드로 열었고,
+//	위에 적은 class Dog를 스트림의 write 함수를 사용하여 메모리 그대로 저장하였다.
+
+array<Dog, 10'0000> dogs;
+
+//---------
+int main() 
+//---------
+{
+	ifstream in{ "Dog 10만마리",ios::binary };
+	if (!in)
+		return 20250320;
+
+	//	[문제] 다음 코드가 수정없이 실행되도록 필요한 코드를 class Dog에 추가하라.
+	for (Dog& dog : dogs)
+	{
+		in >> dog;				// operator>>(in,dog)
+		cout << dog << endl;
+	}
+
+	save("main.cpp");
+}
