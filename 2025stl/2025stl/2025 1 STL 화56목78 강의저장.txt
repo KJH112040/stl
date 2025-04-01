@@ -4898,3 +4898,833 @@ int main()
 
 	save("main.cpp");
 }
+
+
+=================================================
+저장한 시간: 2025-04-01 오후 1:26:04 화요일
+=================================================
+
+//------------------------------------------------------------------------------------------------
+//	2025 STL 화56목78	3월 27일 목요일				(4주 2일)
+//------------------------------------------------------------------------------------------------
+//	4월 24일 (8주 2일차) - 중간고사
+//	RAII : 자원의 생명주기를 객체의 생명주기에 동기화
+//	오늘의 주제 : Callable
+//	A Callable type is a type for which the INVOKE and INVOKE<R> operations 
+// (used by, e.g., std::function, std::bind, and std::thread::thread) are applicable.
+//	=> Callable type - 호출가능한 타입
+//	1. 함수
+//	2. 
+//------------------------------------------------------------------------------------------------
+#include <iostream>
+#include<random>
+#include<array>
+#include<print>
+#include<ranges>
+#include<algorithm>
+#include<chrono>
+#include "save.h"
+using namespace std;
+
+//	[문제] 랜덤 int 1000만 개를 메모리에 저장하자.
+//	랜덤 int 값은 [ 0, 1'000'0000 ) ==> 0부터 999'9999까지 값을 갖도록
+//	C++언어의 sort를 사용하여 오름차순으로 정렬하라.
+//	정렬한 결과를 앞에서부터 1000개만 화면에 출력하라.
+
+array<int, 1'000'0000> a;
+
+default_random_engine dre;
+uniform_int_distribution<int> uid{ 0,999'9999 };
+
+bool 오름차순(const int a, const int b) {
+	return a < b;
+}
+
+//---------
+int main() 
+//---------
+{
+	{
+		for (int& num : a)
+			num = uid(dre);
+
+		//	정렬에 걸리는 시간 측정
+		auto 시작 = chrono::high_resolution_clock::now();	//	스톱워치 시작
+		sort<array<int,1'000'0000>::iterator>(a.begin(), a.end(), 오름차순);					//	default 정렬 operator <
+		auto 끝 = chrono::high_resolution_clock::now();		//	스톱워치 끝
+
+		cout << "경과시간(ms) - " << chrono::duration_cast<chrono::milliseconds>(끝 - 시작) << endl;
+	}
+
+	{	// 내림차순으로 정렬
+		for (int& num : a)
+			num = uid(dre);
+
+		//	정렬에 걸리는 시간 측정
+		auto 시작 = chrono::high_resolution_clock::now();	//	스톱워치 시작
+		sort(a.begin(), a.end(), [](const int a, const int b) {return a > b; });					//	default 정렬 operator <
+		auto 끝 = chrono::high_resolution_clock::now();		//	스톱워치 끝
+
+		cout << "경과시간(ms) - " << chrono::duration_cast<chrono::milliseconds>(끝 - 시작) << endl;
+	}
+
+	//	앞에서 부터 1000개를 화면 출력
+	for (int num:a	| ranges::views::take(1000)|views::reverse)
+		print("{:8}", num);
+	cout << endl;
+
+	save("main.cpp");
+}
+
+
+=================================================
+저장한 시간: 2025-04-01 오후 1:34:47 화요일
+=================================================
+
+//------------------------------------------------------------------------------------------------
+//	2025 STL 화56목78	4월 1일 화요일				(5주 1일)
+//	중간고사	-	4월 24일(8주 2일) 목요일
+//------------------------------------------------------------------------------------------------
+//	오늘의 주제 : Callable
+//	A Callable type is a type for which the INVOKE and INVOKE<R> operations 
+// (used by, e.g., std::function, std::bind, and std::thread::thread) are applicable.
+//	=> Callable type - 호출가능한 타입
+//	1. 함수
+//	2. 함수 포인터
+//	3. 람다
+//	4.
+//	5.
+//------------------------------------------------------------------------------------------------
+#include <iostream>
+#include "save.h"
+using namespace std;
+
+//---------
+int main() 
+//---------
+{
+	//	람다는 도대체 무엇인가?
+
+	[]() {
+		cout << "안녕! 난 이름이 없어." << endl;
+	}();
+
+	save("main.cpp");
+}
+
+
+=================================================
+저장한 시간: 2025-04-01 오후 1:37:29 화요일
+=================================================
+
+//------------------------------------------------------------------------------------------------
+//	2025 STL 화56목78	4월 1일 화요일				(5주 1일)
+//	중간고사	-	4월 24일(8주 2일) 목요일
+//------------------------------------------------------------------------------------------------
+//	오늘의 주제 : Callable
+//	A Callable type is a type for which the INVOKE and INVOKE<R> operations 
+// (used by, e.g., std::function, std::bind, and std::thread::thread) are applicable.
+//	=> Callable type - 호출가능한 타입
+//	1. 함수
+//	2. 함수 포인터
+//	3. 람다
+//	4.
+//	5.
+//------------------------------------------------------------------------------------------------
+#include <iostream>
+#include "save.h"
+using namespace std;
+
+//---------
+int main() 
+//---------
+{
+	//	람다는 도대체 무엇인가?
+
+	cout<< "람다의 정체 - "<<typeid([]() {
+		cout << "안녕! 난 이름이 없어." << endl;
+		}).name() << endl;
+
+	save("main.cpp");
+}
+
+
+=================================================
+저장한 시간: 2025-04-01 오후 1:39:05 화요일
+=================================================
+
+//------------------------------------------------------------------------------------------------
+//	2025 STL 화56목78	4월 1일 화요일				(5주 1일)
+//	중간고사	-	4월 24일(8주 2일) 목요일
+//------------------------------------------------------------------------------------------------
+//	오늘의 주제 : Callable
+//	A Callable type is a type for which the INVOKE and INVOKE<R> operations 
+// (used by, e.g., std::function, std::bind, and std::thread::thread) are applicable.
+//	=> Callable type - 호출가능한 타입
+//	1. 함수
+//	2. 함수 포인터
+//	3. 람다
+//	4.
+//	5.
+//------------------------------------------------------------------------------------------------
+#include <iostream>
+#include "save.h"
+using namespace std;
+
+//---------
+int main() 
+//---------
+{
+	//	람다는 도대체 무엇인가?
+	//	람다의 정체 - class `int __cdecl main(void)'::`2'::<lambda_1>
+
+	cout<< "람다 1의 정체 - "<<typeid([]() {
+		cout << "안녕! 난 이름이 없어." << endl;
+		}).name() << endl;
+
+	cout << "람다 2의 정체 - " << typeid([]() {
+		cout << "안녕! 난 이름이 없어." << endl;
+		}).name() << endl;
+
+
+	save("main.cpp");
+}
+
+
+=================================================
+저장한 시간: 2025-04-01 오후 1:46:15 화요일
+=================================================
+
+//------------------------------------------------------------------------------------------------
+//	2025 STL 화56목78	4월 1일 화요일				(5주 1일)
+//	중간고사	-	4월 24일(8주 2일) 목요일
+//------------------------------------------------------------------------------------------------
+//	오늘의 주제 : Callable
+//	A Callable type is a type for which the INVOKE and INVOKE<R> operations 
+// (used by, e.g., std::function, std::bind, and std::thread::thread) are applicable.
+//	=> Callable type - 호출가능한 타입
+//	1. 함수
+//	2. 함수 포인터
+//	3. 람다
+//	4.
+//	5.
+//------------------------------------------------------------------------------------------------
+#include <iostream>
+#include "save.h"
+using namespace std;
+
+//---------
+int main() 
+//---------
+{
+	//	람다는 도대체 무엇인가?
+	//	람다의 정체 - class `int __cdecl main(void)'::`2'::<lambda_1>
+	//	람다 1의 정체 - class `int __cdecl main(void)'::`2'::<lambda_1>
+	//	람다 2의 정체 - class `int __cdecl main(void)'::`2'::<lambda_2>
+
+	[]() {
+		cout << "안녕! 난 이름이 없어." << endl;
+		}();
+
+	int* 저장 = (int*)save;
+	cout <<"save함수가 저장된 메모리의 번지 - "
+		<< 저장 << endl;
+
+	save("main.cpp");
+}
+
+
+=================================================
+저장한 시간: 2025-04-01 오후 1:50:13 화요일
+=================================================
+
+//------------------------------------------------------------------------------------------------
+//	2025 STL 화56목78	4월 1일 화요일				(5주 1일)
+//	중간고사	-	4월 24일(8주 2일) 목요일
+//------------------------------------------------------------------------------------------------
+//	오늘의 주제 : Callable
+//	A Callable type is a type for which the INVOKE and INVOKE<R> operations 
+// (used by, e.g., std::function, std::bind, and std::thread::thread) are applicable.
+//	=> Callable type - 호출가능한 타입
+//	1. 함수
+//	2. 함수 포인터
+//	3. 람다
+//	4.
+//	5.
+//------------------------------------------------------------------------------------------------
+#include <iostream>
+#include "save.h"
+using namespace std;
+
+class Dog {
+public:
+	void operator()() {		// 함수 호출 연산자
+		cout << "나를 왜 불렀죠?" << endl;
+	}
+};
+
+//---------
+int main() 
+//---------
+{
+	Dog dog;
+
+	dog();
+
+	save("main.cpp");
+}
+
+
+=================================================
+저장한 시간: 2025-04-01 오후 1:52:12 화요일
+=================================================
+
+//------------------------------------------------------------------------------------------------
+//	2025 STL 화56목78	4월 1일 화요일				(5주 1일)
+//	중간고사	-	4월 24일(8주 2일) 목요일
+//------------------------------------------------------------------------------------------------
+//	오늘의 주제 : Callable
+//	A Callable type is a type for which the INVOKE and INVOKE<R> operations 
+// (used by, e.g., std::function, std::bind, and std::thread::thread) are applicable.
+//	=> Callable type - 호출가능한 타입
+//	1. 함수
+//	2. 함수 포인터
+//	3. 람다
+//	4.
+//	5.
+//------------------------------------------------------------------------------------------------
+#include <iostream>
+#include "save.h"
+using namespace std;
+
+class Dog {
+public:
+	void operator()() {		// 함수 호출 연산자
+		cout << "나를 왜 불렀죠?" << endl;
+	}
+};
+
+//---------
+int main() 
+//---------
+{
+	Dog dog;//<---- 람다
+
+	cout << typeid(dog).name() << endl;
+
+	dog.operator()();		// dog();
+
+	save("main.cpp");
+}
+
+
+=================================================
+저장한 시간: 2025-04-01 오후 1:53:18 화요일
+=================================================
+
+//------------------------------------------------------------------------------------------------
+//	2025 STL 화56목78	4월 1일 화요일				(5주 1일)
+//	중간고사	-	4월 24일(8주 2일) 목요일
+//------------------------------------------------------------------------------------------------
+//	오늘의 주제 : Callable
+//	A Callable type is a type for which the INVOKE and INVOKE<R> operations 
+// (used by, e.g., std::function, std::bind, and std::thread::thread) are applicable.
+//	=> Callable type - 호출가능한 타입
+//	1. 함수
+//	2. 함수 포인터
+//	3. 람다 - 이름없는 함수 - 실체가 있어야 한다
+//	4.
+//	5.
+//------------------------------------------------------------------------------------------------
+#include <iostream>
+#include "save.h"
+using namespace std;
+
+//---------
+int main() 
+//---------
+{
+	class Dog {
+	public:
+		void operator()() {		// 함수 호출 연산자
+			cout << "나를 왜 불렀죠?" << endl;
+		}
+	};
+
+	Dog dog;//<---- 람다
+
+	cout << typeid(dog).name() << endl;
+	//	class Dog가 전역일 때 : class Dog
+
+
+	dog.operator()();		// dog();
+
+	save("main.cpp");
+}
+
+
+=================================================
+저장한 시간: 2025-04-01 오후 1:54:55 화요일
+=================================================
+
+//------------------------------------------------------------------------------------------------
+//	2025 STL 화56목78	4월 1일 화요일				(5주 1일)
+//	중간고사	-	4월 24일(8주 2일) 목요일
+//------------------------------------------------------------------------------------------------
+//	오늘의 주제 : Callable
+//	A Callable type is a type for which the INVOKE and INVOKE<R> operations 
+// (used by, e.g., std::function, std::bind, and std::thread::thread) are applicable.
+//	=> Callable type - 호출가능한 타입
+//	1. 함수
+//	2. 함수 포인터
+//	3. 람다 - 이름없는 함수 - 실체가 있어야 한다. (VS class로 코딩)
+//	4. 함수 객체(function object) - 함수호출연산자를 오버로딩한 클래스 객체
+//	5.
+//------------------------------------------------------------------------------------------------
+#include <iostream>
+#include "save.h"
+using namespace std;
+
+//---------
+int main() 
+//---------
+{
+	class Dog {
+	public:
+		void operator()() {		// 함수 호출 연산자
+			cout << "나를 왜 불렀죠?" << endl;
+		}
+	};
+
+	Dog dog;//<---- 람다
+
+	cout << typeid(dog).name() << endl;
+	//	class Dog가 전역일 때 : class Dog
+	//	class Dog가 지역일 때 : class `int __cdecl main(void)'::`2'::Dog
+
+
+	dog.operator()();		// dog();
+
+	save("main.cpp");
+}
+
+
+=================================================
+저장한 시간: 2025-04-01 오후 2:14:21 화요일
+=================================================
+
+//------------------------------------------------------------------------------------------------
+//	2025 STL 화56목78	4월 1일 화요일				(5주 1일)
+//	중간고사	-	4월 24일(8주 2일) 목요일
+//------------------------------------------------------------------------------------------------
+//	오늘의 주제 : Callable
+//	A Callable type is a type for which the INVOKE and INVOKE<R> operations 
+// (used by, e.g., std::function, std::bind, and std::thread::thread) are applicable.
+//	=> Callable type - 호출가능한 타입
+//	1. 함수
+//	2. 함수 포인터
+//	3. 람다 - 이름없는 함수 - 실체가 있어야 한다. (VS class로 코딩)
+//	4. 함수 객체(function object) - 함수호출연산자를 오버로딩한 클래스 객체
+//	5.
+//------------------------------------------------------------------------------------------------
+#include <iostream>
+#include<array>
+#include<algorithm>
+#include "save.h"
+using namespace std;
+
+//---------
+int main() 
+//---------
+{
+	array<int, 10> a{ 1,3,5,7,9,2,4,6,8,10 };
+
+	//	[문제] 다음 코드가 의도대로 실행될 수 있게 필요한 코딩을 추가하라.
+	class Dog {
+	public:
+		bool operator()(int a, int b)const {
+			return a > b;
+		}
+	};
+	sort(a.begin(), a.end(), Dog{});
+
+	for (int num : a)
+		cout << num<<' ';
+	cout << endl;		//	10 9 8 7 6 5 4 3 2 1
+
+	save("main.cpp");
+}
+
+
+=================================================
+저장한 시간: 2025-04-01 오후 2:14:40 화요일
+=================================================
+
+//------------------------------------------------------------------------------------------------
+//	2025 STL 화56목78	4월 1일 화요일				(5주 1일)
+//	중간고사	-	4월 24일(8주 2일) 목요일
+//------------------------------------------------------------------------------------------------
+//	오늘의 주제 : Callable
+//	A Callable type is a type for which the INVOKE and INVOKE<R> operations 
+// (used by, e.g., std::function, std::bind, and std::thread::thread) are applicable.
+//	=> Callable type - 호출가능한 타입
+//	1. 함수
+//	2. 함수 포인터
+//	3. 람다 - 이름없는 함수 - 실체가 있어야 한다. (VS class로 코딩)
+//	4. 함수 객체(function object) - 함수호출연산자를 오버로딩한 클래스 객체
+//	5.
+//------------------------------------------------------------------------------------------------
+#include <iostream>
+#include<array>
+#include<algorithm>
+#include "save.h"
+using namespace std;
+
+//---------
+int main() 
+//---------
+{
+	array<int, 10> a{ 1,3,5,7,9,2,4,6,8,10 };
+
+	//	[문제] 다음 코드가 의도대로 실행될 수 있게 필요한 코딩을 추가하라.
+	auto Dog = [](int a, int b) -> bool {return a > b; };
+
+	sort(a.begin(), a.end(), Dog);
+
+	for (int num : a)
+		cout << num << " ";
+	cout << endl;		//	10 9 8 7 6 5 4 3 2 1
+
+	save("main.cpp");
+}
+
+
+=================================================
+저장한 시간: 2025-04-01 오후 2:19:01 화요일
+=================================================
+
+//------------------------------------------------------------------------------------------------
+//	2025 STL 화56목78	4월 1일 화요일				(5주 1일)
+//	중간고사	-	4월 24일(8주 2일) 목요일
+//------------------------------------------------------------------------------------------------
+//	오늘의 주제 : Callable
+//	A Callable type is a type for which the INVOKE and INVOKE<R> operations 
+// (used by, e.g., std::function, std::bind, and std::thread::thread) are applicable.
+//	=> Callable type - 호출가능한 타입
+//	1. 함수
+//	2. 함수 포인터
+//	3. 람다 - 이름없는 함수 - 실체가 있어야 한다. (VS class로 코딩)
+//	4. 함수 객체(function object) - 함수호출연산자를 오버로딩한 클래스 객체
+//	5. 멤버함수 (객체에 점찍어서 호출하는 함수)
+//------------------------------------------------------------------------------------------------
+#include <iostream>
+#include<array>
+#include<algorithm>
+#include "save.h"
+using namespace std;
+
+//---------
+int main() 
+//---------
+{
+	array<int, 10> a{ 1,3,5,7,9,2,4,6,8,10 };
+
+	//	[문제] 다음 코드가 의도대로 실행될 수 있게 필요한 코딩을 추가하라.
+
+	class Dog {
+	public:	
+		bool operator()(int a, int b){return a > b; };
+	};
+
+	sort(a.begin(), a.end(), Dog{});
+
+	for (int num : a)
+		cout << num << " ";
+	cout << endl;		//	10 9 8 7 6 5 4 3 2 1
+
+	save("main.cpp");
+}
+
+
+=================================================
+저장한 시간: 2025-04-01 오후 2:22:23 화요일
+=================================================
+
+//------------------------------------------------------------------------------------------------
+//	2025 STL 화56목78	4월 1일 화요일				(5주 1일)
+//	중간고사	-	4월 24일(8주 2일) 목요일
+//------------------------------------------------------------------------------------------------
+//	오늘의 주제 : Callable =====> 무한 가지 타입이 있음.
+//	A Callable type is a type for which the INVOKE and INVOKE<R> operations 
+// (used by, e.g., std::function, std::bind, and std::thread::thread) are applicable.
+//	=> Callable type - 호출가능한 타입
+//	1. 함수
+//	2. 함수 포인터
+//	3. 람다 - 이름없는 함수 - 실체가 있어야 한다. (VS class로 코딩)
+//	4. 함수 객체(function object) - 함수호출연산자를 오버로딩한 클래스 객체
+//	5. 멤버함수 (객체에 점찍어서 호출하는 함수)
+//------------------------------------------------------------------------------------------------
+#include <iostream>
+#include "save.h"
+using namespace std;
+
+//---------
+int main() 
+//---------
+{
+	save("main.cpp");
+}
+
+
+=================================================
+저장한 시간: 2025-04-01 오후 2:27:17 화요일
+=================================================
+
+//------------------------------------------------------------------------------------------------
+//	2025 STL 화56목78	4월 1일 화요일				(5주 1일)
+//	중간고사	-	4월 24일(8주 2일) 목요일
+//------------------------------------------------------------------------------------------------
+//	오늘의 주제 : Callable =====> 무한 가지 타입이 있음.
+//	A Callable type is a type for which the INVOKE and INVOKE<R> operations 
+// (used by, e.g., std::function, std::bind, and std::thread::thread) are applicable.
+//	=> Callable type - 호출가능한 타입
+//	1. 함수
+//	2. 함수 포인터
+//	3. 람다 - 이름없는 함수 - 실체가 있어야 한다. (VS class로 코딩)
+//	4. 함수 객체(function object) - 함수호출연산자를 오버로딩한 클래스 객체
+//	5. 멤버함수 (객체에 점찍어서 호출하는 함수)
+//------------------------------------------------------------------------------------------------
+#include <iostream>
+#include "save.h"
+using namespace std;
+
+//---------
+int main() 
+//---------
+{
+	auto p = [](int a, int b) {return a > b; };
+	cout << boolalpha << p(3, 4) << endl;
+	// false
+
+	save("main.cpp");
+}
+
+
+=================================================
+저장한 시간: 2025-04-01 오후 2:31:23 화요일
+=================================================
+
+//------------------------------------------------------------------------------------------------
+//	2025 STL 화56목78	4월 1일 화요일				(5주 1일)
+//	중간고사	(30) -	4월 24일(8주 2일) 목요일
+//	과제		(30) - 4월 10일 설명
+//------------------------------------------------------------------------------------------------
+//	오늘의 주제 : Callable =====> 무한 가지 타입이 있음.
+//	A Callable type is a type for which the INVOKE and INVOKE<R> operations 
+// (used by, e.g., std::function, std::bind, and std::thread::thread) are applicable.
+//	=> Callable type - 호출가능한 타입	--------> 모든 것을 대표하는 function
+//	1. 함수
+//	2. 함수 포인터
+//	3. 람다 - 이름없는 함수 - 실체가 있어야 한다. (VS class로 코딩)
+//	4. 함수 객체(function object) - 함수호출연산자를 오버로딩한 클래스 객체
+//	5. 멤버함수 (객체에 점찍어서 호출하는 함수)
+//------------------------------------------------------------------------------------------------
+#include <iostream>
+#include<functional>
+#include "save.h"
+using namespace std;
+
+//---------
+int main() 
+//---------
+{
+	auto p = [](int a, int b) {return a > b; };
+	cout << boolalpha << p(3, 4) << endl;
+
+
+	function<bool(int,int)> 내림차순 = p;
+
+	save("main.cpp");
+}
+
+
+=================================================
+저장한 시간: 2025-04-01 오후 2:39:09 화요일
+=================================================
+
+//------------------------------------------------------------------------------------------------
+//	2025 STL 화56목78	4월 1일 화요일				(5주 1일)
+//	중간고사	(30) -	4월 24일(8주 2일) 목요일
+//	과제		(30) - 4월 10일 설명
+//------------------------------------------------------------------------------------------------
+//	Callable
+//------------------------------------------------------------------------------------------------
+#include <iostream>
+#include <random>
+#include<print>
+#include<array>
+#include "save.h"
+using namespace std;
+
+default_random_engine dre;
+uniform_int_distribution<int> uidName{ 'a','z' };
+uniform_int_distribution uidNameLen{ 3,30 };
+uniform_int_distribution uidId{};
+
+class Dog {
+public:
+	Dog() {
+		int len = uidNameLen(dre);
+		for (int i = 0; i < len; ++i)
+			name += uidName(dre);
+		id = uidId(dre);
+	}
+
+	void show() const {
+		println("{:12} - {}", id, name);
+	}
+
+private:
+	string name;
+	int id;
+};
+
+//---------
+int main() 
+//---------
+{
+	array<Dog, 10>dogs;
+
+	for (const Dog& dog : dogs)
+		dog.show();
+
+	save("main.cpp");
+}
+
+
+=================================================
+저장한 시간: 2025-04-01 오후 2:39:45 화요일
+=================================================
+
+//------------------------------------------------------------------------------------------------
+//	2025 STL 화56목78	4월 1일 화요일				(5주 1일)
+//	중간고사	(30) -	4월 24일(8주 2일) 목요일
+//	과제		(30) - 4월 10일 설명
+//------------------------------------------------------------------------------------------------
+//	Callable
+//------------------------------------------------------------------------------------------------
+#include <iostream>
+#include <random>
+#include<print>
+#include<array>
+#include "save.h"
+using namespace std;
+
+default_random_engine dre;
+uniform_int_distribution<int> uidName{ 'a','z' };
+uniform_int_distribution uidNameLen{ 3,30 };
+uniform_int_distribution uidId{};
+
+class Dog {
+public:
+	Dog() {
+		cout << "설마 생성자가?" << endl;
+		int len = uidNameLen(dre);
+		for (int i = 0; i < len; ++i)
+			name += uidName(dre);
+		id = uidId(dre);
+	}
+
+	void show() const {
+		println("{:12} - {}", id, name);
+	}
+
+private:
+	string name;
+	int id;
+};
+
+//---------
+int main() 
+//---------
+{
+	array<Dog, 10>dogs;
+
+	for (const Dog& dog : dogs)
+		dog.show();
+
+	save("main.cpp");
+}
+
+
+=================================================
+저장한 시간: 2025-04-01 오후 2:47:15 화요일
+=================================================
+
+//------------------------------------------------------------------------------------------------
+//	2025 STL 화56목78	4월 1일 화요일				(5주 1일)
+//	중간고사	(30) -	4월 24일(8주 2일) 목요일
+//	과제		(30) - 4월 10일 설명
+//------------------------------------------------------------------------------------------------
+//	Callable
+//------------------------------------------------------------------------------------------------
+#include <iostream>
+#include <random>
+#include<print>
+#include<array>
+#include<fstream>
+#include "save.h"
+using namespace std;
+
+default_random_engine dre;
+uniform_int_distribution<int> uidName{ 'a','z' };
+uniform_int_distribution uidNameLen{ 3,30 };
+uniform_int_distribution uidId{};
+
+class Dog {
+public:
+	Dog() {
+		//	cout << "설마 생성자가?" << endl;
+		int len = uidNameLen(dre);
+		for (int i = 0; i < len; ++i)
+			name += uidName(dre);
+		id = uidId(dre);
+	}
+
+	void show() const {
+		println("{:12} - {}", id, name);
+	}
+
+
+private:
+	string name;
+	int id;
+
+	friend ostream& operator<<(ostream& os, const Dog& dog) {
+		return os << dog.id << " " << dog.name << " ";
+	}
+};
+
+//	[문제] Dog 10만 마리를 다음과 같이 파일 "Dog 십만마리"에 저장하였다.
+//
+//	ofstream out{ "Dog 십만마리" };
+//
+//	Dog dog;
+//	out << dog;
+//	ostream& operator<<(ostream&os,const Dog&og){
+//		return os << dog.id << " " << dog.name << " ";
+//	}
+
+//---------
+int main() 
+//---------
+{
+	ofstream out{ "Dog 십만마리" };
+
+	for (int i = 0; i < 10'0000; ++i) {
+		Dog dog;
+		out << dog;
+	}
+
+	save("main.cpp");
+}
