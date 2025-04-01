@@ -1,0 +1,695 @@
+﻿  main.cpp
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\include\print(11): warning STL4038: The contents of <print> are available only with C++23 or later.
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\include\ranges(11): warning STL4038: The contents of <ranges> are available only with C++20 or later.
+C:\github_local_repository\stl\2025stl\2025stl\save.h(5,16): error C2039: 'string_view': 'std'의 멤버가 아닙니다.
+  (소스 파일 'main.cpp'을(를) 컴파일하는 중)
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\include\chrono(45,1):
+      'std' 선언을 참조하십시오.
+  
+C:\github_local_repository\stl\2025stl\2025stl\save.h(5,6): error C2182: 'save': 이 'void' 사용은 유효하지 않습니다.
+  (소스 파일 'main.cpp'을(를) 컴파일하는 중)
+  
+C:\github_local_repository\stl\2025stl\2025stl\save.h(5,16): error C2065: 'string_view': 선언되지 않은 식별자입니다.
+  (소스 파일 'main.cpp'을(를) 컴파일하는 중)
+  
+  save.cpp
+C:\github_local_repository\stl\2025stl\2025stl\main.cpp(49,8): error C2679: 이항 '<<': 오른쪽 피연산자로 '_To' 형식을 사용하는 연산자가 없거나 허용되는 변환이 없습니다.
+C:\github_local_repository\stl\2025stl\2025stl\main.cpp(49,8): error C2679:         with
+C:\github_local_repository\stl\2025stl\2025stl\main.cpp(49,8): error C2679:         [
+C:\github_local_repository\stl\2025stl\2025stl\main.cpp(49,8): error C2679:             _To=std::chrono::milliseconds
+C:\github_local_repository\stl\2025stl\2025stl\main.cpp(49,8): error C2679:         ]
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\include\__msvc_ostream.hpp(480,39):
+      'std::basic_ostream<char,std::char_traits<char>> &std::basic_ostream<char,std::char_traits<char>>::operator <<(std::basic_streambuf<char,std::char_traits<char>> *)'일 수 있습니다.
+          C:\github_local_repository\stl\2025stl\2025stl\main.cpp(49,8):
+          'std::basic_ostream<char,std::char_traits<char>> &std::basic_ostream<char,std::char_traits<char>>::operator <<(std::basic_streambuf<char,std::char_traits<char>> *)': 인수 2을(를) '_To'에서 'std::basic_streambuf<char,std::char_traits<char>> *'(으)로 변환할 수 없습니다.
+          with
+          [
+              _To=std::chrono::milliseconds
+          ]
+              C:\github_local_repository\stl\2025stl\2025stl\main.cpp(49,79):
+              이 변환을 수행할 수 있는 사용 가능한 사용자 정의 변환 연산자가 없거나 연산자를 호출할 수 없습니다.
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\include\__msvc_ostream.hpp(448,39):
+      또는       'std::basic_ostream<char,std::char_traits<char>> &std::basic_ostream<char,std::char_traits<char>>::operator <<(const void *)'
+          C:\github_local_repository\stl\2025stl\2025stl\main.cpp(49,8):
+          'std::basic_ostream<char,std::char_traits<char>> &std::basic_ostream<char,std::char_traits<char>>::operator <<(const void *)': 인수 2을(를) '_To'에서 'const void *'(으)로 변환할 수 없습니다.
+          with
+          [
+              _To=std::chrono::milliseconds
+          ]
+              C:\github_local_repository\stl\2025stl\2025stl\main.cpp(49,79):
+              이 변환을 수행할 수 있는 사용 가능한 사용자 정의 변환 연산자가 없거나 연산자를 호출할 수 없습니다.
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\include\__msvc_ostream.hpp(430,39):
+      또는       'std::basic_ostream<char,std::char_traits<char>> &std::basic_ostream<char,std::char_traits<char>>::operator <<(long double)'
+          C:\github_local_repository\stl\2025stl\2025stl\main.cpp(49,8):
+          'std::basic_ostream<char,std::char_traits<char>> &std::basic_ostream<char,std::char_traits<char>>::operator <<(long double)': 인수 2을(를) '_To'에서 'long double'(으)로 변환할 수 없습니다.
+          with
+          [
+              _To=std::chrono::milliseconds
+          ]
+              C:\github_local_repository\stl\2025stl\2025stl\main.cpp(49,79):
+              이 변환을 수행할 수 있는 사용 가능한 사용자 정의 변환 연산자가 없거나 연산자를 호출할 수 없습니다.
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\include\__msvc_ostream.hpp(412,39):
+      또는       'std::basic_ostream<char,std::char_traits<char>> &std::basic_ostream<char,std::char_traits<char>>::operator <<(double)'
+          C:\github_local_repository\stl\2025stl\2025stl\main.cpp(49,8):
+          'std::basic_ostream<char,std::char_traits<char>> &std::basic_ostream<char,std::char_traits<char>>::operator <<(double)': 인수 2을(를) '_To'에서 'double'(으)로 변환할 수 없습니다.
+          with
+          [
+              _To=std::chrono::milliseconds
+          ]
+              C:\github_local_repository\stl\2025stl\2025stl\main.cpp(49,79):
+              이 변환을 수행할 수 있는 사용 가능한 사용자 정의 변환 연산자가 없거나 연산자를 호출할 수 없습니다.
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\include\__msvc_ostream.hpp(394,39):
+      또는       'std::basic_ostream<char,std::char_traits<char>> &std::basic_ostream<char,std::char_traits<char>>::operator <<(float)'
+          C:\github_local_repository\stl\2025stl\2025stl\main.cpp(49,8):
+          'std::basic_ostream<char,std::char_traits<char>> &std::basic_ostream<char,std::char_traits<char>>::operator <<(float)': 인수 2을(를) '_To'에서 'float'(으)로 변환할 수 없습니다.
+          with
+          [
+              _To=std::chrono::milliseconds
+          ]
+              C:\github_local_repository\stl\2025stl\2025stl\main.cpp(49,79):
+              이 변환을 수행할 수 있는 사용 가능한 사용자 정의 변환 연산자가 없거나 연산자를 호출할 수 없습니다.
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\include\__msvc_ostream.hpp(376,39):
+      또는       'std::basic_ostream<char,std::char_traits<char>> &std::basic_ostream<char,std::char_traits<char>>::operator <<(unsigned __int64)'
+          C:\github_local_repository\stl\2025stl\2025stl\main.cpp(49,8):
+          'std::basic_ostream<char,std::char_traits<char>> &std::basic_ostream<char,std::char_traits<char>>::operator <<(unsigned __int64)': 인수 2을(를) '_To'에서 'unsigned __int64'(으)로 변환할 수 없습니다.
+          with
+          [
+              _To=std::chrono::milliseconds
+          ]
+              C:\github_local_repository\stl\2025stl\2025stl\main.cpp(49,79):
+              이 변환을 수행할 수 있는 사용 가능한 사용자 정의 변환 연산자가 없거나 연산자를 호출할 수 없습니다.
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\include\__msvc_ostream.hpp(358,39):
+      또는       'std::basic_ostream<char,std::char_traits<char>> &std::basic_ostream<char,std::char_traits<char>>::operator <<(__int64)'
+          C:\github_local_repository\stl\2025stl\2025stl\main.cpp(49,8):
+          'std::basic_ostream<char,std::char_traits<char>> &std::basic_ostream<char,std::char_traits<char>>::operator <<(__int64)': 인수 2을(를) '_To'에서 '__int64'(으)로 변환할 수 없습니다.
+          with
+          [
+              _To=std::chrono::milliseconds
+          ]
+              C:\github_local_repository\stl\2025stl\2025stl\main.cpp(49,79):
+              이 변환을 수행할 수 있는 사용 가능한 사용자 정의 변환 연산자가 없거나 연산자를 호출할 수 없습니다.
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\include\__msvc_ostream.hpp(340,39):
+      또는       'std::basic_ostream<char,std::char_traits<char>> &std::basic_ostream<char,std::char_traits<char>>::operator <<(unsigned long)'
+          C:\github_local_repository\stl\2025stl\2025stl\main.cpp(49,8):
+          'std::basic_ostream<char,std::char_traits<char>> &std::basic_ostream<char,std::char_traits<char>>::operator <<(unsigned long)': 인수 2을(를) '_To'에서 'unsigned long'(으)로 변환할 수 없습니다.
+          with
+          [
+              _To=std::chrono::milliseconds
+          ]
+              C:\github_local_repository\stl\2025stl\2025stl\main.cpp(49,79):
+              이 변환을 수행할 수 있는 사용 가능한 사용자 정의 변환 연산자가 없거나 연산자를 호출할 수 없습니다.
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\include\__msvc_ostream.hpp(322,39):
+      또는       'std::basic_ostream<char,std::char_traits<char>> &std::basic_ostream<char,std::char_traits<char>>::operator <<(long)'
+          C:\github_local_repository\stl\2025stl\2025stl\main.cpp(49,8):
+          'std::basic_ostream<char,std::char_traits<char>> &std::basic_ostream<char,std::char_traits<char>>::operator <<(long)': 인수 2을(를) '_To'에서 'long'(으)로 변환할 수 없습니다.
+          with
+          [
+              _To=std::chrono::milliseconds
+          ]
+              C:\github_local_repository\stl\2025stl\2025stl\main.cpp(49,79):
+              이 변환을 수행할 수 있는 사용 가능한 사용자 정의 변환 연산자가 없거나 연산자를 호출할 수 없습니다.
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\include\__msvc_ostream.hpp(303,39):
+      또는       'std::basic_ostream<char,std::char_traits<char>> &std::basic_ostream<char,std::char_traits<char>>::operator <<(unsigned int)'
+          C:\github_local_repository\stl\2025stl\2025stl\main.cpp(49,8):
+          'std::basic_ostream<char,std::char_traits<char>> &std::basic_ostream<char,std::char_traits<char>>::operator <<(unsigned int)': 인수 2을(를) '_To'에서 'unsigned int'(으)로 변환할 수 없습니다.
+          with
+          [
+              _To=std::chrono::milliseconds
+          ]
+              C:\github_local_repository\stl\2025stl\2025stl\main.cpp(49,79):
+              이 변환을 수행할 수 있는 사용 가능한 사용자 정의 변환 연산자가 없거나 연산자를 호출할 수 없습니다.
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\include\__msvc_ostream.hpp(277,39):
+      또는       'std::basic_ostream<char,std::char_traits<char>> &std::basic_ostream<char,std::char_traits<char>>::operator <<(int)'
+          C:\github_local_repository\stl\2025stl\2025stl\main.cpp(49,8):
+          'std::basic_ostream<char,std::char_traits<char>> &std::basic_ostream<char,std::char_traits<char>>::operator <<(int)': 인수 2을(를) '_To'에서 'int'(으)로 변환할 수 없습니다.
+          with
+          [
+              _To=std::chrono::milliseconds
+          ]
+              C:\github_local_repository\stl\2025stl\2025stl\main.cpp(49,79):
+              이 변환을 수행할 수 있는 사용 가능한 사용자 정의 변환 연산자가 없거나 연산자를 호출할 수 없습니다.
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\include\__msvc_ostream.hpp(258,39):
+      또는       'std::basic_ostream<char,std::char_traits<char>> &std::basic_ostream<char,std::char_traits<char>>::operator <<(unsigned short)'
+          C:\github_local_repository\stl\2025stl\2025stl\main.cpp(49,8):
+          'std::basic_ostream<char,std::char_traits<char>> &std::basic_ostream<char,std::char_traits<char>>::operator <<(unsigned short)': 인수 2을(를) '_To'에서 'unsigned short'(으)로 변환할 수 없습니다.
+          with
+          [
+              _To=std::chrono::milliseconds
+          ]
+              C:\github_local_repository\stl\2025stl\2025stl\main.cpp(49,79):
+              이 변환을 수행할 수 있는 사용 가능한 사용자 정의 변환 연산자가 없거나 연산자를 호출할 수 없습니다.
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\include\__msvc_ostream.hpp(224,39):
+      또는       'std::basic_ostream<char,std::char_traits<char>> &std::basic_ostream<char,std::char_traits<char>>::operator <<(short)'
+          C:\github_local_repository\stl\2025stl\2025stl\main.cpp(49,8):
+          'std::basic_ostream<char,std::char_traits<char>> &std::basic_ostream<char,std::char_traits<char>>::operator <<(short)': 인수 2을(를) '_To'에서 'short'(으)로 변환할 수 없습니다.
+          with
+          [
+              _To=std::chrono::milliseconds
+          ]
+              C:\github_local_repository\stl\2025stl\2025stl\main.cpp(49,79):
+              이 변환을 수행할 수 있는 사용 가능한 사용자 정의 변환 연산자가 없거나 연산자를 호출할 수 없습니다.
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\include\__msvc_ostream.hpp(206,39):
+      또는       'std::basic_ostream<char,std::char_traits<char>> &std::basic_ostream<char,std::char_traits<char>>::operator <<(bool)'
+          C:\github_local_repository\stl\2025stl\2025stl\main.cpp(49,8):
+          'std::basic_ostream<char,std::char_traits<char>> &std::basic_ostream<char,std::char_traits<char>>::operator <<(bool)': 인수 2을(를) '_To'에서 'bool'(으)로 변환할 수 없습니다.
+          with
+          [
+              _To=std::chrono::milliseconds
+          ]
+              C:\github_local_repository\stl\2025stl\2025stl\main.cpp(49,79):
+              이 변환을 수행할 수 있는 사용 가능한 사용자 정의 변환 연산자가 없거나 연산자를 호출할 수 없습니다.
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\include\__msvc_ostream.hpp(200,39):
+      또는       'std::basic_ostream<char,std::char_traits<char>> &std::basic_ostream<char,std::char_traits<char>>::operator <<(std::ios_base &(__cdecl *)(std::ios_base &))'
+          C:\github_local_repository\stl\2025stl\2025stl\main.cpp(49,8):
+          'std::basic_ostream<char,std::char_traits<char>> &std::basic_ostream<char,std::char_traits<char>>::operator <<(std::ios_base &(__cdecl *)(std::ios_base &))': 인수 2을(를) '_To'에서 'std::ios_base &(__cdecl *)(std::ios_base &)'(으)로 변환할 수 없습니다.
+          with
+          [
+              _To=std::chrono::milliseconds
+          ]
+              C:\github_local_repository\stl\2025stl\2025stl\main.cpp(49,79):
+              이 변환을 수행할 수 있는 사용 가능한 사용자 정의 변환 연산자가 없거나 연산자를 호출할 수 없습니다.
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\include\__msvc_ostream.hpp(194,39):
+      또는       'std::basic_ostream<char,std::char_traits<char>> &std::basic_ostream<char,std::char_traits<char>>::operator <<(std::basic_ios<char,std::char_traits<char>> &(__cdecl *)(std::basic_ios<char,std::char_traits<char>> &))'
+          C:\github_local_repository\stl\2025stl\2025stl\main.cpp(49,8):
+          'std::basic_ostream<char,std::char_traits<char>> &std::basic_ostream<char,std::char_traits<char>>::operator <<(std::basic_ios<char,std::char_traits<char>> &(__cdecl *)(std::basic_ios<char,std::char_traits<char>> &))': 인수 2을(를) '_To'에서 'std::basic_ios<char,std::char_traits<char>> &(__cdecl *)(std::basic_ios<char,std::char_traits<char>> &)'(으)로 변환할 수 없습니다.
+          with
+          [
+              _To=std::chrono::milliseconds
+          ]
+              C:\github_local_repository\stl\2025stl\2025stl\main.cpp(49,79):
+              이 변환을 수행할 수 있는 사용 가능한 사용자 정의 변환 연산자가 없거나 연산자를 호출할 수 없습니다.
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\include\__msvc_ostream.hpp(189,39):
+      또는       'std::basic_ostream<char,std::char_traits<char>> &std::basic_ostream<char,std::char_traits<char>>::operator <<(std::basic_ostream<char,std::char_traits<char>> &(__cdecl *)(std::basic_ostream<char,std::char_traits<char>> &))'
+          C:\github_local_repository\stl\2025stl\2025stl\main.cpp(49,8):
+          'std::basic_ostream<char,std::char_traits<char>> &std::basic_ostream<char,std::char_traits<char>>::operator <<(std::basic_ostream<char,std::char_traits<char>> &(__cdecl *)(std::basic_ostream<char,std::char_traits<char>> &))': 인수 2을(를) '_To'에서 'std::basic_ostream<char,std::char_traits<char>> &(__cdecl *)(std::basic_ostream<char,std::char_traits<char>> &)'(으)로 변환할 수 없습니다.
+          with
+          [
+              _To=std::chrono::milliseconds
+          ]
+              C:\github_local_repository\stl\2025stl\2025stl\main.cpp(49,79):
+              이 변환을 수행할 수 있는 사용 가능한 사용자 정의 변환 연산자가 없거나 연산자를 호출할 수 없습니다.
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\include\__msvc_ostream.hpp(1031,32):
+      또는       'std::basic_ostream<_Elem,_Traits> &std::operator <<(std::basic_ostream<_Elem,_Traits> &,const std::error_code &)'
+          C:\github_local_repository\stl\2025stl\2025stl\main.cpp(49,79):
+          '초기화 중': '_To'에서 'const std::error_code &'(으)로 변환할 수 없습니다.
+          with
+          [
+              _To=std::chrono::milliseconds
+          ]
+              C:\github_local_repository\stl\2025stl\2025stl\main.cpp(49,79):
+              원인: '_To'에서 'const std::error_code'(으)로 변환할 수 없습니다.
+          with
+          [
+              _To=std::chrono::milliseconds
+          ]
+              C:\github_local_repository\stl\2025stl\2025stl\main.cpp(49,79):
+              이 변환을 수행할 수 있는 사용 가능한 사용자 정의 변환 연산자가 없거나 연산자를 호출할 수 없습니다.
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\include\__msvc_ostream.hpp(1005,9):
+      또는       '_Ostr &&std::operator <<(_Ostr &&,const _Ty &)'
+          C:\github_local_repository\stl\2025stl\2025stl\main.cpp(49,8):
+          '_Ostr &&std::operator <<(_Ostr &&,const _Ty &)': '__formal'의 템플릿 인수를 추론할 수 없습니다.
+              C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\include\__msvc_ostream.hpp(1004,103):
+              '<template-parameter>': 참조에 대한 포인터를 만들 수 없습니다.
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\include\__msvc_ostream.hpp(947,31):
+      또는       'std::basic_ostream<char,_Traits> &std::operator <<(std::basic_ostream<char,_Traits> &,unsigned char)'
+          C:\github_local_repository\stl\2025stl\2025stl\main.cpp(49,79):
+          '초기화 중': '_To'에서 'unsigned char'(으)로 변환할 수 없습니다.
+          with
+          [
+              _To=std::chrono::milliseconds
+          ]
+              C:\github_local_repository\stl\2025stl\2025stl\main.cpp(49,79):
+              이 변환을 수행할 수 있는 사용 가능한 사용자 정의 변환 연산자가 없거나 연산자를 호출할 수 없습니다.
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\include\__msvc_ostream.hpp(941,31):
+      또는       'std::basic_ostream<char,_Traits> &std::operator <<(std::basic_ostream<char,_Traits> &,const unsigned char *)'
+          C:\github_local_repository\stl\2025stl\2025stl\main.cpp(49,79):
+          '초기화 중': '_To'에서 'const unsigned char *'(으)로 변환할 수 없습니다.
+          with
+          [
+              _To=std::chrono::milliseconds
+          ]
+              C:\github_local_repository\stl\2025stl\2025stl\main.cpp(49,79):
+              이 변환을 수행할 수 있는 사용 가능한 사용자 정의 변환 연산자가 없거나 연산자를 호출할 수 없습니다.
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\include\__msvc_ostream.hpp(936,31):
+      또는       'std::basic_ostream<char,_Traits> &std::operator <<(std::basic_ostream<char,_Traits> &,signed char)'
+          C:\github_local_repository\stl\2025stl\2025stl\main.cpp(49,79):
+          '초기화 중': '_To'에서 'signed char'(으)로 변환할 수 없습니다.
+          with
+          [
+              _To=std::chrono::milliseconds
+          ]
+              C:\github_local_repository\stl\2025stl\2025stl\main.cpp(49,79):
+              이 변환을 수행할 수 있는 사용 가능한 사용자 정의 변환 연산자가 없거나 연산자를 호출할 수 없습니다.
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\include\__msvc_ostream.hpp(930,31):
+      또는       'std::basic_ostream<char,_Traits> &std::operator <<(std::basic_ostream<char,_Traits> &,const signed char *)'
+          C:\github_local_repository\stl\2025stl\2025stl\main.cpp(49,79):
+          '초기화 중': '_To'에서 'const signed char *'(으)로 변환할 수 없습니다.
+          with
+          [
+              _To=std::chrono::milliseconds
+          ]
+              C:\github_local_repository\stl\2025stl\2025stl\main.cpp(49,79):
+              이 변환을 수행할 수 있는 사용 가능한 사용자 정의 변환 연산자가 없거나 연산자를 호출할 수 없습니다.
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\include\__msvc_ostream.hpp(894,32):
+      또는       'std::basic_ostream<_Elem,_Traits> &std::operator <<(std::basic_ostream<_Elem,_Traits> &,_Elem)'
+          C:\github_local_repository\stl\2025stl\2025stl\main.cpp(49,8):
+          'std::basic_ostream<_Elem,_Traits> &std::operator <<(std::basic_ostream<_Elem,_Traits> &,_Elem)': 템플릿 매개 변수 '_Elem'이(가) 모호합니다.
+              C:\github_local_repository\stl\2025stl\2025stl\main.cpp(49,8):
+              '_To'일 수 있습니다.
+          with
+          [
+              _To=std::chrono::milliseconds
+          ]
+              C:\github_local_repository\stl\2025stl\2025stl\main.cpp(49,8):
+              또는      'char'
+          C:\github_local_repository\stl\2025stl\2025stl\main.cpp(49,8):
+          'std::basic_ostream<_Elem,_Traits> &std::operator <<(std::basic_ostream<_Elem,_Traits> &,_Elem)': '_To'에서 '_Elem'에 대한 템플릿 인수를 추론할 수 없습니다.
+          with
+          [
+              _To=std::chrono::milliseconds
+          ]
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\include\__msvc_ostream.hpp(851,32):
+      또는       'std::basic_ostream<_Elem,_Traits> &std::operator <<(std::basic_ostream<_Elem,_Traits> &,const _Elem *)'
+          C:\github_local_repository\stl\2025stl\2025stl\main.cpp(49,8):
+          'std::basic_ostream<_Elem,_Traits> &std::operator <<(std::basic_ostream<_Elem,_Traits> &,const _Elem *)': '_To'에서 'const _Elem *'에 대한 템플릿 인수를 추론할 수 없습니다.
+          with
+          [
+              _To=std::chrono::milliseconds
+          ]
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\include\__msvc_ostream.hpp(813,31):
+      또는       'std::basic_ostream<char,_Traits> &std::operator <<(std::basic_ostream<char,_Traits> &,char)'
+          C:\github_local_repository\stl\2025stl\2025stl\main.cpp(49,79):
+          '초기화 중': '_To'에서 'char'(으)로 변환할 수 없습니다.
+          with
+          [
+              _To=std::chrono::milliseconds
+          ]
+              C:\github_local_repository\stl\2025stl\2025stl\main.cpp(49,79):
+              이 변환을 수행할 수 있는 사용 가능한 사용자 정의 변환 연산자가 없거나 연산자를 호출할 수 없습니다.
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\include\__msvc_ostream.hpp(768,31):
+      또는       'std::basic_ostream<char,_Traits> &std::operator <<(std::basic_ostream<char,_Traits> &,const char *)'
+          C:\github_local_repository\stl\2025stl\2025stl\main.cpp(49,79):
+          '초기화 중': '_To'에서 'const char *'(으)로 변환할 수 없습니다.
+          with
+          [
+              _To=std::chrono::milliseconds
+          ]
+              C:\github_local_repository\stl\2025stl\2025stl\main.cpp(49,79):
+              이 변환을 수행할 수 있는 사용 가능한 사용자 정의 변환 연산자가 없거나 연산자를 호출할 수 없습니다.
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\include\__msvc_ostream.hpp(732,32):
+      또는       'std::basic_ostream<_Elem,_Traits> &std::operator <<(std::basic_ostream<_Elem,_Traits> &,char)'
+          C:\github_local_repository\stl\2025stl\2025stl\main.cpp(49,79):
+          '초기화 중': '_To'에서 'char'(으)로 변환할 수 없습니다.
+          with
+          [
+              _To=std::chrono::milliseconds
+          ]
+              C:\github_local_repository\stl\2025stl\2025stl\main.cpp(49,79):
+              이 변환을 수행할 수 있는 사용 가능한 사용자 정의 변환 연산자가 없거나 연산자를 호출할 수 없습니다.
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\include\__msvc_ostream.hpp(688,32):
+      또는       'std::basic_ostream<_Elem,_Traits> &std::operator <<(std::basic_ostream<_Elem,_Traits> &,const char *)'
+          C:\github_local_repository\stl\2025stl\2025stl\main.cpp(49,79):
+          '초기화 중': '_To'에서 'const char *'(으)로 변환할 수 없습니다.
+          with
+          [
+              _To=std::chrono::milliseconds
+          ]
+              C:\github_local_repository\stl\2025stl\2025stl\main.cpp(49,79):
+              이 변환을 수행할 수 있는 사용 가능한 사용자 정의 변환 연산자가 없거나 연산자를 호출할 수 없습니다.
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\include\memory(3756,32):
+      또는       'std::basic_ostream<_Elem,_Traits> &std::operator <<(std::basic_ostream<_Elem,_Traits> &,const std::unique_ptr<_Ty2,_Dx2> &)'
+          C:\github_local_repository\stl\2025stl\2025stl\main.cpp(49,8):
+          'std::basic_ostream<_Elem,_Traits> &std::operator <<(std::basic_ostream<_Elem,_Traits> &,const std::unique_ptr<_Ty2,_Dx2> &)': '_To'에서 'const std::unique_ptr<_Ty2,_Dx2> &'에 대한 템플릿 인수를 추론할 수 없습니다.
+          with
+          [
+              _To=std::chrono::milliseconds
+          ]
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\include\memory(1976,32):
+      또는       'std::basic_ostream<_Elem,_Traits> &std::operator <<(std::basic_ostream<_Elem,_Traits> &,const std::shared_ptr<_Ty> &)'
+          C:\github_local_repository\stl\2025stl\2025stl\main.cpp(49,8):
+          'std::basic_ostream<_Elem,_Traits> &std::operator <<(std::basic_ostream<_Elem,_Traits> &,const std::shared_ptr<_Ty> &)': '_To'에서 'const std::shared_ptr<_Ty> &'에 대한 템플릿 인수를 추론할 수 없습니다.
+          with
+          [
+              _To=std::chrono::milliseconds
+          ]
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\include\xstring(3408,32):
+      또는       'std::basic_ostream<_Elem,_Traits> &std::operator <<(std::basic_ostream<_Elem,_Traits> &,const std::basic_string<_Elem,_Traits,_Alloc> &)'
+          C:\github_local_repository\stl\2025stl\2025stl\main.cpp(49,8):
+          'std::basic_ostream<_Elem,_Traits> &std::operator <<(std::basic_ostream<_Elem,_Traits> &,const std::basic_string<_Elem,_Traits,_Alloc> &)': '_To'에서 'const std::basic_string<_Elem,_Traits,_Alloc> &'에 대한 템플릿 인수를 추론할 수 없습니다.
+          with
+          [
+              _To=std::chrono::milliseconds
+          ]
+      C:\github_local_repository\stl\2025stl\2025stl\main.cpp(49,8):
+      인수 목록 '(std::basic_ostream<char,std::char_traits<char>>, _To)'을(를) 일치시키는 동안
+          with
+          [
+              _To=std::chrono::milliseconds
+          ]
+  
+C:\github_local_repository\stl\2025stl\2025stl\main.cpp(61,8): error C2679: 이항 '<<': 오른쪽 피연산자로 '_To' 형식을 사용하는 연산자가 없거나 허용되는 변환이 없습니다.
+C:\github_local_repository\stl\2025stl\2025stl\main.cpp(61,8): error C2679:         with
+C:\github_local_repository\stl\2025stl\2025stl\main.cpp(61,8): error C2679:         [
+C:\github_local_repository\stl\2025stl\2025stl\main.cpp(61,8): error C2679:             _To=std::chrono::milliseconds
+C:\github_local_repository\stl\2025stl\2025stl\main.cpp(61,8): error C2679:         ]
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\include\__msvc_ostream.hpp(480,39):
+      'std::basic_ostream<char,std::char_traits<char>> &std::basic_ostream<char,std::char_traits<char>>::operator <<(std::basic_streambuf<char,std::char_traits<char>> *)'일 수 있습니다.
+          C:\github_local_repository\stl\2025stl\2025stl\main.cpp(61,8):
+          'std::basic_ostream<char,std::char_traits<char>> &std::basic_ostream<char,std::char_traits<char>>::operator <<(std::basic_streambuf<char,std::char_traits<char>> *)': 인수 2을(를) '_To'에서 'std::basic_streambuf<char,std::char_traits<char>> *'(으)로 변환할 수 없습니다.
+          with
+          [
+              _To=std::chrono::milliseconds
+          ]
+              C:\github_local_repository\stl\2025stl\2025stl\main.cpp(61,79):
+              이 변환을 수행할 수 있는 사용 가능한 사용자 정의 변환 연산자가 없거나 연산자를 호출할 수 없습니다.
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\include\__msvc_ostream.hpp(448,39):
+      또는       'std::basic_ostream<char,std::char_traits<char>> &std::basic_ostream<char,std::char_traits<char>>::operator <<(const void *)'
+          C:\github_local_repository\stl\2025stl\2025stl\main.cpp(61,8):
+          'std::basic_ostream<char,std::char_traits<char>> &std::basic_ostream<char,std::char_traits<char>>::operator <<(const void *)': 인수 2을(를) '_To'에서 'const void *'(으)로 변환할 수 없습니다.
+          with
+          [
+              _To=std::chrono::milliseconds
+          ]
+              C:\github_local_repository\stl\2025stl\2025stl\main.cpp(61,79):
+              이 변환을 수행할 수 있는 사용 가능한 사용자 정의 변환 연산자가 없거나 연산자를 호출할 수 없습니다.
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\include\__msvc_ostream.hpp(430,39):
+      또는       'std::basic_ostream<char,std::char_traits<char>> &std::basic_ostream<char,std::char_traits<char>>::operator <<(long double)'
+          C:\github_local_repository\stl\2025stl\2025stl\main.cpp(61,8):
+          'std::basic_ostream<char,std::char_traits<char>> &std::basic_ostream<char,std::char_traits<char>>::operator <<(long double)': 인수 2을(를) '_To'에서 'long double'(으)로 변환할 수 없습니다.
+          with
+          [
+              _To=std::chrono::milliseconds
+          ]
+              C:\github_local_repository\stl\2025stl\2025stl\main.cpp(61,79):
+              이 변환을 수행할 수 있는 사용 가능한 사용자 정의 변환 연산자가 없거나 연산자를 호출할 수 없습니다.
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\include\__msvc_ostream.hpp(412,39):
+      또는       'std::basic_ostream<char,std::char_traits<char>> &std::basic_ostream<char,std::char_traits<char>>::operator <<(double)'
+          C:\github_local_repository\stl\2025stl\2025stl\main.cpp(61,8):
+          'std::basic_ostream<char,std::char_traits<char>> &std::basic_ostream<char,std::char_traits<char>>::operator <<(double)': 인수 2을(를) '_To'에서 'double'(으)로 변환할 수 없습니다.
+          with
+          [
+              _To=std::chrono::milliseconds
+          ]
+              C:\github_local_repository\stl\2025stl\2025stl\main.cpp(61,79):
+              이 변환을 수행할 수 있는 사용 가능한 사용자 정의 변환 연산자가 없거나 연산자를 호출할 수 없습니다.
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\include\__msvc_ostream.hpp(394,39):
+      또는       'std::basic_ostream<char,std::char_traits<char>> &std::basic_ostream<char,std::char_traits<char>>::operator <<(float)'
+          C:\github_local_repository\stl\2025stl\2025stl\main.cpp(61,8):
+          'std::basic_ostream<char,std::char_traits<char>> &std::basic_ostream<char,std::char_traits<char>>::operator <<(float)': 인수 2을(를) '_To'에서 'float'(으)로 변환할 수 없습니다.
+          with
+          [
+              _To=std::chrono::milliseconds
+          ]
+              C:\github_local_repository\stl\2025stl\2025stl\main.cpp(61,79):
+              이 변환을 수행할 수 있는 사용 가능한 사용자 정의 변환 연산자가 없거나 연산자를 호출할 수 없습니다.
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\include\__msvc_ostream.hpp(376,39):
+      또는       'std::basic_ostream<char,std::char_traits<char>> &std::basic_ostream<char,std::char_traits<char>>::operator <<(unsigned __int64)'
+          C:\github_local_repository\stl\2025stl\2025stl\main.cpp(61,8):
+          'std::basic_ostream<char,std::char_traits<char>> &std::basic_ostream<char,std::char_traits<char>>::operator <<(unsigned __int64)': 인수 2을(를) '_To'에서 'unsigned __int64'(으)로 변환할 수 없습니다.
+          with
+          [
+              _To=std::chrono::milliseconds
+          ]
+              C:\github_local_repository\stl\2025stl\2025stl\main.cpp(61,79):
+              이 변환을 수행할 수 있는 사용 가능한 사용자 정의 변환 연산자가 없거나 연산자를 호출할 수 없습니다.
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\include\__msvc_ostream.hpp(358,39):
+      또는       'std::basic_ostream<char,std::char_traits<char>> &std::basic_ostream<char,std::char_traits<char>>::operator <<(__int64)'
+          C:\github_local_repository\stl\2025stl\2025stl\main.cpp(61,8):
+          'std::basic_ostream<char,std::char_traits<char>> &std::basic_ostream<char,std::char_traits<char>>::operator <<(__int64)': 인수 2을(를) '_To'에서 '__int64'(으)로 변환할 수 없습니다.
+          with
+          [
+              _To=std::chrono::milliseconds
+          ]
+              C:\github_local_repository\stl\2025stl\2025stl\main.cpp(61,79):
+              이 변환을 수행할 수 있는 사용 가능한 사용자 정의 변환 연산자가 없거나 연산자를 호출할 수 없습니다.
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\include\__msvc_ostream.hpp(340,39):
+      또는       'std::basic_ostream<char,std::char_traits<char>> &std::basic_ostream<char,std::char_traits<char>>::operator <<(unsigned long)'
+          C:\github_local_repository\stl\2025stl\2025stl\main.cpp(61,8):
+          'std::basic_ostream<char,std::char_traits<char>> &std::basic_ostream<char,std::char_traits<char>>::operator <<(unsigned long)': 인수 2을(를) '_To'에서 'unsigned long'(으)로 변환할 수 없습니다.
+          with
+          [
+              _To=std::chrono::milliseconds
+          ]
+              C:\github_local_repository\stl\2025stl\2025stl\main.cpp(61,79):
+              이 변환을 수행할 수 있는 사용 가능한 사용자 정의 변환 연산자가 없거나 연산자를 호출할 수 없습니다.
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\include\__msvc_ostream.hpp(322,39):
+      또는       'std::basic_ostream<char,std::char_traits<char>> &std::basic_ostream<char,std::char_traits<char>>::operator <<(long)'
+          C:\github_local_repository\stl\2025stl\2025stl\main.cpp(61,8):
+          'std::basic_ostream<char,std::char_traits<char>> &std::basic_ostream<char,std::char_traits<char>>::operator <<(long)': 인수 2을(를) '_To'에서 'long'(으)로 변환할 수 없습니다.
+          with
+          [
+              _To=std::chrono::milliseconds
+          ]
+              C:\github_local_repository\stl\2025stl\2025stl\main.cpp(61,79):
+              이 변환을 수행할 수 있는 사용 가능한 사용자 정의 변환 연산자가 없거나 연산자를 호출할 수 없습니다.
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\include\__msvc_ostream.hpp(303,39):
+      또는       'std::basic_ostream<char,std::char_traits<char>> &std::basic_ostream<char,std::char_traits<char>>::operator <<(unsigned int)'
+          C:\github_local_repository\stl\2025stl\2025stl\main.cpp(61,8):
+          'std::basic_ostream<char,std::char_traits<char>> &std::basic_ostream<char,std::char_traits<char>>::operator <<(unsigned int)': 인수 2을(를) '_To'에서 'unsigned int'(으)로 변환할 수 없습니다.
+          with
+          [
+              _To=std::chrono::milliseconds
+          ]
+              C:\github_local_repository\stl\2025stl\2025stl\main.cpp(61,79):
+              이 변환을 수행할 수 있는 사용 가능한 사용자 정의 변환 연산자가 없거나 연산자를 호출할 수 없습니다.
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\include\__msvc_ostream.hpp(277,39):
+      또는       'std::basic_ostream<char,std::char_traits<char>> &std::basic_ostream<char,std::char_traits<char>>::operator <<(int)'
+          C:\github_local_repository\stl\2025stl\2025stl\main.cpp(61,8):
+          'std::basic_ostream<char,std::char_traits<char>> &std::basic_ostream<char,std::char_traits<char>>::operator <<(int)': 인수 2을(를) '_To'에서 'int'(으)로 변환할 수 없습니다.
+          with
+          [
+              _To=std::chrono::milliseconds
+          ]
+              C:\github_local_repository\stl\2025stl\2025stl\main.cpp(61,79):
+              이 변환을 수행할 수 있는 사용 가능한 사용자 정의 변환 연산자가 없거나 연산자를 호출할 수 없습니다.
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\include\__msvc_ostream.hpp(258,39):
+      또는       'std::basic_ostream<char,std::char_traits<char>> &std::basic_ostream<char,std::char_traits<char>>::operator <<(unsigned short)'
+          C:\github_local_repository\stl\2025stl\2025stl\main.cpp(61,8):
+          'std::basic_ostream<char,std::char_traits<char>> &std::basic_ostream<char,std::char_traits<char>>::operator <<(unsigned short)': 인수 2을(를) '_To'에서 'unsigned short'(으)로 변환할 수 없습니다.
+          with
+          [
+              _To=std::chrono::milliseconds
+          ]
+              C:\github_local_repository\stl\2025stl\2025stl\main.cpp(61,79):
+              이 변환을 수행할 수 있는 사용 가능한 사용자 정의 변환 연산자가 없거나 연산자를 호출할 수 없습니다.
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\include\__msvc_ostream.hpp(224,39):
+      또는       'std::basic_ostream<char,std::char_traits<char>> &std::basic_ostream<char,std::char_traits<char>>::operator <<(short)'
+          C:\github_local_repository\stl\2025stl\2025stl\main.cpp(61,8):
+          'std::basic_ostream<char,std::char_traits<char>> &std::basic_ostream<char,std::char_traits<char>>::operator <<(short)': 인수 2을(를) '_To'에서 'short'(으)로 변환할 수 없습니다.
+          with
+          [
+              _To=std::chrono::milliseconds
+          ]
+              C:\github_local_repository\stl\2025stl\2025stl\main.cpp(61,79):
+              이 변환을 수행할 수 있는 사용 가능한 사용자 정의 변환 연산자가 없거나 연산자를 호출할 수 없습니다.
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\include\__msvc_ostream.hpp(206,39):
+      또는       'std::basic_ostream<char,std::char_traits<char>> &std::basic_ostream<char,std::char_traits<char>>::operator <<(bool)'
+          C:\github_local_repository\stl\2025stl\2025stl\main.cpp(61,8):
+          'std::basic_ostream<char,std::char_traits<char>> &std::basic_ostream<char,std::char_traits<char>>::operator <<(bool)': 인수 2을(를) '_To'에서 'bool'(으)로 변환할 수 없습니다.
+          with
+          [
+              _To=std::chrono::milliseconds
+          ]
+              C:\github_local_repository\stl\2025stl\2025stl\main.cpp(61,79):
+              이 변환을 수행할 수 있는 사용 가능한 사용자 정의 변환 연산자가 없거나 연산자를 호출할 수 없습니다.
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\include\__msvc_ostream.hpp(200,39):
+      또는       'std::basic_ostream<char,std::char_traits<char>> &std::basic_ostream<char,std::char_traits<char>>::operator <<(std::ios_base &(__cdecl *)(std::ios_base &))'
+          C:\github_local_repository\stl\2025stl\2025stl\main.cpp(61,8):
+          'std::basic_ostream<char,std::char_traits<char>> &std::basic_ostream<char,std::char_traits<char>>::operator <<(std::ios_base &(__cdecl *)(std::ios_base &))': 인수 2을(를) '_To'에서 'std::ios_base &(__cdecl *)(std::ios_base &)'(으)로 변환할 수 없습니다.
+          with
+          [
+              _To=std::chrono::milliseconds
+          ]
+              C:\github_local_repository\stl\2025stl\2025stl\main.cpp(61,79):
+              이 변환을 수행할 수 있는 사용 가능한 사용자 정의 변환 연산자가 없거나 연산자를 호출할 수 없습니다.
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\include\__msvc_ostream.hpp(194,39):
+      또는       'std::basic_ostream<char,std::char_traits<char>> &std::basic_ostream<char,std::char_traits<char>>::operator <<(std::basic_ios<char,std::char_traits<char>> &(__cdecl *)(std::basic_ios<char,std::char_traits<char>> &))'
+          C:\github_local_repository\stl\2025stl\2025stl\main.cpp(61,8):
+          'std::basic_ostream<char,std::char_traits<char>> &std::basic_ostream<char,std::char_traits<char>>::operator <<(std::basic_ios<char,std::char_traits<char>> &(__cdecl *)(std::basic_ios<char,std::char_traits<char>> &))': 인수 2을(를) '_To'에서 'std::basic_ios<char,std::char_traits<char>> &(__cdecl *)(std::basic_ios<char,std::char_traits<char>> &)'(으)로 변환할 수 없습니다.
+          with
+          [
+              _To=std::chrono::milliseconds
+          ]
+              C:\github_local_repository\stl\2025stl\2025stl\main.cpp(61,79):
+              이 변환을 수행할 수 있는 사용 가능한 사용자 정의 변환 연산자가 없거나 연산자를 호출할 수 없습니다.
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\include\__msvc_ostream.hpp(189,39):
+      또는       'std::basic_ostream<char,std::char_traits<char>> &std::basic_ostream<char,std::char_traits<char>>::operator <<(std::basic_ostream<char,std::char_traits<char>> &(__cdecl *)(std::basic_ostream<char,std::char_traits<char>> &))'
+          C:\github_local_repository\stl\2025stl\2025stl\main.cpp(61,8):
+          'std::basic_ostream<char,std::char_traits<char>> &std::basic_ostream<char,std::char_traits<char>>::operator <<(std::basic_ostream<char,std::char_traits<char>> &(__cdecl *)(std::basic_ostream<char,std::char_traits<char>> &))': 인수 2을(를) '_To'에서 'std::basic_ostream<char,std::char_traits<char>> &(__cdecl *)(std::basic_ostream<char,std::char_traits<char>> &)'(으)로 변환할 수 없습니다.
+          with
+          [
+              _To=std::chrono::milliseconds
+          ]
+              C:\github_local_repository\stl\2025stl\2025stl\main.cpp(61,79):
+              이 변환을 수행할 수 있는 사용 가능한 사용자 정의 변환 연산자가 없거나 연산자를 호출할 수 없습니다.
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\include\__msvc_ostream.hpp(1031,32):
+      또는       'std::basic_ostream<_Elem,_Traits> &std::operator <<(std::basic_ostream<_Elem,_Traits> &,const std::error_code &)'
+          C:\github_local_repository\stl\2025stl\2025stl\main.cpp(61,79):
+          '초기화 중': '_To'에서 'const std::error_code &'(으)로 변환할 수 없습니다.
+          with
+          [
+              _To=std::chrono::milliseconds
+          ]
+              C:\github_local_repository\stl\2025stl\2025stl\main.cpp(61,79):
+              원인: '_To'에서 'const std::error_code'(으)로 변환할 수 없습니다.
+          with
+          [
+              _To=std::chrono::milliseconds
+          ]
+              C:\github_local_repository\stl\2025stl\2025stl\main.cpp(61,79):
+              이 변환을 수행할 수 있는 사용 가능한 사용자 정의 변환 연산자가 없거나 연산자를 호출할 수 없습니다.
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\include\__msvc_ostream.hpp(1005,9):
+      또는       '_Ostr &&std::operator <<(_Ostr &&,const _Ty &)'
+          C:\github_local_repository\stl\2025stl\2025stl\main.cpp(61,8):
+          '_Ostr &&std::operator <<(_Ostr &&,const _Ty &)': '__formal'의 템플릿 인수를 추론할 수 없습니다.
+              C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\include\__msvc_ostream.hpp(1004,103):
+              '<template-parameter>': 참조에 대한 포인터를 만들 수 없습니다.
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\include\__msvc_ostream.hpp(947,31):
+      또는       'std::basic_ostream<char,_Traits> &std::operator <<(std::basic_ostream<char,_Traits> &,unsigned char)'
+          C:\github_local_repository\stl\2025stl\2025stl\main.cpp(61,79):
+          '초기화 중': '_To'에서 'unsigned char'(으)로 변환할 수 없습니다.
+          with
+          [
+              _To=std::chrono::milliseconds
+          ]
+              C:\github_local_repository\stl\2025stl\2025stl\main.cpp(61,79):
+              이 변환을 수행할 수 있는 사용 가능한 사용자 정의 변환 연산자가 없거나 연산자를 호출할 수 없습니다.
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\include\__msvc_ostream.hpp(941,31):
+      또는       'std::basic_ostream<char,_Traits> &std::operator <<(std::basic_ostream<char,_Traits> &,const unsigned char *)'
+          C:\github_local_repository\stl\2025stl\2025stl\main.cpp(61,79):
+          '초기화 중': '_To'에서 'const unsigned char *'(으)로 변환할 수 없습니다.
+          with
+          [
+              _To=std::chrono::milliseconds
+          ]
+              C:\github_local_repository\stl\2025stl\2025stl\main.cpp(61,79):
+              이 변환을 수행할 수 있는 사용 가능한 사용자 정의 변환 연산자가 없거나 연산자를 호출할 수 없습니다.
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\include\__msvc_ostream.hpp(936,31):
+      또는       'std::basic_ostream<char,_Traits> &std::operator <<(std::basic_ostream<char,_Traits> &,signed char)'
+          C:\github_local_repository\stl\2025stl\2025stl\main.cpp(61,79):
+          '초기화 중': '_To'에서 'signed char'(으)로 변환할 수 없습니다.
+          with
+          [
+              _To=std::chrono::milliseconds
+          ]
+              C:\github_local_repository\stl\2025stl\2025stl\main.cpp(61,79):
+              이 변환을 수행할 수 있는 사용 가능한 사용자 정의 변환 연산자가 없거나 연산자를 호출할 수 없습니다.
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\include\__msvc_ostream.hpp(930,31):
+      또는       'std::basic_ostream<char,_Traits> &std::operator <<(std::basic_ostream<char,_Traits> &,const signed char *)'
+          C:\github_local_repository\stl\2025stl\2025stl\main.cpp(61,79):
+          '초기화 중': '_To'에서 'const signed char *'(으)로 변환할 수 없습니다.
+          with
+          [
+              _To=std::chrono::milliseconds
+          ]
+              C:\github_local_repository\stl\2025stl\2025stl\main.cpp(61,79):
+              이 변환을 수행할 수 있는 사용 가능한 사용자 정의 변환 연산자가 없거나 연산자를 호출할 수 없습니다.
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\include\__msvc_ostream.hpp(894,32):
+      또는       'std::basic_ostream<_Elem,_Traits> &std::operator <<(std::basic_ostream<_Elem,_Traits> &,_Elem)'
+          C:\github_local_repository\stl\2025stl\2025stl\main.cpp(61,8):
+          'std::basic_ostream<_Elem,_Traits> &std::operator <<(std::basic_ostream<_Elem,_Traits> &,_Elem)': 템플릿 매개 변수 '_Elem'이(가) 모호합니다.
+              C:\github_local_repository\stl\2025stl\2025stl\main.cpp(61,8):
+              '_To'일 수 있습니다.
+          with
+          [
+              _To=std::chrono::milliseconds
+          ]
+              C:\github_local_repository\stl\2025stl\2025stl\main.cpp(61,8):
+              또는      'char'
+          C:\github_local_repository\stl\2025stl\2025stl\main.cpp(61,8):
+          'std::basic_ostream<_Elem,_Traits> &std::operator <<(std::basic_ostream<_Elem,_Traits> &,_Elem)': '_To'에서 '_Elem'에 대한 템플릿 인수를 추론할 수 없습니다.
+          with
+          [
+              _To=std::chrono::milliseconds
+          ]
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\include\__msvc_ostream.hpp(851,32):
+      또는       'std::basic_ostream<_Elem,_Traits> &std::operator <<(std::basic_ostream<_Elem,_Traits> &,const _Elem *)'
+          C:\github_local_repository\stl\2025stl\2025stl\main.cpp(61,8):
+          'std::basic_ostream<_Elem,_Traits> &std::operator <<(std::basic_ostream<_Elem,_Traits> &,const _Elem *)': '_To'에서 'const _Elem *'에 대한 템플릿 인수를 추론할 수 없습니다.
+          with
+          [
+              _To=std::chrono::milliseconds
+          ]
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\include\__msvc_ostream.hpp(813,31):
+      또는       'std::basic_ostream<char,_Traits> &std::operator <<(std::basic_ostream<char,_Traits> &,char)'
+          C:\github_local_repository\stl\2025stl\2025stl\main.cpp(61,79):
+          '초기화 중': '_To'에서 'char'(으)로 변환할 수 없습니다.
+          with
+          [
+              _To=std::chrono::milliseconds
+          ]
+              C:\github_local_repository\stl\2025stl\2025stl\main.cpp(61,79):
+              이 변환을 수행할 수 있는 사용 가능한 사용자 정의 변환 연산자가 없거나 연산자를 호출할 수 없습니다.
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\include\__msvc_ostream.hpp(768,31):
+      또는       'std::basic_ostream<char,_Traits> &std::operator <<(std::basic_ostream<char,_Traits> &,const char *)'
+          C:\github_local_repository\stl\2025stl\2025stl\main.cpp(61,79):
+          '초기화 중': '_To'에서 'const char *'(으)로 변환할 수 없습니다.
+          with
+          [
+              _To=std::chrono::milliseconds
+          ]
+              C:\github_local_repository\stl\2025stl\2025stl\main.cpp(61,79):
+              이 변환을 수행할 수 있는 사용 가능한 사용자 정의 변환 연산자가 없거나 연산자를 호출할 수 없습니다.
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\include\__msvc_ostream.hpp(732,32):
+      또는       'std::basic_ostream<_Elem,_Traits> &std::operator <<(std::basic_ostream<_Elem,_Traits> &,char)'
+          C:\github_local_repository\stl\2025stl\2025stl\main.cpp(61,79):
+          '초기화 중': '_To'에서 'char'(으)로 변환할 수 없습니다.
+          with
+          [
+              _To=std::chrono::milliseconds
+          ]
+              C:\github_local_repository\stl\2025stl\2025stl\main.cpp(61,79):
+              이 변환을 수행할 수 있는 사용 가능한 사용자 정의 변환 연산자가 없거나 연산자를 호출할 수 없습니다.
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\include\__msvc_ostream.hpp(688,32):
+      또는       'std::basic_ostream<_Elem,_Traits> &std::operator <<(std::basic_ostream<_Elem,_Traits> &,const char *)'
+          C:\github_local_repository\stl\2025stl\2025stl\main.cpp(61,79):
+          '초기화 중': '_To'에서 'const char *'(으)로 변환할 수 없습니다.
+          with
+          [
+              _To=std::chrono::milliseconds
+          ]
+              C:\github_local_repository\stl\2025stl\2025stl\main.cpp(61,79):
+              이 변환을 수행할 수 있는 사용 가능한 사용자 정의 변환 연산자가 없거나 연산자를 호출할 수 없습니다.
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\include\memory(3756,32):
+      또는       'std::basic_ostream<_Elem,_Traits> &std::operator <<(std::basic_ostream<_Elem,_Traits> &,const std::unique_ptr<_Ty2,_Dx2> &)'
+          C:\github_local_repository\stl\2025stl\2025stl\main.cpp(61,8):
+          'std::basic_ostream<_Elem,_Traits> &std::operator <<(std::basic_ostream<_Elem,_Traits> &,const std::unique_ptr<_Ty2,_Dx2> &)': '_To'에서 'const std::unique_ptr<_Ty2,_Dx2> &'에 대한 템플릿 인수를 추론할 수 없습니다.
+          with
+          [
+              _To=std::chrono::milliseconds
+          ]
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\include\memory(1976,32):
+      또는       'std::basic_ostream<_Elem,_Traits> &std::operator <<(std::basic_ostream<_Elem,_Traits> &,const std::shared_ptr<_Ty> &)'
+          C:\github_local_repository\stl\2025stl\2025stl\main.cpp(61,8):
+          'std::basic_ostream<_Elem,_Traits> &std::operator <<(std::basic_ostream<_Elem,_Traits> &,const std::shared_ptr<_Ty> &)': '_To'에서 'const std::shared_ptr<_Ty> &'에 대한 템플릿 인수를 추론할 수 없습니다.
+          with
+          [
+              _To=std::chrono::milliseconds
+          ]
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\include\xstring(3408,32):
+      또는       'std::basic_ostream<_Elem,_Traits> &std::operator <<(std::basic_ostream<_Elem,_Traits> &,const std::basic_string<_Elem,_Traits,_Alloc> &)'
+          C:\github_local_repository\stl\2025stl\2025stl\main.cpp(61,8):
+          'std::basic_ostream<_Elem,_Traits> &std::operator <<(std::basic_ostream<_Elem,_Traits> &,const std::basic_string<_Elem,_Traits,_Alloc> &)': '_To'에서 'const std::basic_string<_Elem,_Traits,_Alloc> &'에 대한 템플릿 인수를 추론할 수 없습니다.
+          with
+          [
+              _To=std::chrono::milliseconds
+          ]
+      C:\github_local_repository\stl\2025stl\2025stl\main.cpp(61,8):
+      인수 목록 '(std::basic_ostream<char,std::char_traits<char>>, _To)'을(를) 일치시키는 동안
+          with
+          [
+              _To=std::chrono::milliseconds
+          ]
+  
+C:\github_local_repository\stl\2025stl\2025stl\main.cpp(69,2): error C2064: 항은 1개의 인수를 받아들이는 함수로 계산되지 않습니다.
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\include\filesystem(12): warning STL4038: The contents of <filesystem> are available only with C++17 or later.
+C:\github_local_repository\stl\2025stl\2025stl\save.cpp(13,16): error C2039: 'string_view': 'std'의 멤버가 아닙니다.
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\include\chrono(45,1):
+      'std' 선언을 참조하십시오.
+  
+C:\github_local_repository\stl\2025stl\2025stl\save.cpp(13,6): error C2182: 'save': 이 'void' 사용은 유효하지 않습니다.
+C:\github_local_repository\stl\2025stl\2025stl\save.cpp(13,16): error C2065: 'string_view': 선언되지 않은 식별자입니다.
+C:\github_local_repository\stl\2025stl\2025stl\save.cpp(13,28): error C2146: 구문 오류: ')'이(가) 'fileName' 식별자 앞에 없습니다.
+C:\github_local_repository\stl\2025stl\2025stl\save.cpp(15,1): error C2143: 구문 오류: ';'이(가) '{' 앞에 없습니다.
+C:\github_local_repository\stl\2025stl\2025stl\save.cpp(15,1): error C2447: '{': 함수 헤더가 없습니다. 이전 스타일의 형식 목록입니까?
+  코드를 생성하고 있습니다...
