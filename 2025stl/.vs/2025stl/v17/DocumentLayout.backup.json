@@ -7,8 +7,12 @@
       "RelativeMoniker": "D:0:0:{4A322C24-9286-4666-8767-90D6FB1CBD8A}|2025stl\\2025stl.vcxproj|solutionrelative:2025stl\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\github_local_repository\\stl\\2025stl\\2025stl\\2025 1 STL \uD65456\uBAA978 \uAC15\uC758\uC800\uC7A5.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:2025stl\\2025 1 STL \uD65456\uBAA978 \uAC15\uC758\uC800\uC7A5.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
+      "AbsoluteMoniker": "D:0:0:{4A322C24-9286-4666-8767-90D6FB1CBD8A}|2025stl\\2025stl.vcxproj|C:\\github_local_repository\\stl\\2025stl\\2025stl\\STRING.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{4A322C24-9286-4666-8767-90D6FB1CBD8A}|2025stl\\2025stl.vcxproj|solutionrelative:2025stl\\STRING.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4A322C24-9286-4666-8767-90D6FB1CBD8A}|2025stl\\2025stl.vcxproj|C:\\github_local_repository\\stl\\2025stl\\2025stl\\STRING.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{4A322C24-9286-4666-8767-90D6FB1CBD8A}|2025stl\\2025stl.vcxproj|solutionrelative:2025stl\\STRING.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     }
   ],
   "DocumentGroupContainers": [
@@ -18,19 +22,32 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "STRING.h",
+              "DocumentMoniker": "C:\\github_local_repository\\stl\\2025stl\\2025stl\\STRING.h",
+              "RelativeDocumentMoniker": "2025stl\\STRING.h",
+              "ToolTip": "C:\\github_local_repository\\stl\\2025stl\\2025stl\\STRING.h",
+              "RelativeToolTip": "2025stl\\STRING.h",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAABcAAAAVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2025-04-08T04:30:57.14Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "2025 1 STL \uD65456\uBAA978 \uAC15\uC758\uC800\uC7A5.txt",
-              "DocumentMoniker": "C:\\github_local_repository\\stl\\2025stl\\2025stl\\2025 1 STL \uD65456\uBAA978 \uAC15\uC758\uC800\uC7A5.txt",
-              "RelativeDocumentMoniker": "2025stl\\2025 1 STL \uD65456\uBAA978 \uAC15\uC758\uC800\uC7A5.txt",
-              "ToolTip": "C:\\github_local_repository\\stl\\2025stl\\2025stl\\2025 1 STL \uD65456\uBAA978 \uAC15\uC758\uC800\uC7A5.txt",
-              "RelativeToolTip": "2025stl\\2025 1 STL \uD65456\uBAA978 \uAC15\uC758\uC800\uC7A5.txt",
-              "ViewState": "AgIAAOsXAAAAAAAAAAAAAIIVAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
-              "WhenOpened": "2025-03-20T07:31:42.008Z",
+              "Title": "STRING.cpp",
+              "DocumentMoniker": "C:\\github_local_repository\\stl\\2025stl\\2025stl\\STRING.cpp",
+              "RelativeDocumentMoniker": "2025stl\\STRING.cpp",
+              "ToolTip": "C:\\github_local_repository\\stl\\2025stl\\2025stl\\STRING.cpp",
+              "RelativeToolTip": "2025stl\\STRING.cpp",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-04-08T04:30:41.261Z",
               "EditorCaption": ""
             },
             {
@@ -39,9 +56,9 @@
               "Title": "main.cpp",
               "DocumentMoniker": "C:\\github_local_repository\\stl\\2025stl\\2025stl\\main.cpp",
               "RelativeDocumentMoniker": "2025stl\\main.cpp",
-              "ToolTip": "C:\\github_local_repository\\stl\\2025stl\\2025stl\\main.cpp*",
-              "RelativeToolTip": "2025stl\\main.cpp*",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAABoAAAAOAAAAAAAAAA==",
+              "ToolTip": "C:\\github_local_repository\\stl\\2025stl\\2025stl\\main.cpp",
+              "RelativeToolTip": "2025stl\\main.cpp",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAABcAAAAUAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2025-03-20T06:20:24.331Z",
               "EditorCaption": ""
