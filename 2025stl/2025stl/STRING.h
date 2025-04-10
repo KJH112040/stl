@@ -15,11 +15,18 @@ public:
 
 	STRING(const char* s);
 
-	//	복사생성과 복사할당
+	//	복사생성과 복사할당연산자
 	STRING(const STRING&);					// 2025.04.08
 	STRING& operator=(const STRING&);		// 2025.04.08
 
-	//	이동생성과 이동할당
+	//	이동생성과 이동할당연산자				// 2025.04.10
+	
+	// int a;
+	// int* p = &a;		-----> adress a
+	// int& a = num;	-----> integer reference of a
+
+	STRING(STRING&&);				// && -> rvalue reference
+	STRING& operator=(STRING&&);
 
 	size_t size() const;
 

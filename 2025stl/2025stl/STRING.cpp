@@ -71,6 +71,38 @@ STRING& STRING::operator=(const STRING& other)	// 2025.04.08
 	return *this;
 }
 
+//	이동생성과 이동할당연산자				// 2025.04.10
+STRING::STRING(STRING&& other)				// && -> rvalue reference
+	: id{ ++gid }, len{other.len}
+{
+	p.release();
+	p.reset(other.p.release());
+
+	if (관찰) {
+		std::println("[{:8}] {:16}, 자원수:{:<10}, 메모리:{:<12}, 자원메모리:{:<12}",
+			id, "이동생성자", len, (void*)this, (void*)p.get());
+	}
+}
+
+STRING& STRING::operator=(STRING&& other)
+{
+	if (this == &other)
+		return *this;
+
+	len = other.len;
+	p.release();
+	p.reset(other.p.release());
+
+	other.len = 0;
+
+	if (관찰) {
+		std::println("[{:8}] {:16}, 자원수:{:<10}, 메모리:{:<12}, 자원메모리:{:<12}",
+			id, "이동할당연산자", len, (void*)this, (void*)p.get());
+	}
+
+	return *this;
+}
+
 size_t STRING::size() const 
 {
 	return len;
