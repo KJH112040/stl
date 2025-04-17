@@ -1,57 +1,34 @@
 //------------------------------------------------------------------------------------------------
-//	2025 STL 화56목78	4월 10일 목요일				(6주 2일)
+//	2025 STL 화56목78	4월 15일 화요일				(7주 1일)
 //	중간고사	(30) -	4월 24일(8주 2일) 목요일
 //	5월 2일(화요일) -> 6월 19일(예정)
 //------------------------------------------------------------------------------------------------
-//	STRING - std::string과 유사한 클래스, STL 표준 컨테이너가 되도록..
-//			 STL 표준 컨테이너가 되려면 여러 자격 요견 필요
-//			 내부 동작을 관찰할 수 있게 하자. -> 가장 중요한 벡터를 이해할 수 있도록
+//	STL Container - Container are objects that store other objects.
+//	1. Sequence Containers
+//		array<T,N>
+//		vector<T> - dynamic array
 //------------------------------------------------------------------------------------------------
 #include <iostream>
-#include<array>
-#include<algorithm>
+#include <vector>
+#include<numeric>
 #include"STRING.h"
 #include "save.h"
 using namespace std;
 
-extern bool 관찰;				// 관찰하려면 true로
+extern bool 관찰;				// 관찰하려면 true로 설정
+
+//	[문제]	키보드에서 입력한 정수값의 합계와 평균을 출력하라.
 
 //---------
 int main() 
 //---------
 {
-	array<STRING, 5> a{ "1","333","55555","22","4444"};
+	cout << "정수를 마음껏 입력하세요. ";
+	vector<int> v{ istream_iterator<int>{cin}, {} };
 
-	// 정렬
-	관찰 = true;
-	sort(a.begin(), a.end(), [](const STRING& lhs, const STRING& rhs) {
-		return lhs.size() < rhs.size();
-	});
-	관찰 = false;
-	//	[6] 이동생성자,		자원수 : 3,	메모리 : 0x1574cffaa0, 자원메모리 : 0x1c6a6ab2480
-	//	[2] 이동할당연산자,	자원수 : 3,	메모리 : 0x1574cffb38, 자원메모리 : 0x1c6a6ab2480
-	//	[6] 소멸자,			자원수 : 0,	메모리 : 0x1574cffaa0, 자원메모리 : 0x0
-	//	[7] 이동생성자,		자원수 : 5,	메모리 : 0x1574cffaa0, 자원메모리 : 0x1c6a6ab2450
-	//	[3] 이동할당연산자,	자원수 : 5,	메모리 : 0x1574cffb50, 자원메모리 : 0x1c6a6ab2450
-	//	[7] 소멸자,			자원수 : 0,	메모리 : 0x1574cffaa0, 자원메모리 : 0x0
-	//	[8] 이동생성자,		자원수 : 2,	메모리 : 0x1574cffaa0, 자원메모리 : 0x1c6a6ab25d0
-	//	[4] 이동할당연산자,	자원수 : 5,	메모리 : 0x1574cffb68, 자원메모리 : 0x1c6a6ab2450
-	//	[3] 이동할당연산자,	자원수 : 3,	메모리 : 0x1574cffb50, 자원메모리 : 0x1c6a6ab2480
-	//	[2] 이동할당연산자,	자원수 : 2,	메모리 : 0x1574cffb38, 자원메모리 : 0x1c6a6ab25d0
-	//	[8] 소멸자,			자원수 : 0,	메모리 : 0x1574cffaa0, 자원메모리 : 0x0
-	//	[9] 이동생성자,		자원수 : 4,	메모리 : 0x1574cffaa0, 자원메모리 : 0x1c6a6ab2580
-	//	[5] 이동할당연산자,	자원수 : 5,	메모리 : 0x1574cffb80, 자원메모리 : 0x1c6a6ab2450
-	//	[4] 이동할당연산자,	자원수 : 4,	메모리 : 0x1574cffb68, 자원메모리 : 0x1c6a6ab2580
-	//	[9] 소멸자,			자원수 : 0,	메모리 : 0x1574cffaa0, 자원메모리 : 0x0
-
-	// 출력
-	for (const STRING& str : a)
-		cout << str << endl;
-	//	1
-	//	22
-	//	333
-	//	4444
-	//	55555
+	long long sum = accumulate(v.begin(), v.end(), 0LL);		// 0(zero) long long
+	cout << "합계 - " << sum <<endl;
+	cout << "평균 - " << (double)sum / v.size() << endl;
 
 	save("main.cpp");
 }
