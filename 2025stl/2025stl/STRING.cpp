@@ -75,7 +75,6 @@ STRING& STRING::operator=(const STRING& other)	// 2025.04.08
 STRING::STRING(STRING&& other)				// && -> rvalue reference
 	: id{ ++gid }, len{other.len}
 {
-	p.release();
 	p.reset(other.p.release());
 
 	if (°üÂû) {
