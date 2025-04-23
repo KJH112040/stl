@@ -1,33 +1,34 @@
 //------------------------------------------------------------------------------------------------
-//	2025 STL 화56목78				4월 17일 목요일					(7주 2일)
-//	중간고사	(30) -	4월 24일(8주 2일) 목요일	-	시험장소 E동 320
+//	2025 STL 화56목78				4월 22일 화요일					(8주 1일)
+//	중간고사	(30) -	4월 24일(8주 2일) 목요일	-	시험장소 E동 320 (준비 끝난 후 60분)
 //	5월 2일(화요일) -> 6월 19일(예정)
 //------------------------------------------------------------------------------------------------
 //	STL Container - Container are objects that store other objects.
 //	1. Sequence Containers
 //		array<T,N>
 //		vector<T> - dynamic(run-time) array
+//		deque<T> - vector보다 더 많은 원소를 담을 수 있다.
 //------------------------------------------------------------------------------------------------
 #include <iostream>
-#include <vector>
+#include <deque>
 #include"STRING.h"
 #include "save.h"
 using namespace std;
 
 extern bool 관찰;				// 관찰하려면 true로 설정
 
-//	[문제]	vector는 어떻게 메모리를 관리하나?
-//	새로 메모리를 잡는 순간만 화면 출력
-
 //---------
 int main() 
 //---------
 {
 	관찰 = true;
+	deque<STRING> d{"1","22","333","4444","55555"};
 
-	vector<STRING> v;
+	for (const STRING& s : d)
+		cout << (void*)&s << endl;
+	관찰 = false;
 
-	v.emplace_back("인자만 인자만 인자만");			// 객체가 만들어지는 형태 v.emplace_back(STRING{}) 로 쓰면 안됨. 재료(인자만) 써야함.
+
 
 	save("main.cpp");
 }

@@ -6,6 +6,7 @@
 #include<iostream>
 #include<memory>
 #include<print>
+#include<algorithm>
 #include"STRING.h"
 
 // 관찰을 제어하기 위한 변수 추가				// 2025.04.08
@@ -100,6 +101,12 @@ STRING& STRING::operator=(STRING&& other)
 	}
 
 	return *this;
+}
+
+// 2025. 04. 22 관계연산자들
+bool STRING::operator==(const STRING& rhs) const
+{
+	return std::equal(&p[0], &p[len], &rhs.p[0]);
 }
 
 size_t STRING::size() const 

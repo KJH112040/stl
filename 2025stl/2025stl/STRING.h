@@ -28,6 +28,10 @@ public:
 	STRING(STRING&&);				// && -> rvalue reference
 	STRING& operator=(STRING&&);
 
+	// 2025. 04. 22 관계연산자들
+	bool operator==(const STRING& rhs) const;
+
+	// 인터페이스 함수들
 	size_t size() const;
 
 private:
