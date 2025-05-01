@@ -1,43 +1,8 @@
-﻿  main.cpp
-C:\github_local_repository\stl\2025stl\2025stl\main.cpp(29,10): error C3889: 클래스 형식 'std::ranges::_Sort_fn'의 개체에 대한 호출: 일치하는 호출 연산자를 찾을 수 없습니다.
-      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\include\algorithm(8541,45):
-      '_It std::ranges::_Sort_fn::operator ()(_It,_Se,_Pr,_Pj) const'일 수 있습니다.
-          C:\github_local_repository\stl\2025stl\2025stl\main.cpp(29,10):
-          관련 제약 조건이 충족되지 않았습니다.
-              C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\include\algorithm(8539,19):
-              개념 'std::random_access_iterator<std::_List_iterator<std::_List_val<std::_List_simple_types<_Ty>>>>'이(가) false로 평가되었습니다.
-          with
-          [
-              _Ty=STRING
-          ]
-                  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\include\xutility(1035,36):
-                  개념 'std::derived_from<std::bidirectional_iterator_tag,std::random_access_iterator_tag>'이(가) false로 평가되었습니다.
-                      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\include\concepts(38,5):
-                      제약 조건이 충족되지 않았습니다.
-      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\include\algorithm(8554,67):
-      또는       'conditional<std::ranges::borrowed_range<_Rng>,unknown-type,std::ranges::dangling>::type std::ranges::_Sort_fn::operator ()(_Rng &&,_Pr,_Pj) const'
-          C:\github_local_repository\stl\2025stl\2025stl\main.cpp(29,10):
-          함수 템플릿 'conditional<std::ranges::borrowed_range<_Rng>,unknown-type,std::ranges::dangling>::type std::ranges::_Sort_fn::operator ()(_Rng &&,_Pr,_Pj) const'을(를) 특수화하지 못했습니다.
-              C:\github_local_repository\stl\2025stl\2025stl\main.cpp(29,10):
-              다음 템플릿 인수 사용:
-                  C:\github_local_repository\stl\2025stl\2025stl\main.cpp(29,10):
-                  '_Rng=std::_List_iterator<std::_List_val<std::_List_simple_types<_Ty>>>'
-                  C:\github_local_repository\stl\2025stl\2025stl\main.cpp(29,10):
-                  '_Pr=std::_List_iterator<std::_List_val<std::_List_simple_types<_Ty>>>'
-                  C:\github_local_repository\stl\2025stl\2025stl\main.cpp(29,10):
-                  '_Pj=std::identity'
-              C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\include\xutility(5031,53):
-              'std::ranges::borrowed_iterator_t': 관련 제약 조건이 충족되지 않습니다.
-                  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\include\xutility(4194,27):
-                  개념 'std::ranges::range<std::_List_iterator<std::_List_val<std::_List_simple_types<_Ty>>>>'이(가) false로 평가되었습니다.
-          with
-          [
-              _Ty=STRING
-          ]
-                      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\include\xutility(2717,17):
-                      클래스 형식 'std::ranges::_Begin::_Cpo'의 개체에 대한 호출: 일치하는 호출 연산자를 찾을 수 없습니다.
-                          C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\include\xutility(2617,61):
-                          'auto std::ranges::_Begin::_Cpo::operator ()(_Ty &&) noexcept(<expr>) const'일 수 있습니다.
-              C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\include\xutility(4195,5):
-              'std::ranges::borrowed_iterator_t' 선언을 참조하십시오.
-  
+﻿  STRING.cpp
+  main.cpp
+  코드를 생성하고 있습니다.
+  18 of 1171 functions ( 1.5%) were compiled, the rest were copied from previous compilation.
+    0 functions were new in current compilation
+    13 functions had inline decision re-evaluated but remain unchanged
+  코드를 생성했습니다.
+  2025stl.vcxproj -> C:\github_local_repository\stl\2025stl\x64\Release\2025stl.exe

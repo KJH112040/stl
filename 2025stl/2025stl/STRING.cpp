@@ -2,11 +2,14 @@
 //	STRING.cpp - std::string과 유사한 클래스이다
 //				 STL의 container로 동작할 수 있게 코딩해 나간다
 //																	2025.4.8 시작
+//	2025. 4.
+//	2025. 5. 1	>> 연산자
 //----------------------------------------------------------------------------------
 #include<iostream>
 #include<memory>
 #include<print>
 #include<algorithm>
+#include<string>
 #include"STRING.h"
 
 // 관찰을 제어하기 위한 변수 추가				// 2025.04.08
@@ -106,7 +109,9 @@ STRING& STRING::operator=(STRING&& other)
 // 2025. 04. 22 관계연산자들
 bool STRING::operator==(const STRING& rhs) const
 {
-	return std::equal(&p[0], &p[len], &rhs.p[0]);
+	//if (len != rhs.len)
+	//	return false;
+	return std::equal(&p[0], &p[len], &rhs.p[0], &rhs.p[rhs.len]);
 }
 
 size_t STRING::size() const 
@@ -119,6 +124,18 @@ std::ostream& operator<<(std::ostream& os, const STRING& str)
 	for (int i = 0; i < str.len; ++i)
 		os << str.p[i];
 	return os;
+}
+
+// 2025. 5. 1
+std::istream& operator>>(std::istream& is, STRING& str)
+{
+	std::string s;
+	is >> s;
+	str.len = s.length();
+	str.p.release();
+	str.p = std::make_unique<char[]>(str.len);
+	memcpy((char*)str.p.get(), s.data(), str.len);
+	return is;
 }
 
 size_t STRING::gid{};						// 2025.04.0

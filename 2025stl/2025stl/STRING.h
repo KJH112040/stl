@@ -2,6 +2,7 @@
 //	STRING.h - std::string과 유사한 클래스이다
 //			   STL의 container로 동작할 수 있게 코딩해 나간다
 //																	2025.4.8 시작
+//	>> 연산자															2025.5.1 
 //----------------------------------------------------------------------------------
 #pragma once
 #include<memory>
@@ -40,6 +41,9 @@ private:
 	size_t id;									// 2025.04.08
 
 	friend std::ostream& operator<<(std::ostream& os, const STRING& str);
+
+	// 2025. 5. 1
+	friend std::istream& operator>>(std::istream& is, STRING& str);
 
 	static size_t gid;						// 2025.04.08
 };

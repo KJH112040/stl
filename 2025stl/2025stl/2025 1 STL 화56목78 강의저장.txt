@@ -10841,3 +10841,1891 @@ int main()
 	°üÂû = false;
 	save("main.cpp");
 }
+
+
+=================================================
+ÀúÀåÇÑ ½Ã°£: 2025-05-01 ¿ÀÈÄ 3:34:21 ¸ñ¿äÀÏ
+=================================================
+
+//------------------------------------------------------------------------------------------------
+//	2025 STL È­56¸ñ78				5¿ù 1ÀÏ ¸ñ¿äÀÏ					(9ÁÖ 2ÀÏ)
+//	5¿ù 6ÀÏ(È­¿äÀÏ) -> 6¿ù 19ÀÏ(¿¹Á¤)
+//------------------------------------------------------------------------------------------------
+//	STL Container - Container are objects that store other objects.
+//	1. Sequence Containers
+//		array<T,N>
+//		vector<T> - push_back() O(1)
+//		deque<T>  - push_front() / push_back() O(1)
+//		list<T>	  - node ±â¹İ, ÀÓÀÇÀÇ À§Ä¡¿¡¼­ »ğÀÔ°ú »èÁ¦ O(1)
+//------------------------------------------------------------------------------------------------
+#include <iostream>
+#include <vector>
+#include<deque>
+#include <list>
+#include<algorithm>
+#include<ranges>
+#include"STRING.h"
+#include "save.h"
+using namespace std;
+
+extern bool °üÂû;				// °üÂûÇÏ·Á¸é true·Î ¼³Á¤
+
+//---------
+int main() 
+//---------
+{
+	vector<int> v;
+
+	cout << "ÃÖ´ë °³¼ö - " << v.max_size() << endl;
+	// ÃÖ´ë °³¼ö´Â ¹«ÀÇ¹ÌÇÔ.
+	// ÃÖ´ë °³¼ö - 4611686018427387903 : ÄÄ¸¶´Ù ´Ù¸¦ ¼ö ÀÖÀ½.
+	
+	save("main.cpp");
+}
+
+
+=================================================
+ÀúÀåÇÑ ½Ã°£: 2025-05-01 ¿ÀÈÄ 3:48:06 ¸ñ¿äÀÏ
+=================================================
+
+//------------------------------------------------------------------------------------------------
+//	2025 STL È­56¸ñ78				5¿ù 1ÀÏ ¸ñ¿äÀÏ					(9ÁÖ 2ÀÏ)
+//	5¿ù 6ÀÏ(È­¿äÀÏ) -> 6¿ù 19ÀÏ(¿¹Á¤)
+//------------------------------------------------------------------------------------------------
+//	STL Container - Container are objects that store other objects.
+//	1. Sequence Containers
+//		array<T,N>
+//		vector<T> - push_back() O(1)
+//		deque<T>  - push_front() / push_back() O(1)
+//		list<T>	  - node ±â¹İ, ÀÓÀÇÀÇ À§Ä¡¿¡¼­ »ğÀÔ°ú »èÁ¦ O(1)
+//------------------------------------------------------------------------------------------------
+#include <iostream>
+#include <list>
+#include<algorithm>
+#include<ranges>
+#include"STRING.h"
+#include "save.h"
+using namespace std;
+
+extern bool °üÂû;				// °üÂûÇÏ·Á¸é true·Î ¼³Á¤
+
+//class Test {
+//	char x[1'000'000];			// 1¸Ş°¡ Á¤µµ·Î ¸ÂÃã
+//};
+
+//---------
+int main() 
+//---------
+{
+	{	// ±³¼ö´Ô ÄÄ "ÃÖ´ë ¿ø¼Ò ¼ö - 18'207"
+		//vector<Test> v;
+		//int cnt{};
+		//try{
+		//	while (true) {
+		//		v.emplace_back();
+		//		// »±»±ÀÌ µ¹´Ù°¡ Á×À½
+		//		// ===>¿¹¿Ü ÇÊ¿ä
+		//		cout << ++cnt << endl;
+		//	}
+		//}
+		//catch (...) {
+		//	cout << "ÃÖ´ë ¿ø¼Ò ¼ö - " << v.size() << endl;
+		//}
+	}
+
+	{	// ±³¼ö´Ô ÄÄ "ÃÖ´ë ¿ø¼Ò ¼ö - 38'520"
+		//deque<Test> d;
+		//int cnt{};
+		//try {
+		//	while (true) {
+		//		d.emplace_back();
+		//		// »±»±ÀÌ µ¹´Ù°¡ Á×À½
+		//		// ===>¿¹¿Ü ÇÊ¿ä
+		//		cout << ++cnt << endl;
+		//	}
+		//}
+		//catch (...) {
+		//	cout << "ÃÖ´ë ¿ø¼Ò ¼ö - " << d.size() << endl;
+		//}
+	}
+	
+	list<int> cont{ 1,2,3,4,5,6,7,8,9,10 };
+
+	//	[¹®Á¦] contÀÇ ¸ğµç ¿ø¼Ò¸¦ Ãâ·ÂÇÏ¶ó.
+	for (int num : cont)
+		cout << num << " ";
+	cout << endl;
+
+	save("main.cpp");
+}
+
+
+=================================================
+ÀúÀåÇÑ ½Ã°£: 2025-05-01 ¿ÀÈÄ 3:52:56 ¸ñ¿äÀÏ
+=================================================
+
+//------------------------------------------------------------------------------------------------
+//	2025 STL È­56¸ñ78				5¿ù 1ÀÏ ¸ñ¿äÀÏ					(9ÁÖ 2ÀÏ)
+//	5¿ù 6ÀÏ(È­¿äÀÏ) -> 6¿ù 19ÀÏ(¿¹Á¤)
+//------------------------------------------------------------------------------------------------
+//	STL Container - Container are objects that store other objects.
+//	1. Sequence Containers
+//		array<T,N>
+//		vector<T> - push_back() O(1)
+//		deque<T>  - push_front() / push_back() O(1)
+//		list<T>	  - node ±â¹İ, ÀÓÀÇÀÇ À§Ä¡¿¡¼­ »ğÀÔ°ú »èÁ¦ O(1)
+//------------------------------------------------------------------------------------------------
+#include <iostream>
+#include<vector>
+#include <list>
+#include<algorithm>
+#include<ranges>
+#include"STRING.h"
+#include "save.h"
+using namespace std;
+
+extern bool °üÂû;				// °üÂûÇÏ·Á¸é true·Î ¼³Á¤
+
+//---------
+int main() 
+//---------
+{
+	list<int> cont{ 1,2,3,4,5,6,7,8,9,10 };
+	vector<int> v{ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+
+	//	[¹®Á¦] contÀÇ µÎ ¹øÂ° ¿ø¼ÒºÎÅÍ ³¡±îÁö Ãâ·ÂÇÏ¶ó.
+	//	º¤ÅÍÀÏ ¶§ÀÇ Á¤´ä:
+	for (int i = 1; i < v.size(); ++i)
+		cout << v[i] << " ";
+	cout << endl;
+
+	save("main.cpp");
+}
+
+
+=================================================
+ÀúÀåÇÑ ½Ã°£: 2025-05-01 ¿ÀÈÄ 4:02:53 ¸ñ¿äÀÏ
+=================================================
+
+//------------------------------------------------------------------------------------------------
+//	2025 STL È­56¸ñ78				5¿ù 1ÀÏ ¸ñ¿äÀÏ					(9ÁÖ 2ÀÏ)
+//	5¿ù 6ÀÏ(È­¿äÀÏ) -> 6¿ù 19ÀÏ(¿¹Á¤)
+//------------------------------------------------------------------------------------------------
+//	STL Container - Container are objects that store other objects.
+//	1. Sequence Containers
+//		array<T,N>
+//		vector<T> - push_back() O(1)
+//		deque<T>  - push_front() / push_back() O(1)
+//		list<T>	  - node ±â¹İ, ÀÓÀÇÀÇ À§Ä¡¿¡¼­ »ğÀÔ°ú »èÁ¦ O(1)
+//------------------------------------------------------------------------------------------------
+#include <iostream>
+#include<vector>
+#include <list>
+#include<algorithm>
+#include<ranges>
+#include"STRING.h"
+#include "save.h"
+using namespace std;
+
+extern bool °üÂû;				// °üÂûÇÏ·Á¸é true·Î ¼³Á¤
+
+//---------
+int main() 
+//---------
+{
+	list<int> cont{ 1,2,3,4,5,6,7,8,9,10 };
+	vector<int> v{ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+
+	//	[¹®Á¦] contÀÇ µÎ ¹øÂ° ¿ø¼ÒºÎÅÍ ³¡±îÁö Ãâ·ÂÇÏ¶ó.
+	//	º¤ÅÍÀÏ ¶§ÀÇ Á¤´ä:
+	for (int i = 1; i < v.size(); ++i)
+		cout << v[i] << " ";
+	cout << endl;
+
+	// [] ÀÌ ±âÈ£´Â ¸Ş¸ğ¸®°¡ contiguousÇÑ contÀÏ¶§ »ç¿ëÇÒ ¼ö ÀÖÀ½.
+	// int a[]
+	// array<int,N>
+	// vector<int>
+	// deque<int>
+	// string
+	// ÀÌ Áß STLÀÇ ±âº»ÀûÀÎ cont´Â array, vector, deque
+
+	// list´Â ¾î¶»°Ô? ÀÌ·² ¶§ ¹İº¹ÀÚ°¡ ÇÊ¿ä.
+	// list<int>::iterator beg = cont.begin();		// Æ÷ÀÎÅÍ°¡ ¾Æ´Ô. Å¬·¡½º ÀÚ·áÇü½Ä
+	//	¸®½ºÆ®ÀÏ ¶§ÀÇ Á¤´ä:
+	auto beg = cont.begin();
+	++beg;
+	for (auto i = beg; i != cont.end(); ++i)
+	// list´Â ¿¬°á ¸®½ºÆ® Çü½Ä?ÀÇ contÀÌ¹Ç·Î listÀÇ ¿ø¼Ò¸¦ °¡¸®Å°´Â i¿¡ i<cont.end()´Â ¾²Áö ¸øÇÔ.
+		cout << *i << " ";
+	cout << endl;
+
+
+	save("main.cpp");
+}
+
+
+=================================================
+ÀúÀåÇÑ ½Ã°£: 2025-05-01 ¿ÀÈÄ 4:05:57 ¸ñ¿äÀÏ
+=================================================
+
+//------------------------------------------------------------------------------------------------
+//	2025 STL È­56¸ñ78				5¿ù 1ÀÏ ¸ñ¿äÀÏ					(9ÁÖ 2ÀÏ)
+//	5¿ù 6ÀÏ(È­¿äÀÏ) -> 6¿ù 19ÀÏ(¿¹Á¤)
+//------------------------------------------------------------------------------------------------
+//	STL Container - Container are objects that store other objects.
+//	1. Sequence Containers
+//		array<T,N>
+//		vector<T> - push_back() O(1)
+//		deque<T>  - push_front() / push_back() O(1)
+//		list<T>	  - node ±â¹İ, ÀÓÀÇÀÇ À§Ä¡¿¡¼­ »ğÀÔ°ú »èÁ¦ O(1)
+//------------------------------------------------------------------------------------------------
+#include <iostream>
+#include<vector>
+#include <list>
+#include<algorithm>
+#include<ranges>
+#include"STRING.h"
+#include "save.h"
+using namespace std;
+
+extern bool °üÂû;				// °üÂûÇÏ·Á¸é true·Î ¼³Á¤
+
+//---------
+int main() 
+//---------
+{
+	list<int> cont{ 1,2,3,4,5,6,7,8,9,10 };
+
+	//	[¹®Á¦] contÀÇ µÎ ¹øÂ° ¿ø¼ÒºÎÅÍ ³¡±îÁö Ãâ·ÂÇÏ¶ó.
+	auto beg = cont.begin();
+	beg.operator++();
+
+	// list<int>::iterator beg = cont.begin();		// Æ÷ÀÎÅÍ°¡ ¾Æ´Ô. Å¬·¡½º ÀÚ·áÇü½Ä
+	for (auto i = ++cont.begin(); i != cont.end(); ++i)		
+		cout << *i << " ";
+	cout << endl;
+
+
+	save("main.cpp");
+}
+
+
+=================================================
+ÀúÀåÇÑ ½Ã°£: 2025-05-01 ¿ÀÈÄ 4:08:23 ¸ñ¿äÀÏ
+=================================================
+
+//------------------------------------------------------------------------------------------------
+//	2025 STL È­56¸ñ78				5¿ù 1ÀÏ ¸ñ¿äÀÏ					(9ÁÖ 2ÀÏ)
+//	5¿ù 6ÀÏ(È­¿äÀÏ) -> 6¿ù 19ÀÏ(¿¹Á¤)
+//------------------------------------------------------------------------------------------------
+//	STL Container - Container are objects that store other objects.
+//	1. Sequence Containers
+//		array<T,N>
+//		vector<T> - push_back() O(1)
+//		deque<T>  - push_front() / push_back() O(1)
+//		list<T>	  - node ±â¹İ, ÀÓÀÇÀÇ À§Ä¡¿¡¼­ »ğÀÔ°ú »èÁ¦ O(1)
+//------------------------------------------------------------------------------------------------
+#include <iostream>
+#include<vector>
+#include <list>
+#include<algorithm>
+#include<ranges>
+#include"STRING.h"
+#include "save.h"
+using namespace std;
+
+extern bool °üÂû;				// °üÂûÇÏ·Á¸é true·Î ¼³Á¤
+
+//---------
+int main() 
+//---------
+{
+	list<int> cont{ 1,3,5,7,9,2,4,6,8,10 };
+
+	//	[¹®Á¦] contÀÇ ¿ø¼Ò¸¦ °Å²Ù·Î Ãâ·ÂÇÏ¶ó.
+	for (auto i = cont.begin(); i != cont.end(); ++i)
+		cout << *i << " ";
+	cout << endl;
+
+	save("main.cpp");
+}
+
+
+=================================================
+ÀúÀåÇÑ ½Ã°£: 2025-05-01 ¿ÀÈÄ 4:10:02 ¸ñ¿äÀÏ
+=================================================
+
+//------------------------------------------------------------------------------------------------
+//	2025 STL È­56¸ñ78				5¿ù 1ÀÏ ¸ñ¿äÀÏ					(9ÁÖ 2ÀÏ)
+//	5¿ù 6ÀÏ(È­¿äÀÏ) -> 6¿ù 19ÀÏ(¿¹Á¤)
+//------------------------------------------------------------------------------------------------
+//	STL Container - Container are objects that store other objects.
+//	1. Sequence Containers
+//		array<T,N>
+//		vector<T> - push_back() O(1)
+//		deque<T>  - push_front() / push_back() O(1)
+//		list<T>	  - node ±â¹İ, ÀÓÀÇÀÇ À§Ä¡¿¡¼­ »ğÀÔ°ú »èÁ¦ O(1)
+//------------------------------------------------------------------------------------------------
+#include <iostream>
+#include<vector>
+#include <list>
+#include<algorithm>
+#include<unordered_set>
+#include"STRING.h"
+#include "save.h"
+using namespace std;
+
+extern bool °üÂû;				// °üÂûÇÏ·Á¸é true·Î ¼³Á¤
+
+//---------
+int main() 
+//---------
+{
+	list<int> cont{ 1,3,5,7,9,2,4,6,8,10 };
+	unordered_set<int> cont1{ 1,3,5,7,9,2,4,6,8,10 };
+
+	//	[¹®Á¦] contÀÇ ¿ø¼Ò¸¦ °Å²Ù·Î Ãâ·ÂÇÏ¶ó.
+	//for (auto i = cont.begin(); i != cont.end(); ++i)
+	//	cout << *i << " ";
+	//cout << endl;
+	// 1 3 5 7 9 2 4 6 8 10
+
+	for (auto i = cont1.begin(); i != cont1.end(); ++i)
+		cout << *i << " ";
+	cout << endl;
+	// 9 1 3 5 7 2 4 6 8 10
+
+	save("main.cpp");
+}
+
+
+=================================================
+ÀúÀåÇÑ ½Ã°£: 2025-05-01 ¿ÀÈÄ 4:10:53 ¸ñ¿äÀÏ
+=================================================
+
+//------------------------------------------------------------------------------------------------
+//	2025 STL È­56¸ñ78				5¿ù 1ÀÏ ¸ñ¿äÀÏ					(9ÁÖ 2ÀÏ)
+//	5¿ù 6ÀÏ(È­¿äÀÏ) -> 6¿ù 19ÀÏ(¿¹Á¤)
+//------------------------------------------------------------------------------------------------
+//	STL Container - Container are objects that store other objects.
+//	1. Sequence Containers
+//		array<T,N>
+//		vector<T> - push_back() O(1)
+//		deque<T>  - push_front() / push_back() O(1)
+//		list<T>	  - node ±â¹İ, ÀÓÀÇÀÇ À§Ä¡¿¡¼­ »ğÀÔ°ú »èÁ¦ O(1)
+//------------------------------------------------------------------------------------------------
+#include <iostream>
+#include<vector>
+#include <list>
+#include<algorithm>
+#include<set>
+#include"STRING.h"
+#include "save.h"
+using namespace std;
+
+extern bool °üÂû;				// °üÂûÇÏ·Á¸é true·Î ¼³Á¤
+
+//---------
+int main() 
+//---------
+{
+	list<int> cont{ 1,3,5,7,9,2,4,6,8,10 };
+	set<int> cont1{ 1,3,5,7,9,2,4,6,8,10 };
+
+	//	[¹®Á¦] contÀÇ ¿ø¼Ò¸¦ °Å²Ù·Î Ãâ·ÂÇÏ¶ó.
+	//for (auto i = cont.begin(); i != cont.end(); ++i)
+	//	cout << *i << " ";
+	//cout << endl;
+	// 1 3 5 7 9 2 4 6 8 10
+
+	for (auto i = cont1.begin(); i != cont1.end(); ++i)
+		cout << *i << " ";
+	cout << endl;
+	// 1 2 3 4 5 6 7 8 9 10
+
+	save("main.cpp");
+}
+
+
+=================================================
+ÀúÀåÇÑ ½Ã°£: 2025-05-01 ¿ÀÈÄ 4:13:49 ¸ñ¿äÀÏ
+=================================================
+
+//------------------------------------------------------------------------------------------------
+//	2025 STL È­56¸ñ78				5¿ù 1ÀÏ ¸ñ¿äÀÏ					(9ÁÖ 2ÀÏ)
+//	5¿ù 6ÀÏ(È­¿äÀÏ) -> 6¿ù 19ÀÏ(¿¹Á¤)
+//------------------------------------------------------------------------------------------------
+//	STL Container - Container are objects that store other objects.
+//	1. Sequence Containers
+//		array<T,N>
+//		vector<T> - push_back() O(1)
+//		deque<T>  - push_front() / push_back() O(1)
+//		list<T>	  - node ±â¹İ, ÀÓÀÇÀÇ À§Ä¡¿¡¼­ »ğÀÔ°ú »èÁ¦ O(1)
+//------------------------------------------------------------------------------------------------
+#include <iostream>
+#include<vector>
+#include <list>
+#include<algorithm>
+#include"STRING.h"
+#include "save.h"
+using namespace std;
+
+extern bool °üÂû;				// °üÂûÇÏ·Á¸é true·Î ¼³Á¤
+
+//---------
+int main() 
+//---------
+{
+	list<int> cont{ 1,3,5,7,9,2,4,6,8,10 };		// }; == end ===> }; ÀÌ ÀÚ¸® °ªÀ» Âï°í ½Í¾î: ÀÌÀü ¿ø¼Ò 10À» Âï´Â »ç±â Çà°¢
+
+	//	[¹®Á¦] contÀÇ ¿ø¼Ò¸¦ °Å²Ù·Î Ãâ·ÂÇÏ¶ó.
+	for (auto i = cont.rbegin(); i != cont.rend(); ++i)		// cppreference - std::reverse_iterator
+		cout << i.operator*() << " ";
+	cout << endl;
+	// 10 8 6 4 2 9 7 5 3 1
+
+	save("main.cpp");
+}
+
+
+=================================================
+ÀúÀåÇÑ ½Ã°£: 2025-05-01 ¿ÀÈÄ 4:38:09 ¸ñ¿äÀÏ
+=================================================
+
+//----------------------------------------------------------------------------------
+//	STRING.h - std::string°ú À¯»çÇÑ Å¬·¡½ºÀÌ´Ù
+//			   STLÀÇ container·Î µ¿ÀÛÇÒ ¼ö ÀÖ°Ô ÄÚµùÇØ ³ª°£´Ù
+//																	2025.4.8 ½ÃÀÛ
+//	>> ¿¬»êÀÚ															2025.5.1 
+//----------------------------------------------------------------------------------
+#pragma once
+#include<memory>
+#include<iostream>
+
+class STRING {
+public:
+	STRING();						// 2025.04.08
+	~STRING();								// 2025.04.08
+											// °üÂûÀ» À§ÇØ ¾îÂ¿ ¼ö ¾øÀÌ
+
+	STRING(const char* s);
+
+	//	º¹»ç»ı¼º°ú º¹»çÇÒ´ç¿¬»êÀÚ
+	STRING(const STRING&);					// 2025.04.08
+	STRING& operator=(const STRING&);		// 2025.04.08
+
+	//	ÀÌµ¿»ı¼º°ú ÀÌµ¿ÇÒ´ç¿¬»êÀÚ				// 2025.04.10
+	
+	// int a;
+	// int* p = &a;		-----> adress a
+	// int& a = num;	-----> integer reference of a
+
+	STRING(STRING&&);				// && -> rvalue reference
+	STRING& operator=(STRING&&);
+
+	// 2025. 04. 22 °ü°è¿¬»êÀÚµé
+	bool operator==(const STRING& rhs) const;
+
+	// ÀÎÅÍÆäÀÌ½º ÇÔ¼öµé
+	size_t size() const;
+
+private:
+	size_t len{};
+	std::unique_ptr<char[]> p{};
+	size_t id;									// 2025.04.08
+
+	friend std::ostream& operator<<(std::ostream& os, const STRING& str);
+
+	// 2025. 5. 1
+	friend std::istream& operator>>(std::istream& is, STRING& str);
+
+	static size_t gid;						// 2025.04.08
+};
+
+
+=================================================
+ÀúÀåÇÑ ½Ã°£: 2025-05-01 ¿ÀÈÄ 4:38:09 ¸ñ¿äÀÏ
+=================================================
+
+//----------------------------------------------------------------------------------
+//	STRING.cpp - std::string°ú À¯»çÇÑ Å¬·¡½ºÀÌ´Ù
+//				 STLÀÇ container·Î µ¿ÀÛÇÒ ¼ö ÀÖ°Ô ÄÚµùÇØ ³ª°£´Ù
+//																	2025.4.8 ½ÃÀÛ
+//	2025. 4.
+//	2025. 5. 1	>> ¿¬»êÀÚ
+//----------------------------------------------------------------------------------
+#include<iostream>
+#include<memory>
+#include<print>
+#include<algorithm>
+#include"STRING.h"
+
+// °üÂûÀ» Á¦¾îÇÏ±â À§ÇÑ º¯¼ö Ãß°¡				// 2025.04.08
+bool °üÂû{ false };					// 2025.04.08
+
+STRING::STRING()							// 2025.04.08
+	: id{++gid}
+{
+	if(°üÂû){
+		std::println("[{:8}] {:16}, ÀÚ¿ø¼ö:{:<10}, ¸Ş¸ğ¸®:{:<12}, ÀÚ¿ø¸Ş¸ğ¸®:{:<12}",
+			id, "µğÆúÆ®»ı¼º", len, (void*)this, (void*)p.get());
+	}
+}
+
+STRING::~STRING()								// 2025.04.08
+{
+	if (°üÂû) {
+		std::println("[{:8}] {:16}, ÀÚ¿ø¼ö:{:<10}, ¸Ş¸ğ¸®:{:<12}, ÀÚ¿ø¸Ş¸ğ¸®:{:<12}",
+			id, "¼Ò¸êÀÚ", len, (void*)this, (void*)p.get());
+	}
+}
+
+STRING::STRING(const char* s) 
+	:id{++gid},len {	strlen(s)}
+{
+	p.reset();
+	p = std::make_unique<char[]>(len);
+	memcpy(p.get(), s, len);
+
+	if (°üÂû) {
+		std::println("[{:8}] {:16}, ÀÚ¿ø¼ö:{:<10}, ¸Ş¸ğ¸®:{:<12}, ÀÚ¿ø¸Ş¸ğ¸®:{:<12}",
+			id, "»ı¼ºÀÚ(char*)", len, (void*)this, (void*)p.get());
+	}
+};
+
+STRING::STRING(const STRING& other)			// 2025.04.08
+	:id{ ++gid }, len{ other.len }		// ¿©±â¿¡ µÎ ¹øÂ° ÀÎÀÚ¸¦ ³Ö°Ô µÇ¸é, ¼ø¼­°¡ º¸ÀåµÇÁö ¾ÊÀ½
+{
+	p = std::make_unique<char[]>(len);
+	memcpy(p.get(), other.p.get(), len);
+
+	if (°üÂû) {
+		std::println("[{:8}] {:16}, ÀÚ¿ø¼ö:{:<10}, ¸Ş¸ğ¸®:{:<12}, ÀÚ¿ø¸Ş¸ğ¸®:{:<12}",
+			id, "º¹»ç»ı¼ºÀÚ", len, (void*)this, (void*)p.get());
+	}
+}
+
+STRING& STRING::operator=(const STRING& other)	// 2025.04.08
+{
+	if (this == &other)
+		return *this;
+
+	len = other.len;
+	p.release();								// p.reset()°ú ´Ù¸¥ Á¡À» °øºÎÇÏÀÚ
+	p = std::make_unique<char[]>(len);
+	memcpy(p.get(), other.p.get(), len);
+
+	if (°üÂû) {
+		std::println("[{:8}] {:16}, ÀÚ¿ø¼ö:{:<10}, ¸Ş¸ğ¸®:{:<12}, ÀÚ¿ø¸Ş¸ğ¸®:{:<12}",
+			id, "º¹»çÇÒ´ç¿¬»êÀÚ", len, (void*)this, (void*)p.get());
+	}
+
+	return *this;
+}
+
+//	ÀÌµ¿»ı¼º°ú ÀÌµ¿ÇÒ´ç¿¬»êÀÚ				// 2025.04.10
+STRING::STRING(STRING&& other)				// && -> rvalue reference
+	: id{ ++gid }, len{other.len}
+{
+	p.reset(other.p.release());
+
+	if (°üÂû) {
+		std::println("[{:8}] {:16}, ÀÚ¿ø¼ö:{:<10}, ¸Ş¸ğ¸®:{:<12}, ÀÚ¿ø¸Ş¸ğ¸®:{:<12}",
+			id, "ÀÌµ¿»ı¼ºÀÚ", len, (void*)this, (void*)p.get());
+	}
+}
+
+STRING& STRING::operator=(STRING&& other)
+{
+	if (this == &other)
+		return *this;
+
+	len = other.len;
+	p.release();
+	p.reset(other.p.release());
+
+	other.len = 0;
+
+	if (°üÂû) {
+		std::println("[{:8}] {:16}, ÀÚ¿ø¼ö:{:<10}, ¸Ş¸ğ¸®:{:<12}, ÀÚ¿ø¸Ş¸ğ¸®:{:<12}",
+			id, "ÀÌµ¿ÇÒ´ç¿¬»êÀÚ", len, (void*)this, (void*)p.get());
+	}
+
+	return *this;
+}
+
+// 2025. 04. 22 °ü°è¿¬»êÀÚµé
+bool STRING::operator==(const STRING& rhs) const
+{
+	return std::equal(&p[0], &p[len], &rhs.p[0]);
+}
+
+size_t STRING::size() const 
+{
+	return len;
+}
+
+std::ostream& operator<<(std::ostream& os, const STRING& str) 
+{
+	for (int i = 0; i < str.len; ++i)
+		os << str.p[i];
+	return os;
+}
+
+// 2025. 5. 1
+std::istream& operator>>(std::istream& is, STRING& str)
+{
+	std::string s;
+	is >> s;
+	str.len = s.length();
+	str.p = std::make_unique<char[]>(str.len);
+	str.p.reset(s.data());
+	return is;
+}
+
+size_t STRING::gid{};						// 2025.04.0
+
+
+=================================================
+ÀúÀåÇÑ ½Ã°£: 2025-05-01 ¿ÀÈÄ 4:38:09 ¸ñ¿äÀÏ
+=================================================
+
+//------------------------------------------------------------------------------------------------
+//	2025 STL È­56¸ñ78				5¿ù 1ÀÏ ¸ñ¿äÀÏ					(9ÁÖ 2ÀÏ)
+//	5¿ù 6ÀÏ(È­¿äÀÏ) -> 6¿ù 19ÀÏ(¿¹Á¤)
+//------------------------------------------------------------------------------------------------
+//	STL Container - Container are objects that store other objects.
+//	1. Sequence Containers
+//		array<T,N>
+//		vector<T> - push_back() O(1)
+//		deque<T>  - push_front() / push_back() O(1)
+//		list<T>	  - node ±â¹İ, ÀÓÀÇÀÇ À§Ä¡¿¡¼­ »ğÀÔ°ú »èÁ¦ O(1)
+//------------------------------------------------------------------------------------------------
+#include <iostream>
+#include <list>
+#include<fstream>
+#include"STRING.h"
+#include "save.h"
+using namespace std;
+
+extern bool °üÂû;				// °üÂûÇÏ·Á¸é true·Î ¼³Á¤
+
+//---------
+int main() 
+//---------
+{
+	//	[¹®Á¦] "main.cpp"ÀÇ ´Ü¾î¸¦ list¿¡ ÀúÀåÇÏ¶ó.
+	//	Ã£À» ´Ü¾î¸¦ ¹°¾îºÁ¼­ ¾øÀ¸¸é ¾ø´Ù. ÀÖÀ¸¸é listÀÇ ¸î ¹øÂ° ´Ü¾îÀÎÁö Ãâ·ÂÇØ ÁÖÀÚ.
+
+	list<STRING> ´Ü¾îµé;
+
+	ifstream in{"main.cpp"};
+	if (not in)
+		return 20250501;
+
+	STRING s;
+	in >> s;
+	cout << s;
+	// p®xWPÂxW----------------------------------------------------------------------------------
+	//while (in >> s)
+	//	´Ü¾îµé.push_back(s);
+
+	//for (const STRING& ´Ü¾î : ´Ü¾îµé)
+	//	cout << ´Ü¾î << endl;
+
+	save("STRING.h");
+	save("STRING.cpp");
+	save("main.cpp");
+}
+
+
+=================================================
+ÀúÀåÇÑ ½Ã°£: 2025-05-01 ¿ÀÈÄ 4:41:50 ¸ñ¿äÀÏ
+=================================================
+
+//------------------------------------------------------------------------------------------------
+//	2025 STL È­56¸ñ78				5¿ù 1ÀÏ ¸ñ¿äÀÏ					(9ÁÖ 2ÀÏ)
+//	5¿ù 6ÀÏ(È­¿äÀÏ) -> 6¿ù 19ÀÏ(¿¹Á¤)
+//------------------------------------------------------------------------------------------------
+//	STL Container - Container are objects that store other objects.
+//	1. Sequence Containers
+//		array<T,N>
+//		vector<T> - push_back() O(1)
+//		deque<T>  - push_front() / push_back() O(1)
+//		list<T>	  - node ±â¹İ, ÀÓÀÇÀÇ À§Ä¡¿¡¼­ »ğÀÔ°ú »èÁ¦ O(1)
+//------------------------------------------------------------------------------------------------
+#include <iostream>
+#include <list>
+#include<fstream>
+#include"STRING.h"
+#include "save.h"
+using namespace std;
+
+extern bool °üÂû;				// °üÂûÇÏ·Á¸é true·Î ¼³Á¤
+
+//---------
+int main() 
+//---------
+{
+	//	[¹®Á¦] "main.cpp"ÀÇ ´Ü¾î¸¦ list¿¡ ÀúÀåÇÏ¶ó.
+	//	Ã£À» ´Ü¾î¸¦ ¹°¾îºÁ¼­ ¾øÀ¸¸é ¾ø´Ù. ÀÖÀ¸¸é listÀÇ ¸î ¹øÂ° ´Ü¾îÀÎÁö Ãâ·ÂÇØ ÁÖÀÚ.
+
+	list<STRING> ´Ü¾îµé;
+
+	ifstream in{"main.cpp"};
+	if (not in)
+		return 20250501;
+
+	STRING s;
+	in >> s;
+	cout << s << endl;
+	// p?
+	//while (in >> s)
+	//	´Ü¾îµé.push_back(s);
+
+	//for (const STRING& ´Ü¾î : ´Ü¾îµé)
+	//	cout << ´Ü¾î << endl;
+
+	//save("STRING.h");
+	//save("STRING.cpp");
+	save("main.cpp");
+}
+
+
+=================================================
+ÀúÀåÇÑ ½Ã°£: 2025-05-01 ¿ÀÈÄ 4:43:28 ¸ñ¿äÀÏ
+=================================================
+
+//----------------------------------------------------------------------------------
+//	STRING.cpp - std::string°ú À¯»çÇÑ Å¬·¡½ºÀÌ´Ù
+//				 STLÀÇ container·Î µ¿ÀÛÇÒ ¼ö ÀÖ°Ô ÄÚµùÇØ ³ª°£´Ù
+//																	2025.4.8 ½ÃÀÛ
+//	2025. 4.
+//	2025. 5. 1	>> ¿¬»êÀÚ
+//----------------------------------------------------------------------------------
+#include<iostream>
+#include<memory>
+#include<print>
+#include<algorithm>
+#include<string>
+#include"STRING.h"
+
+// °üÂûÀ» Á¦¾îÇÏ±â À§ÇÑ º¯¼ö Ãß°¡				// 2025.04.08
+bool °üÂû{ false };					// 2025.04.08
+
+STRING::STRING()							// 2025.04.08
+	: id{++gid}
+{
+	if(°üÂû){
+		std::println("[{:8}] {:16}, ÀÚ¿ø¼ö:{:<10}, ¸Ş¸ğ¸®:{:<12}, ÀÚ¿ø¸Ş¸ğ¸®:{:<12}",
+			id, "µğÆúÆ®»ı¼º", len, (void*)this, (void*)p.get());
+	}
+}
+
+STRING::~STRING()								// 2025.04.08
+{
+	if (°üÂû) {
+		std::println("[{:8}] {:16}, ÀÚ¿ø¼ö:{:<10}, ¸Ş¸ğ¸®:{:<12}, ÀÚ¿ø¸Ş¸ğ¸®:{:<12}",
+			id, "¼Ò¸êÀÚ", len, (void*)this, (void*)p.get());
+	}
+}
+
+STRING::STRING(const char* s) 
+	:id{++gid},len {	strlen(s)}
+{
+	p.reset();
+	p = std::make_unique<char[]>(len);
+	memcpy(p.get(), s, len);
+
+	if (°üÂû) {
+		std::println("[{:8}] {:16}, ÀÚ¿ø¼ö:{:<10}, ¸Ş¸ğ¸®:{:<12}, ÀÚ¿ø¸Ş¸ğ¸®:{:<12}",
+			id, "»ı¼ºÀÚ(char*)", len, (void*)this, (void*)p.get());
+	}
+};
+
+STRING::STRING(const STRING& other)			// 2025.04.08
+	:id{ ++gid }, len{ other.len }		// ¿©±â¿¡ µÎ ¹øÂ° ÀÎÀÚ¸¦ ³Ö°Ô µÇ¸é, ¼ø¼­°¡ º¸ÀåµÇÁö ¾ÊÀ½
+{
+	p = std::make_unique<char[]>(len);
+	memcpy(p.get(), other.p.get(), len);
+
+	if (°üÂû) {
+		std::println("[{:8}] {:16}, ÀÚ¿ø¼ö:{:<10}, ¸Ş¸ğ¸®:{:<12}, ÀÚ¿ø¸Ş¸ğ¸®:{:<12}",
+			id, "º¹»ç»ı¼ºÀÚ", len, (void*)this, (void*)p.get());
+	}
+}
+
+STRING& STRING::operator=(const STRING& other)	// 2025.04.08
+{
+	if (this == &other)
+		return *this;
+
+	len = other.len;
+	p.release();								// p.reset()°ú ´Ù¸¥ Á¡À» °øºÎÇÏÀÚ
+	p = std::make_unique<char[]>(len);
+	memcpy(p.get(), other.p.get(), len);
+
+	if (°üÂû) {
+		std::println("[{:8}] {:16}, ÀÚ¿ø¼ö:{:<10}, ¸Ş¸ğ¸®:{:<12}, ÀÚ¿ø¸Ş¸ğ¸®:{:<12}",
+			id, "º¹»çÇÒ´ç¿¬»êÀÚ", len, (void*)this, (void*)p.get());
+	}
+
+	return *this;
+}
+
+//	ÀÌµ¿»ı¼º°ú ÀÌµ¿ÇÒ´ç¿¬»êÀÚ				// 2025.04.10
+STRING::STRING(STRING&& other)				// && -> rvalue reference
+	: id{ ++gid }, len{other.len}
+{
+	p.reset(other.p.release());
+
+	if (°üÂû) {
+		std::println("[{:8}] {:16}, ÀÚ¿ø¼ö:{:<10}, ¸Ş¸ğ¸®:{:<12}, ÀÚ¿ø¸Ş¸ğ¸®:{:<12}",
+			id, "ÀÌµ¿»ı¼ºÀÚ", len, (void*)this, (void*)p.get());
+	}
+}
+
+STRING& STRING::operator=(STRING&& other)
+{
+	if (this == &other)
+		return *this;
+
+	len = other.len;
+	p.release();
+	p.reset(other.p.release());
+
+	other.len = 0;
+
+	if (°üÂû) {
+		std::println("[{:8}] {:16}, ÀÚ¿ø¼ö:{:<10}, ¸Ş¸ğ¸®:{:<12}, ÀÚ¿ø¸Ş¸ğ¸®:{:<12}",
+			id, "ÀÌµ¿ÇÒ´ç¿¬»êÀÚ", len, (void*)this, (void*)p.get());
+	}
+
+	return *this;
+}
+
+// 2025. 04. 22 °ü°è¿¬»êÀÚµé
+bool STRING::operator==(const STRING& rhs) const
+{
+	return std::equal(&p[0], &p[len], &rhs.p[0]);
+}
+
+size_t STRING::size() const 
+{
+	return len;
+}
+
+std::ostream& operator<<(std::ostream& os, const STRING& str) 
+{
+	for (int i = 0; i < str.len; ++i)
+		os << str.p[i];
+	return os;
+}
+
+// 2025. 5. 1
+std::istream& operator>>(std::istream& is, STRING& str)
+{
+	std::string s;
+	is >> s;
+	std::cout << s << std::endl;
+	str.len = s.length();
+	std::cout << str.len << std::endl;
+	str.p.release();
+	str.p = std::make_unique<char[]>(str.len);
+	str.p.reset(s.data());
+	return is;
+
+	////------------------------------------------------------------------------------------------------
+	//98
+	// ÀÚ¿øÀ» ÈÉÃÄ¿Ã·Á°í ÀÌ·± ÄÚµå ½è´Ù°¡ ¸ÁÇÔ.
+	// ¸Ş¸ğ¸® ÁÖ¼Ò º¹»ç? ¹®Á¦?
+}
+
+size_t STRING::gid{};						// 2025.04.0
+
+
+=================================================
+ÀúÀåÇÑ ½Ã°£: 2025-05-01 ¿ÀÈÄ 4:46:07 ¸ñ¿äÀÏ
+=================================================
+
+//----------------------------------------------------------------------------------
+//	STRING.cpp - std::string°ú À¯»çÇÑ Å¬·¡½ºÀÌ´Ù
+//				 STLÀÇ container·Î µ¿ÀÛÇÒ ¼ö ÀÖ°Ô ÄÚµùÇØ ³ª°£´Ù
+//																	2025.4.8 ½ÃÀÛ
+//	2025. 4.
+//	2025. 5. 1	>> ¿¬»êÀÚ
+//----------------------------------------------------------------------------------
+#include<iostream>
+#include<memory>
+#include<print>
+#include<algorithm>
+#include<string>
+#include"STRING.h"
+
+// °üÂûÀ» Á¦¾îÇÏ±â À§ÇÑ º¯¼ö Ãß°¡				// 2025.04.08
+bool °üÂû{ false };					// 2025.04.08
+
+STRING::STRING()							// 2025.04.08
+	: id{++gid}
+{
+	if(°üÂû){
+		std::println("[{:8}] {:16}, ÀÚ¿ø¼ö:{:<10}, ¸Ş¸ğ¸®:{:<12}, ÀÚ¿ø¸Ş¸ğ¸®:{:<12}",
+			id, "µğÆúÆ®»ı¼º", len, (void*)this, (void*)p.get());
+	}
+}
+
+STRING::~STRING()								// 2025.04.08
+{
+	if (°üÂû) {
+		std::println("[{:8}] {:16}, ÀÚ¿ø¼ö:{:<10}, ¸Ş¸ğ¸®:{:<12}, ÀÚ¿ø¸Ş¸ğ¸®:{:<12}",
+			id, "¼Ò¸êÀÚ", len, (void*)this, (void*)p.get());
+	}
+}
+
+STRING::STRING(const char* s) 
+	:id{++gid},len {	strlen(s)}
+{
+	p.reset();
+	p = std::make_unique<char[]>(len);
+	memcpy(p.get(), s, len);
+
+	if (°üÂû) {
+		std::println("[{:8}] {:16}, ÀÚ¿ø¼ö:{:<10}, ¸Ş¸ğ¸®:{:<12}, ÀÚ¿ø¸Ş¸ğ¸®:{:<12}",
+			id, "»ı¼ºÀÚ(char*)", len, (void*)this, (void*)p.get());
+	}
+};
+
+STRING::STRING(const STRING& other)			// 2025.04.08
+	:id{ ++gid }, len{ other.len }		// ¿©±â¿¡ µÎ ¹øÂ° ÀÎÀÚ¸¦ ³Ö°Ô µÇ¸é, ¼ø¼­°¡ º¸ÀåµÇÁö ¾ÊÀ½
+{
+	p = std::make_unique<char[]>(len);
+	memcpy(p.get(), other.p.get(), len);
+
+	if (°üÂû) {
+		std::println("[{:8}] {:16}, ÀÚ¿ø¼ö:{:<10}, ¸Ş¸ğ¸®:{:<12}, ÀÚ¿ø¸Ş¸ğ¸®:{:<12}",
+			id, "º¹»ç»ı¼ºÀÚ", len, (void*)this, (void*)p.get());
+	}
+}
+
+STRING& STRING::operator=(const STRING& other)	// 2025.04.08
+{
+	if (this == &other)
+		return *this;
+
+	len = other.len;
+	p.release();								// p.reset()°ú ´Ù¸¥ Á¡À» °øºÎÇÏÀÚ
+	p = std::make_unique<char[]>(len);
+	memcpy(p.get(), other.p.get(), len);
+
+	if (°üÂû) {
+		std::println("[{:8}] {:16}, ÀÚ¿ø¼ö:{:<10}, ¸Ş¸ğ¸®:{:<12}, ÀÚ¿ø¸Ş¸ğ¸®:{:<12}",
+			id, "º¹»çÇÒ´ç¿¬»êÀÚ", len, (void*)this, (void*)p.get());
+	}
+
+	return *this;
+}
+
+//	ÀÌµ¿»ı¼º°ú ÀÌµ¿ÇÒ´ç¿¬»êÀÚ				// 2025.04.10
+STRING::STRING(STRING&& other)				// && -> rvalue reference
+	: id{ ++gid }, len{other.len}
+{
+	p.reset(other.p.release());
+
+	if (°üÂû) {
+		std::println("[{:8}] {:16}, ÀÚ¿ø¼ö:{:<10}, ¸Ş¸ğ¸®:{:<12}, ÀÚ¿ø¸Ş¸ğ¸®:{:<12}",
+			id, "ÀÌµ¿»ı¼ºÀÚ", len, (void*)this, (void*)p.get());
+	}
+}
+
+STRING& STRING::operator=(STRING&& other)
+{
+	if (this == &other)
+		return *this;
+
+	len = other.len;
+	p.release();
+	p.reset(other.p.release());
+
+	other.len = 0;
+
+	if (°üÂû) {
+		std::println("[{:8}] {:16}, ÀÚ¿ø¼ö:{:<10}, ¸Ş¸ğ¸®:{:<12}, ÀÚ¿ø¸Ş¸ğ¸®:{:<12}",
+			id, "ÀÌµ¿ÇÒ´ç¿¬»êÀÚ", len, (void*)this, (void*)p.get());
+	}
+
+	return *this;
+}
+
+// 2025. 04. 22 °ü°è¿¬»êÀÚµé
+bool STRING::operator==(const STRING& rhs) const
+{
+	return std::equal(&p[0], &p[len], &rhs.p[0]);
+}
+
+size_t STRING::size() const 
+{
+	return len;
+}
+
+std::ostream& operator<<(std::ostream& os, const STRING& str) 
+{
+	for (int i = 0; i < str.len; ++i)
+		os << str.p[i];
+	return os;
+}
+
+// 2025. 5. 1
+std::istream& operator>>(std::istream& is, STRING& str)
+{
+	std::string s;
+	is >> s;
+	str.len = s.length();
+	str.p.release();
+	str.p = std::make_unique<char[]>(str.len);
+	memcpy((char*)str.p.get(), s.data(), str.len);
+	str.p.reset(s.data());
+	return is;
+}
+
+size_t STRING::gid{};						// 2025.04.0
+
+
+=================================================
+ÀúÀåÇÑ ½Ã°£: 2025-05-01 ¿ÀÈÄ 4:46:07 ¸ñ¿äÀÏ
+=================================================
+
+//------------------------------------------------------------------------------------------------
+//	2025 STL È­56¸ñ78				5¿ù 1ÀÏ ¸ñ¿äÀÏ					(9ÁÖ 2ÀÏ)
+//	5¿ù 6ÀÏ(È­¿äÀÏ) -> 6¿ù 19ÀÏ(¿¹Á¤)
+//------------------------------------------------------------------------------------------------
+//	STL Container - Container are objects that store other objects.
+//	1. Sequence Containers
+//		array<T,N>
+//		vector<T> - push_back() O(1)
+//		deque<T>  - push_front() / push_back() O(1)
+//		list<T>	  - node ±â¹İ, ÀÓÀÇÀÇ À§Ä¡¿¡¼­ »ğÀÔ°ú »èÁ¦ O(1)
+//------------------------------------------------------------------------------------------------
+#include <iostream>
+#include <list>
+#include<fstream>
+#include"STRING.h"
+#include "save.h"
+using namespace std;
+
+extern bool °üÂû;				// °üÂûÇÏ·Á¸é true·Î ¼³Á¤
+
+//---------
+int main() 
+//---------
+{
+	//	[¹®Á¦] "main.cpp"ÀÇ ´Ü¾î¸¦ list¿¡ ÀúÀåÇÏ¶ó.
+	//	Ã£À» ´Ü¾î¸¦ ¹°¾îºÁ¼­ ¾øÀ¸¸é ¾ø´Ù. ÀÖÀ¸¸é listÀÇ ¸î ¹øÂ° ´Ü¾îÀÎÁö Ãâ·ÂÇØ ÁÖÀÚ.
+
+	list<STRING> ´Ü¾îµé;
+
+	ifstream in{"main.cpp"};
+	if (not in)
+		return 20250501;
+
+	STRING s;
+	in >> s;
+	cout << s << endl;
+	//while (in >> s)
+	//	´Ü¾îµé.push_back(s);
+
+	//for (const STRING& ´Ü¾î : ´Ü¾îµé)
+	//	cout << ´Ü¾î << endl;
+
+	//save("STRING.h");
+	save("STRING.cpp");
+	save("main.cpp");
+}
+
+
+=================================================
+ÀúÀåÇÑ ½Ã°£: 2025-05-01 ¿ÀÈÄ 4:47:09 ¸ñ¿äÀÏ
+=================================================
+
+//------------------------------------------------------------------------------------------------
+//	2025 STL È­56¸ñ78				5¿ù 1ÀÏ ¸ñ¿äÀÏ					(9ÁÖ 2ÀÏ)
+//	5¿ù 6ÀÏ(È­¿äÀÏ) -> 6¿ù 19ÀÏ(¿¹Á¤)
+//------------------------------------------------------------------------------------------------
+//	STL Container - Container are objects that store other objects.
+//	1. Sequence Containers
+//		array<T,N>
+//		vector<T> - push_back() O(1)
+//		deque<T>  - push_front() / push_back() O(1)
+//		list<T>	  - node ±â¹İ, ÀÓÀÇÀÇ À§Ä¡¿¡¼­ »ğÀÔ°ú »èÁ¦ O(1)
+//------------------------------------------------------------------------------------------------
+#include <iostream>
+#include <list>
+#include<fstream>
+#include"STRING.h"
+#include "save.h"
+using namespace std;
+
+extern bool °üÂû;				// °üÂûÇÏ·Á¸é true·Î ¼³Á¤
+
+//---------
+int main() 
+//---------
+{
+	//	[¹®Á¦] "main.cpp"ÀÇ ´Ü¾î¸¦ list¿¡ ÀúÀåÇÏ¶ó.
+	//	Ã£À» ´Ü¾î¸¦ ¹°¾îºÁ¼­ ¾øÀ¸¸é ¾ø´Ù. ÀÖÀ¸¸é listÀÇ ¸î ¹øÂ° ´Ü¾îÀÎÁö Ãâ·ÂÇØ ÁÖÀÚ.
+
+	list<STRING> ´Ü¾îµé;
+
+	ifstream in{"main.cpp"};
+	if (not in)
+		return 20250501;
+
+	STRING s;
+	while (in >> s)
+		´Ü¾îµé.push_back(s);
+
+	for (const STRING& ´Ü¾î : ´Ü¾îµé)
+		cout << ´Ü¾î << endl;
+
+//	//
+//	2025
+//		STL
+//		È­56¸ñ78
+//		5¿ù
+//		1ÀÏ
+//		¸ñ¿äÀÏ
+//		(9ÁÖ
+//			2ÀÏ)
+//		//
+//		5¿ù
+//		6ÀÏ(È­¿äÀÏ)
+//		->
+//		6¿ù
+//		19ÀÏ(¿¹Á¤)
+//
+//		//
+//		STL
+//		Container
+//		-
+//		Container
+//		are
+//		objects
+//		that
+//		store
+//		other
+//		objects.
+//		//
+//		1.
+//		Sequence
+//		Containers
+//		//
+//		array<T, N>
+//		//
+//		vector<T>
+//		-
+//		push_back()
+//		O(1)
+//		//
+//		deque<T>
+//		-
+//		push_front()
+//		/
+//		push_back()
+//		O(1)
+//		//
+//		list<T>
+//		-
+//		node
+//		±â¹İ,
+//		ÀÓÀÇÀÇ
+//		À§Ä¡¿¡¼­
+//		»ğÀÔ°ú
+//		»èÁ¦
+//		O(1)
+//
+//#include
+//		<iostream>
+//#include
+//		<list>
+//#include<fstream>
+//#include"STRING.h"
+//#include
+//		"save.h"
+//		using
+//		namespace
+//		std;
+//	extern
+//		bool
+//		°üÂû;
+//	//
+//	°üÂûÇÏ·Á¸é
+//		true·Î
+//		¼³Á¤
+//		//---------
+//		int
+//		main()
+//		//---------
+//	{
+//		//
+//		[¹®Á¦]
+//		"main.cpp"ÀÇ
+//			´Ü¾î¸¦
+//			list¿¡
+//			ÀúÀåÇÏ¶ó.
+//			//
+//			Ã£À»
+//			´Ü¾î¸¦
+//			¹°¾îºÁ¼­
+//			¾øÀ¸¸é
+//			¾ø´Ù.
+//			ÀÖÀ¸¸é
+//			listÀÇ
+//			¸î
+//			¹øÂ°
+//			´Ü¾îÀÎÁö
+//			Ãâ·ÂÇØ
+//			ÁÖÀÚ.
+//			list<STRING>
+//			´Ü¾îµé;
+//		ifstream
+//			in{ "main.cpp" };
+//		if
+//			(not
+//				in)
+//			return
+//			20250501;
+//		STRING
+//			s;
+//		while
+//			(in
+//				>>
+//				s)
+//			´Ü¾îµé.push_back(s);
+//		for
+//			(const
+//				STRING&
+//				´Ü¾î
+//				:
+//				´Ü¾îµé)
+//			cout
+//			<<
+//			´Ü¾î
+//			<<
+//			endl;
+//		save("main.cpp");
+//	}
+
+	save("main.cpp");
+}
+
+
+=================================================
+ÀúÀåÇÑ ½Ã°£: 2025-05-01 ¿ÀÈÄ 5:01:04 ¸ñ¿äÀÏ
+=================================================
+
+//----------------------------------------------------------------------------------
+//	STRING.cpp - std::string°ú À¯»çÇÑ Å¬·¡½ºÀÌ´Ù
+//				 STLÀÇ container·Î µ¿ÀÛÇÒ ¼ö ÀÖ°Ô ÄÚµùÇØ ³ª°£´Ù
+//																	2025.4.8 ½ÃÀÛ
+//	2025. 4.
+//	2025. 5. 1	>> ¿¬»êÀÚ
+//----------------------------------------------------------------------------------
+#include<iostream>
+#include<memory>
+#include<print>
+#include<algorithm>
+#include<string>
+#include"STRING.h"
+
+// °üÂûÀ» Á¦¾îÇÏ±â À§ÇÑ º¯¼ö Ãß°¡				// 2025.04.08
+bool °üÂû{ false };					// 2025.04.08
+
+STRING::STRING()							// 2025.04.08
+	: id{++gid}
+{
+	if(°üÂû){
+		std::println("[{:8}] {:16}, ÀÚ¿ø¼ö:{:<10}, ¸Ş¸ğ¸®:{:<12}, ÀÚ¿ø¸Ş¸ğ¸®:{:<12}",
+			id, "µğÆúÆ®»ı¼º", len, (void*)this, (void*)p.get());
+	}
+}
+
+STRING::~STRING()								// 2025.04.08
+{
+	if (°üÂû) {
+		std::println("[{:8}] {:16}, ÀÚ¿ø¼ö:{:<10}, ¸Ş¸ğ¸®:{:<12}, ÀÚ¿ø¸Ş¸ğ¸®:{:<12}",
+			id, "¼Ò¸êÀÚ", len, (void*)this, (void*)p.get());
+	}
+}
+
+STRING::STRING(const char* s) 
+	:id{++gid},len {	strlen(s)}
+{
+	p.reset();
+	p = std::make_unique<char[]>(len);
+	memcpy(p.get(), s, len);
+
+	if (°üÂû) {
+		std::println("[{:8}] {:16}, ÀÚ¿ø¼ö:{:<10}, ¸Ş¸ğ¸®:{:<12}, ÀÚ¿ø¸Ş¸ğ¸®:{:<12}",
+			id, "»ı¼ºÀÚ(char*)", len, (void*)this, (void*)p.get());
+	}
+};
+
+STRING::STRING(const STRING& other)			// 2025.04.08
+	:id{ ++gid }, len{ other.len }		// ¿©±â¿¡ µÎ ¹øÂ° ÀÎÀÚ¸¦ ³Ö°Ô µÇ¸é, ¼ø¼­°¡ º¸ÀåµÇÁö ¾ÊÀ½
+{
+	p = std::make_unique<char[]>(len);
+	memcpy(p.get(), other.p.get(), len);
+
+	if (°üÂû) {
+		std::println("[{:8}] {:16}, ÀÚ¿ø¼ö:{:<10}, ¸Ş¸ğ¸®:{:<12}, ÀÚ¿ø¸Ş¸ğ¸®:{:<12}",
+			id, "º¹»ç»ı¼ºÀÚ", len, (void*)this, (void*)p.get());
+	}
+}
+
+STRING& STRING::operator=(const STRING& other)	// 2025.04.08
+{
+	if (this == &other)
+		return *this;
+
+	len = other.len;
+	p.release();								// p.reset()°ú ´Ù¸¥ Á¡À» °øºÎÇÏÀÚ
+	p = std::make_unique<char[]>(len);
+	memcpy(p.get(), other.p.get(), len);
+
+	if (°üÂû) {
+		std::println("[{:8}] {:16}, ÀÚ¿ø¼ö:{:<10}, ¸Ş¸ğ¸®:{:<12}, ÀÚ¿ø¸Ş¸ğ¸®:{:<12}",
+			id, "º¹»çÇÒ´ç¿¬»êÀÚ", len, (void*)this, (void*)p.get());
+	}
+
+	return *this;
+}
+
+//	ÀÌµ¿»ı¼º°ú ÀÌµ¿ÇÒ´ç¿¬»êÀÚ				// 2025.04.10
+STRING::STRING(STRING&& other)				// && -> rvalue reference
+	: id{ ++gid }, len{other.len}
+{
+	p.reset(other.p.release());
+
+	if (°üÂû) {
+		std::println("[{:8}] {:16}, ÀÚ¿ø¼ö:{:<10}, ¸Ş¸ğ¸®:{:<12}, ÀÚ¿ø¸Ş¸ğ¸®:{:<12}",
+			id, "ÀÌµ¿»ı¼ºÀÚ", len, (void*)this, (void*)p.get());
+	}
+}
+
+STRING& STRING::operator=(STRING&& other)
+{
+	if (this == &other)
+		return *this;
+
+	len = other.len;
+	p.release();
+	p.reset(other.p.release());
+
+	other.len = 0;
+
+	if (°üÂû) {
+		std::println("[{:8}] {:16}, ÀÚ¿ø¼ö:{:<10}, ¸Ş¸ğ¸®:{:<12}, ÀÚ¿ø¸Ş¸ğ¸®:{:<12}",
+			id, "ÀÌµ¿ÇÒ´ç¿¬»êÀÚ", len, (void*)this, (void*)p.get());
+	}
+
+	return *this;
+}
+
+// 2025. 04. 22 °ü°è¿¬»êÀÚµé
+bool STRING::operator==(const STRING& rhs) const
+{
+	return std::equal(&p[0], &p[len], &rhs.p[0]);
+}
+
+size_t STRING::size() const 
+{
+	return len;
+}
+
+std::ostream& operator<<(std::ostream& os, const STRING& str) 
+{
+	for (int i = 0; i < str.len; ++i)
+		os << str.p[i];
+	return os;
+}
+
+// 2025. 5. 1
+std::istream& operator>>(std::istream& is, STRING& str)
+{
+	std::string s;
+	is >> s;
+	str.len = s.length();
+	str.p.release();
+	str.p = std::make_unique<char[]>(str.len);
+	memcpy((char*)str.p.get(), s.data(), str.len);
+	return is;
+}
+
+size_t STRING::gid{};						// 2025.04.0
+
+
+=================================================
+ÀúÀåÇÑ ½Ã°£: 2025-05-01 ¿ÀÈÄ 5:01:04 ¸ñ¿äÀÏ
+=================================================
+
+//------------------------------------------------------------------------------------------------
+//	2025 STL È­56¸ñ78				5¿ù 1ÀÏ ¸ñ¿äÀÏ					(9ÁÖ 2ÀÏ)
+//	5¿ù 6ÀÏ(È­¿äÀÏ) -> 6¿ù 19ÀÏ(¿¹Á¤)
+//------------------------------------------------------------------------------------------------
+//	STL Container - Container are objects that store other objects.
+//	1. Sequence Containers
+//		array<T,N>
+//		vector<T> - push_back() O(1)
+//		deque<T>  - push_front() / push_back() O(1)
+//		list<T>	  - node ±â¹İ, ÀÓÀÇÀÇ À§Ä¡¿¡¼­ »ğÀÔ°ú »èÁ¦ O(1)
+//------------------------------------------------------------------------------------------------
+#include <iostream>
+#include <list>
+#include<fstream>
+#include<algorithm>
+#include"STRING.h"
+#include "save.h"
+using namespace std;
+
+extern bool °üÂû;				// °üÂûÇÏ·Á¸é true·Î ¼³Á¤
+
+//---------
+int main() 
+//---------
+{
+	//	[¹®Á¦] "main.cpp"ÀÇ ´Ü¾î¸¦ list¿¡ ÀúÀåÇÏ¶ó.
+	//	Ã£À» ´Ü¾î¸¦ ¹°¾îºÁ¼­ ¾øÀ¸¸é ¾ø´Ù. ÀÖÀ¸¸é listÀÇ ¸î ¹øÂ° ´Ü¾îÀÎÁö Ãâ·ÂÇØ ÁÖÀÚ.
+
+	ifstream in{"main.cpp"};
+	if (not in)
+		return 20250501;
+
+	list<STRING> ´Ü¾îµé{ istream_iterator<STRING>{in},{} };
+	while (true) {
+		cout << "Ã£À¸½Ç ´Ü¾î? ";
+		STRING ´Ü¾î;
+		cin >> ´Ü¾î;
+
+		if (´Ü¾î == "z")break;
+
+		auto res = find(´Ü¾îµé.begin(), ´Ü¾îµé.end(), ´Ü¾î);		// ¹İº¹ÀÚ·Î ¹İÈ¯
+		if (res == ´Ü¾îµé.end())
+			cout << ´Ü¾î << " - ¾ø´Â ´Ü¾îÀÔ´Ï´Ù." << endl;
+		else
+			cout << "Ã£¾Ò½À´Ï´Ù." << endl;
+	}
+	// ¿À·ù: ¾ø´Â ´Ü¾î iffµµ Ã£¾Ò´Ù°í ÇÔ.
+
+	save("STRING.cpp");
+	save("main.cpp");
+}
+
+
+=================================================
+ÀúÀåÇÑ ½Ã°£: 2025-05-01 ¿ÀÈÄ 5:04:57 ¸ñ¿äÀÏ
+=================================================
+
+//----------------------------------------------------------------------------------
+//	STRING.cpp - std::string°ú À¯»çÇÑ Å¬·¡½ºÀÌ´Ù
+//				 STLÀÇ container·Î µ¿ÀÛÇÒ ¼ö ÀÖ°Ô ÄÚµùÇØ ³ª°£´Ù
+//																	2025.4.8 ½ÃÀÛ
+//	2025. 4.
+//	2025. 5. 1	>> ¿¬»êÀÚ
+//----------------------------------------------------------------------------------
+#include<iostream>
+#include<memory>
+#include<print>
+#include<algorithm>
+#include<string>
+#include"STRING.h"
+
+// °üÂûÀ» Á¦¾îÇÏ±â À§ÇÑ º¯¼ö Ãß°¡				// 2025.04.08
+bool °üÂû{ false };					// 2025.04.08
+
+STRING::STRING()							// 2025.04.08
+	: id{++gid}
+{
+	if(°üÂû){
+		std::println("[{:8}] {:16}, ÀÚ¿ø¼ö:{:<10}, ¸Ş¸ğ¸®:{:<12}, ÀÚ¿ø¸Ş¸ğ¸®:{:<12}",
+			id, "µğÆúÆ®»ı¼º", len, (void*)this, (void*)p.get());
+	}
+}
+
+STRING::~STRING()								// 2025.04.08
+{
+	if (°üÂû) {
+		std::println("[{:8}] {:16}, ÀÚ¿ø¼ö:{:<10}, ¸Ş¸ğ¸®:{:<12}, ÀÚ¿ø¸Ş¸ğ¸®:{:<12}",
+			id, "¼Ò¸êÀÚ", len, (void*)this, (void*)p.get());
+	}
+}
+
+STRING::STRING(const char* s) 
+	:id{++gid},len {	strlen(s)}
+{
+	p.reset();
+	p = std::make_unique<char[]>(len);
+	memcpy(p.get(), s, len);
+
+	if (°üÂû) {
+		std::println("[{:8}] {:16}, ÀÚ¿ø¼ö:{:<10}, ¸Ş¸ğ¸®:{:<12}, ÀÚ¿ø¸Ş¸ğ¸®:{:<12}",
+			id, "»ı¼ºÀÚ(char*)", len, (void*)this, (void*)p.get());
+	}
+};
+
+STRING::STRING(const STRING& other)			// 2025.04.08
+	:id{ ++gid }, len{ other.len }		// ¿©±â¿¡ µÎ ¹øÂ° ÀÎÀÚ¸¦ ³Ö°Ô µÇ¸é, ¼ø¼­°¡ º¸ÀåµÇÁö ¾ÊÀ½
+{
+	p = std::make_unique<char[]>(len);
+	memcpy(p.get(), other.p.get(), len);
+
+	if (°üÂû) {
+		std::println("[{:8}] {:16}, ÀÚ¿ø¼ö:{:<10}, ¸Ş¸ğ¸®:{:<12}, ÀÚ¿ø¸Ş¸ğ¸®:{:<12}",
+			id, "º¹»ç»ı¼ºÀÚ", len, (void*)this, (void*)p.get());
+	}
+}
+
+STRING& STRING::operator=(const STRING& other)	// 2025.04.08
+{
+	if (this == &other)
+		return *this;
+
+	len = other.len;
+	p.release();								// p.reset()°ú ´Ù¸¥ Á¡À» °øºÎÇÏÀÚ
+	p = std::make_unique<char[]>(len);
+	memcpy(p.get(), other.p.get(), len);
+
+	if (°üÂû) {
+		std::println("[{:8}] {:16}, ÀÚ¿ø¼ö:{:<10}, ¸Ş¸ğ¸®:{:<12}, ÀÚ¿ø¸Ş¸ğ¸®:{:<12}",
+			id, "º¹»çÇÒ´ç¿¬»êÀÚ", len, (void*)this, (void*)p.get());
+	}
+
+	return *this;
+}
+
+//	ÀÌµ¿»ı¼º°ú ÀÌµ¿ÇÒ´ç¿¬»êÀÚ				// 2025.04.10
+STRING::STRING(STRING&& other)				// && -> rvalue reference
+	: id{ ++gid }, len{other.len}
+{
+	p.reset(other.p.release());
+
+	if (°üÂû) {
+		std::println("[{:8}] {:16}, ÀÚ¿ø¼ö:{:<10}, ¸Ş¸ğ¸®:{:<12}, ÀÚ¿ø¸Ş¸ğ¸®:{:<12}",
+			id, "ÀÌµ¿»ı¼ºÀÚ", len, (void*)this, (void*)p.get());
+	}
+}
+
+STRING& STRING::operator=(STRING&& other)
+{
+	if (this == &other)
+		return *this;
+
+	len = other.len;
+	p.release();
+	p.reset(other.p.release());
+
+	other.len = 0;
+
+	if (°üÂû) {
+		std::println("[{:8}] {:16}, ÀÚ¿ø¼ö:{:<10}, ¸Ş¸ğ¸®:{:<12}, ÀÚ¿ø¸Ş¸ğ¸®:{:<12}",
+			id, "ÀÌµ¿ÇÒ´ç¿¬»êÀÚ", len, (void*)this, (void*)p.get());
+	}
+
+	return *this;
+}
+
+// 2025. 04. 22 °ü°è¿¬»êÀÚµé
+bool STRING::operator==(const STRING& rhs) const
+{
+	std::cout << *this << "<--->" << rhs << std::endl;
+	return std::equal(&p[0], &p[len], &rhs.p[0], &rhs.p[len]);
+}
+
+size_t STRING::size() const 
+{
+	return len;
+}
+
+std::ostream& operator<<(std::ostream& os, const STRING& str) 
+{
+	for (int i = 0; i < str.len; ++i)
+		os << str.p[i];
+	return os;
+}
+
+// 2025. 5. 1
+std::istream& operator>>(std::istream& is, STRING& str)
+{
+	std::string s;
+	is >> s;
+	str.len = s.length();
+	str.p.release();
+	str.p = std::make_unique<char[]>(str.len);
+	memcpy((char*)str.p.get(), s.data(), str.len);
+	return is;
+}
+
+size_t STRING::gid{};						// 2025.04.0
+
+
+=================================================
+ÀúÀåÇÑ ½Ã°£: 2025-05-01 ¿ÀÈÄ 5:04:57 ¸ñ¿äÀÏ
+=================================================
+
+//------------------------------------------------------------------------------------------------
+//	2025 STL È­56¸ñ78				5¿ù 1ÀÏ ¸ñ¿äÀÏ					(9ÁÖ 2ÀÏ)
+//	5¿ù 6ÀÏ(È­¿äÀÏ) -> 6¿ù 19ÀÏ(¿¹Á¤)
+//------------------------------------------------------------------------------------------------
+//	STL Container - Container are objects that store other objects.
+//	1. Sequence Containers
+//		array<T,N>
+//		vector<T> - push_back() O(1)
+//		deque<T>  - push_front() / push_back() O(1)
+//		list<T>	  - node ±â¹İ, ÀÓÀÇÀÇ À§Ä¡¿¡¼­ »ğÀÔ°ú »èÁ¦ O(1)
+//------------------------------------------------------------------------------------------------
+#include <iostream>
+#include <list>
+#include<fstream>
+#include<algorithm>
+#include"STRING.h"
+#include "save.h"
+using namespace std;
+
+extern bool °üÂû;				// °üÂûÇÏ·Á¸é true·Î ¼³Á¤
+
+//---------
+int main() 
+//---------
+{
+	//	[¹®Á¦] "main.cpp"ÀÇ ´Ü¾î¸¦ list¿¡ ÀúÀåÇÏ¶ó.
+	//	Ã£À» ´Ü¾î¸¦ ¹°¾îºÁ¼­ ¾øÀ¸¸é ¾ø´Ù. ÀÖÀ¸¸é listÀÇ ¸î ¹øÂ° ´Ü¾îÀÎÁö Ãâ·ÂÇØ ÁÖÀÚ.
+
+	ifstream in{"main.cpp"};
+	if (not in)
+		return 20250501;
+
+	list<STRING> ´Ü¾îµé{ istream_iterator<STRING>{in},{} };
+	while (true) {
+		cout << "Ã£À¸½Ç ´Ü¾î? ";
+		STRING ´Ü¾î;
+		cin >> ´Ü¾î;
+
+		if (´Ü¾î == "z")break;
+
+		auto res = find(´Ü¾îµé.begin(), ´Ü¾îµé.end(), ´Ü¾î);		// ¹İº¹ÀÚ·Î ¹İÈ¯
+		if (res == ´Ü¾îµé.end())
+			cout << ´Ü¾î << " - ¾ø´Â ´Ü¾îÀÔ´Ï´Ù." << endl;
+		else
+			cout << "Ã£¾Ò½À´Ï´Ù." << endl;
+	}
+
+	save("STRING.cpp");
+	save("main.cpp");
+
+	//in{"main.cpp"};<--->iff
+	//if<--->iff
+	//Ã£¾Ò½À´Ï´Ù.
+	// ----> if¿Í iff°¡ °°´Ù´Â ÆÇÁ¤.
+}
+
+
+=================================================
+ÀúÀåÇÑ ½Ã°£: 2025-05-01 ¿ÀÈÄ 5:08:30 ¸ñ¿äÀÏ
+=================================================
+
+//----------------------------------------------------------------------------------
+//	STRING.cpp - std::string°ú À¯»çÇÑ Å¬·¡½ºÀÌ´Ù
+//				 STLÀÇ container·Î µ¿ÀÛÇÒ ¼ö ÀÖ°Ô ÄÚµùÇØ ³ª°£´Ù
+//																	2025.4.8 ½ÃÀÛ
+//	2025. 4.
+//	2025. 5. 1	>> ¿¬»êÀÚ
+//----------------------------------------------------------------------------------
+#include<iostream>
+#include<memory>
+#include<print>
+#include<algorithm>
+#include<string>
+#include"STRING.h"
+
+// °üÂûÀ» Á¦¾îÇÏ±â À§ÇÑ º¯¼ö Ãß°¡				// 2025.04.08
+bool °üÂû{ false };					// 2025.04.08
+
+STRING::STRING()							// 2025.04.08
+	: id{++gid}
+{
+	if(°üÂû){
+		std::println("[{:8}] {:16}, ÀÚ¿ø¼ö:{:<10}, ¸Ş¸ğ¸®:{:<12}, ÀÚ¿ø¸Ş¸ğ¸®:{:<12}",
+			id, "µğÆúÆ®»ı¼º", len, (void*)this, (void*)p.get());
+	}
+}
+
+STRING::~STRING()								// 2025.04.08
+{
+	if (°üÂû) {
+		std::println("[{:8}] {:16}, ÀÚ¿ø¼ö:{:<10}, ¸Ş¸ğ¸®:{:<12}, ÀÚ¿ø¸Ş¸ğ¸®:{:<12}",
+			id, "¼Ò¸êÀÚ", len, (void*)this, (void*)p.get());
+	}
+}
+
+STRING::STRING(const char* s) 
+	:id{++gid},len {	strlen(s)}
+{
+	p.reset();
+	p = std::make_unique<char[]>(len);
+	memcpy(p.get(), s, len);
+
+	if (°üÂû) {
+		std::println("[{:8}] {:16}, ÀÚ¿ø¼ö:{:<10}, ¸Ş¸ğ¸®:{:<12}, ÀÚ¿ø¸Ş¸ğ¸®:{:<12}",
+			id, "»ı¼ºÀÚ(char*)", len, (void*)this, (void*)p.get());
+	}
+};
+
+STRING::STRING(const STRING& other)			// 2025.04.08
+	:id{ ++gid }, len{ other.len }		// ¿©±â¿¡ µÎ ¹øÂ° ÀÎÀÚ¸¦ ³Ö°Ô µÇ¸é, ¼ø¼­°¡ º¸ÀåµÇÁö ¾ÊÀ½
+{
+	p = std::make_unique<char[]>(len);
+	memcpy(p.get(), other.p.get(), len);
+
+	if (°üÂû) {
+		std::println("[{:8}] {:16}, ÀÚ¿ø¼ö:{:<10}, ¸Ş¸ğ¸®:{:<12}, ÀÚ¿ø¸Ş¸ğ¸®:{:<12}",
+			id, "º¹»ç»ı¼ºÀÚ", len, (void*)this, (void*)p.get());
+	}
+}
+
+STRING& STRING::operator=(const STRING& other)	// 2025.04.08
+{
+	if (this == &other)
+		return *this;
+
+	len = other.len;
+	p.release();								// p.reset()°ú ´Ù¸¥ Á¡À» °øºÎÇÏÀÚ
+	p = std::make_unique<char[]>(len);
+	memcpy(p.get(), other.p.get(), len);
+
+	if (°üÂû) {
+		std::println("[{:8}] {:16}, ÀÚ¿ø¼ö:{:<10}, ¸Ş¸ğ¸®:{:<12}, ÀÚ¿ø¸Ş¸ğ¸®:{:<12}",
+			id, "º¹»çÇÒ´ç¿¬»êÀÚ", len, (void*)this, (void*)p.get());
+	}
+
+	return *this;
+}
+
+//	ÀÌµ¿»ı¼º°ú ÀÌµ¿ÇÒ´ç¿¬»êÀÚ				// 2025.04.10
+STRING::STRING(STRING&& other)				// && -> rvalue reference
+	: id{ ++gid }, len{other.len}
+{
+	p.reset(other.p.release());
+
+	if (°üÂû) {
+		std::println("[{:8}] {:16}, ÀÚ¿ø¼ö:{:<10}, ¸Ş¸ğ¸®:{:<12}, ÀÚ¿ø¸Ş¸ğ¸®:{:<12}",
+			id, "ÀÌµ¿»ı¼ºÀÚ", len, (void*)this, (void*)p.get());
+	}
+}
+
+STRING& STRING::operator=(STRING&& other)
+{
+	if (this == &other)
+		return *this;
+
+	len = other.len;
+	p.release();
+	p.reset(other.p.release());
+
+	other.len = 0;
+
+	if (°üÂû) {
+		std::println("[{:8}] {:16}, ÀÚ¿ø¼ö:{:<10}, ¸Ş¸ğ¸®:{:<12}, ÀÚ¿ø¸Ş¸ğ¸®:{:<12}",
+			id, "ÀÌµ¿ÇÒ´ç¿¬»êÀÚ", len, (void*)this, (void*)p.get());
+	}
+
+	return *this;
+}
+
+// 2025. 04. 22 °ü°è¿¬»êÀÚµé
+bool STRING::operator==(const STRING& rhs) const
+{
+	//if (len != rhs.len)
+	//	return false;
+	return std::equal(&p[0], &p[len], &rhs.p[0], &rhs.p[rhs.len]);
+}
+
+size_t STRING::size() const 
+{
+	return len;
+}
+
+std::ostream& operator<<(std::ostream& os, const STRING& str) 
+{
+	for (int i = 0; i < str.len; ++i)
+		os << str.p[i];
+	return os;
+}
+
+// 2025. 5. 1
+std::istream& operator>>(std::istream& is, STRING& str)
+{
+	std::string s;
+	is >> s;
+	str.len = s.length();
+	str.p.release();
+	str.p = std::make_unique<char[]>(str.len);
+	memcpy((char*)str.p.get(), s.data(), str.len);
+	return is;
+}
+
+size_t STRING::gid{};						// 2025.04.0
+
+
+=================================================
+ÀúÀåÇÑ ½Ã°£: 2025-05-01 ¿ÀÈÄ 5:08:30 ¸ñ¿äÀÏ
+=================================================
+
+//------------------------------------------------------------------------------------------------
+//	2025 STL È­56¸ñ78				5¿ù 1ÀÏ ¸ñ¿äÀÏ					(9ÁÖ 2ÀÏ)
+//	5¿ù 6ÀÏ(È­¿äÀÏ) -> 6¿ù 19ÀÏ(¿¹Á¤)
+//------------------------------------------------------------------------------------------------
+//	STL Container - Container are objects that store other objects.
+//	1. Sequence Containers
+//		array<T,N>
+//		vector<T> - push_back() O(1)
+//		deque<T>  - push_front() / push_back() O(1)
+//		list<T>	  - node ±â¹İ, ÀÓÀÇÀÇ À§Ä¡¿¡¼­ »ğÀÔ°ú »èÁ¦ O(1)
+//------------------------------------------------------------------------------------------------
+#include <iostream>
+#include <list>
+#include<fstream>
+#include<algorithm>
+#include"STRING.h"
+#include "save.h"
+using namespace std;
+
+extern bool °üÂû;				// °üÂûÇÏ·Á¸é true·Î ¼³Á¤
+
+//---------
+int main() 
+//---------
+{
+	//	[¹®Á¦] "main.cpp"ÀÇ ´Ü¾î¸¦ list¿¡ ÀúÀåÇÏ¶ó.
+	//	Ã£À» ´Ü¾î¸¦ ¹°¾îºÁ¼­ ¾øÀ¸¸é ¾ø´Ù. ÀÖÀ¸¸é listÀÇ ¸î ¹øÂ° ´Ü¾îÀÎÁö Ãâ·ÂÇØ ÁÖÀÚ.
+
+	save("STRING.cpp");
+	save("main.cpp");
+
+	ifstream in{"main.cpp"};
+	if (not in)
+		return 20250501;
+
+	list<STRING> ´Ü¾îµé{ istream_iterator<STRING>{in},{} };
+	while (true) {
+		cout << "Ã£À¸½Ç ´Ü¾î? ";
+		STRING ´Ü¾î;
+		cin >> ´Ü¾î;
+
+		auto res = find(´Ü¾îµé.begin(), ´Ü¾îµé.end(), ´Ü¾î);		// ¹İº¹ÀÚ·Î ¹İÈ¯
+		if (res == ´Ü¾îµé.end())
+			cout << ´Ü¾î << " - ¾ø´Â ´Ü¾îÀÔ´Ï´Ù." << endl;
+		else
+			cout << "Ã£¾Ò½À´Ï´Ù." << endl;
+	}
+
+
+}

@@ -1,17 +1,17 @@
 //------------------------------------------------------------------------------------------------
-//	2025 STL 화56목78				4월 29일 화요일					(9주 1일)
+//	2025 STL 화56목78				5월 1일 목요일					(9주 2일)
 //	5월 6일(화요일) -> 6월 19일(예정)
 //------------------------------------------------------------------------------------------------
 //	STL Container - Container are objects that store other objects.
 //	1. Sequence Containers
 //		array<T,N>
-//		vector<T> - dynamic(run-time) array
-//		deque<T>  - vector보다 더 많은 원소를 담을 수 있다.
-//		
+//		vector<T> - push_back() O(1)
+//		deque<T>  - push_front() / push_back() O(1)
+//		list<T>	  - node 기반, 임의의 위치에서 삽입과 삭제 O(1)
 //------------------------------------------------------------------------------------------------
 #include <iostream>
-#include <vector>
 #include <list>
+#include<fstream>
 #include<algorithm>
 #include"STRING.h"
 #include "save.h"
@@ -23,15 +23,27 @@ extern bool 관찰;				// 관찰하려면 true로 설정
 int main() 
 //---------
 {
-	관찰 = true;
-	list<STRING> cont{ "1","333","55555","4444","22" };
+	//	[문제] "main.cpp"의 단어를 list에 저장하라.
+	//	찾을 단어를 물어봐서 없으면 없다. 있으면 list의 몇 번째 단어인지 출력해 주자.
 
-	ranges::sort(cont.begin(), cont.end());
-
-	for (const STRING& s : cont)
-		cout << s << endl;
-
-	
-	관찰 = false;
 	save("main.cpp");
+
+	ifstream in{"main.cpp"};
+	if (not in)
+		return 20250501;
+
+	list<STRING> 단어들{ istream_iterator<STRING>{in},{} };
+	while (true) {
+		cout << "찾으실 단어? ";
+		STRING 단어;
+		cin >> 단어;
+
+		auto res = find(단어들.begin(), 단어들.end(), 단어);		// 반복자로 반환
+		if (res == 단어들.end())
+			cout << 단어 << " - 없는 단어입니다." << endl;
+		else
+			cout << "찾았습니다." << endl;
+	}
+
+
 }
