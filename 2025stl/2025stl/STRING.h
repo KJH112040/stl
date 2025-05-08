@@ -3,6 +3,7 @@
 //			   STL의 container로 동작할 수 있게 코딩해 나간다
 //																	2025.4.8 시작
 //	>> 연산자															2025.5.1 
+//	>  연산자															2025.5.8
 //----------------------------------------------------------------------------------
 #pragma once
 #include<memory>
@@ -31,6 +32,7 @@ public:
 
 	// 2025. 04. 22 관계연산자들
 	bool operator==(const STRING& rhs) const;
+	bool operator<(const STRING& rhs) const;// 2025.05.08
 
 	// 인터페이스 함수들
 	size_t size() const;

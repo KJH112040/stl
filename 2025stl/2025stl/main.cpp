@@ -1,49 +1,53 @@
 //------------------------------------------------------------------------------------------------
-//	2025 STL 화56목78				5월 1일 목요일					(9주 2일)
-//	5월 6일(화요일) -> 6월 19일(예정)
+//	2025 STL 화56목78				5월 8일 목요일					(10주 1일)
+//	6월 19일 목요일 15주 2일 - 기말시험
 //------------------------------------------------------------------------------------------------
 //	STL Container - Container are objects that store other objects.
 //	1. Sequence Containers
 //		array<T,N>
-//		vector<T> - push_back() O(1)
-//		deque<T>  - push_front() / push_back() O(1)
-//		list<T>	  - node 기반, 임의의 위치에서 삽입과 삭제 O(1)
+//		vector<T>		- push_back() O(1)
+//		deque<T>		- push_front() / push_back() O(1)
+//		list<T>			- node 기반, 임의의 위치에서 삽입과 삭제 O(1)
+//						  대표 동작 : sort(), unique(), merge(), splice();
+//		forward_list<T>	- 
+//						It is intended that forward_list have zero space or time overhead
+//						relative to a hand-written C-style singly linked list.
+//						Features that would conflict with that goal have been omitted.
+//	span:
+//	The class template span describes an object that can refer to a contiguous sequence of objects 
+//	with the first element of the sequence at position zero.
+//	A span can either have a static extent, in which case the number of elements 
+//	in the sequence is known at compile-time and encoded in the type, or a dynamic extent.
 //------------------------------------------------------------------------------------------------
 #include <iostream>
-#include <list>
-#include<fstream>
-#include<algorithm>
+#include<array>
+#include<vector>
+#include<deque>
+#include<span>
 #include"STRING.h"
 #include "save.h"
 using namespace std;
 
 extern bool 관찰;				// 관찰하려면 true로 설정
 
+void f(span<int> s)
+{
+	for (auto i = s.rbegin(); i != s.rend(); ++i)
+		cout << *i << " ";
+	cout << endl;
+}
+
 //---------
 int main() 
 //---------
 {
-	//	[문제] "main.cpp"의 단어를 list에 저장하라.
-	//	찾을 단어를 물어봐서 없으면 없다. 있으면 list의 몇 번째 단어인지 출력해 주자.
+	int a[]{ 1,2,3,4,5,6,7 };
+	f(a);
+
+	vector<int> v{ begin(a),end(a) };	 // == { &a[0],&a[7] }; 같은 표현
+	f(v);
+
+	
 
 	save("main.cpp");
-
-	ifstream in{"main.cpp"};
-	if (not in)
-		return 20250501;
-
-	list<STRING> 단어들{ istream_iterator<STRING>{in},{} };
-	while (true) {
-		cout << "찾으실 단어? ";
-		STRING 단어;
-		cin >> 단어;
-
-		auto res = find(단어들.begin(), 단어들.end(), 단어);		// 반복자로 반환
-		if (res == 단어들.end())
-			cout << 단어 << " - 없는 단어입니다." << endl;
-		else
-			cout << "찾았습니다." << endl;
-	}
-
-
 }
