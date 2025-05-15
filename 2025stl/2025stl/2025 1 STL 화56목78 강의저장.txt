@@ -13734,3 +13734,1081 @@ int main()
 
 	save("main.cpp");
 }
+
+
+=================================================
+저장한 시간: 2025-05-09 오후 10:55:21 금요일
+=================================================
+
+//------------------------------------------------------------------------------------------------
+//	2025 STL 화56목78				5월 8일 목요일					(10주 1일)
+//	6월 19일 목요일 15주 2일 - 기말시험
+//------------------------------------------------------------------------------------------------
+//	STL Container - Container are objects that store other objects.
+//	1. Sequence Containers
+//		array<T,N>
+//		vector<T>		- push_back() O(1)
+//		deque<T>		- push_front() / push_back() O(1)
+//		list<T>			- node 기반, 임의의 위치에서 삽입과 삭제 O(1)
+//						  대표 동작 : sort(), unique(), merge(), splice();
+//		forward_list<T>	- 
+//						It is intended that forward_list have zero space or time overhead
+//						relative to a hand-written C-style singly linked list.
+//						Features that would conflict with that goal have been omitted.
+//	span:
+//	The class template span describes an object that can refer to a contiguous sequence of objects 
+//	with the first element of the sequence at position zero.
+//	A span can either have a static extent, in which case the number of elements 
+//	in the sequence is known at compile-time and encoded in the type, or a dynamic extent.
+//------------------------------------------------------------------------------------------------
+#include <iostream>
+#include<array>
+#include<vector>
+#include<deque>
+#include<span>
+#include"STRING.h"
+#include "save.h"
+using namespace std;
+
+extern bool 관찰;				// 관찰하려면 true로 설정
+
+void f(span<int> s)
+{
+	for (auto i = s.rbegin(); i != s.rend(); ++i)
+		cout << *i << " ";
+	cout << endl;
+}
+
+//---------
+int main() 
+//---------
+{
+	int a[]{ 1,2,3,4,5,6,7 };
+	f(a);
+
+	vector<int> v{ begin(a),end(a) };	 // == { &a[0],&a[7] }; 같은 표현
+	f(v);
+
+	
+
+	save("main.cpp");
+}
+
+
+=================================================
+저장한 시간: 2025-05-13 오후 1:38:57 화요일
+=================================================
+
+//------------------------------------------------------------------------------------------------
+//	2025 STL 화56목78				5월 13일 목요일					(10주 2일)
+//	6월 19일 목요일 15주 2일 - 기말시험
+//------------------------------------------------------------------------------------------------
+//	iterator
+//------------------------------------------------------------------------------------------------
+#include <iostream>
+#include<string>
+#include"STRING.h"
+#include "save.h"
+using namespace std;
+
+extern bool 관찰;				// 관찰하려면 true로 설정
+
+//---------
+int main() 
+//---------
+{
+	std::string s{ "2025 5 13" };
+
+	cout << s << endl;
+
+	for (char c : s)
+		cout << c << " ";
+	cout << endl;
+	
+	//2025 5 13						<< 전체를 찍음
+	//2 0 2 5   5   1 3				<< 글자 하나하나를 찍음
+
+	save("main.cpp");
+}
+
+
+=================================================
+저장한 시간: 2025-05-13 오후 1:52:49 화요일
+=================================================
+
+//----------------------------------------------------------------------------------
+//	STRING.h - std::string과 유사한 클래스이다
+//			   STL의 container로 동작할 수 있게 코딩해 나간다
+//																	2025.4.8 시작
+//	>> 연산자															2025.5.1 
+//	>  연산자															2025.5.8
+//	begin(), end()														2025.5.13
+//----------------------------------------------------------------------------------
+#pragma once
+#include<memory>
+#include<iostream>
+
+class STRING {
+public:
+	STRING();						// 2025.04.08
+	~STRING();								// 2025.04.08
+											// 관찰을 위해 어쩔 수 없이
+
+	STRING(const char* s);
+
+	//	복사생성과 복사할당연산자
+	STRING(const STRING&);					// 2025.04.08
+	STRING& operator=(const STRING&);		// 2025.04.08
+
+	//	이동생성과 이동할당연산자				// 2025.04.10
+	
+	// int a;
+	// int* p = &a;		-----> adress a
+	// int& a = num;	-----> integer reference of a
+
+	STRING(STRING&&);				// && -> rvalue reference
+	STRING& operator=(STRING&&);
+
+	// 2025. 04. 22 관계연산자들
+	bool operator==(const STRING& rhs) const;
+	bool operator<(const STRING& rhs) const;// 2025.05.08
+
+	// 인터페이스 함수들
+	size_t size() const;
+
+	//	begin(), end()														2025.5.13
+	char* begin()const;
+	char* end()const;
+
+private:
+	size_t len{};
+	std::unique_ptr<char[]> p{};
+	size_t id;									// 2025.04.08
+
+	friend std::ostream& operator<<(std::ostream& os, const STRING& str);
+
+	// 2025. 5. 1
+	friend std::istream& operator>>(std::istream& is, STRING& str);
+
+	static size_t gid;						// 2025.04.08
+};
+
+
+=================================================
+저장한 시간: 2025-05-13 오후 1:52:49 화요일
+=================================================
+
+//----------------------------------------------------------------------------------
+//	STRING.cpp - std::string과 유사한 클래스이다
+//				 STL의 container로 동작할 수 있게 코딩해 나간다
+//																	2025.4.8 시작
+//	2025. 4.
+//	2025. 5. 1	>> 연산자
+//	2025. 5. 13	begin(), end()
+//----------------------------------------------------------------------------------
+#include<iostream>
+#include<memory>
+#include<print>
+#include<algorithm>
+#include<string>
+#include"STRING.h"
+
+// 관찰을 제어하기 위한 변수 추가				// 2025.04.08
+bool 관찰{ false };					// 2025.04.08
+
+STRING::STRING()							// 2025.04.08
+	: id{++gid}
+{
+	if(관찰){
+		std::println("[{:8}] {:16}, 자원수:{:<10}, 메모리:{:<12}, 자원메모리:{:<12}",
+			id, "디폴트생성", len, (void*)this, (void*)p.get());
+	}
+}
+
+STRING::~STRING()								// 2025.04.08
+{
+	if (관찰) {
+		std::println("[{:8}] {:16}, 자원수:{:<10}, 메모리:{:<12}, 자원메모리:{:<12}",
+			id, "소멸자", len, (void*)this, (void*)p.get());
+	}
+}
+
+STRING::STRING(const char* s) 
+	:id{++gid},len {	strlen(s)}
+{
+	p.reset();
+	p = std::make_unique<char[]>(len);
+	memcpy(p.get(), s, len);
+
+	if (관찰) {
+		std::println("[{:8}] {:16}, 자원수:{:<10}, 메모리:{:<12}, 자원메모리:{:<12}",
+			id, "생성자(char*)", len, (void*)this, (void*)p.get());
+	}
+};
+
+STRING::STRING(const STRING& other)			// 2025.04.08
+	:id{ ++gid }, len{ other.len }		// 여기에 두 번째 인자를 넣게 되면, 순서가 보장되지 않음
+{
+	p = std::make_unique<char[]>(len);
+	memcpy(p.get(), other.p.get(), len);
+
+	if (관찰) {
+		std::println("[{:8}] {:16}, 자원수:{:<10}, 메모리:{:<12}, 자원메모리:{:<12}",
+			id, "복사생성자", len, (void*)this, (void*)p.get());
+	}
+}
+
+STRING& STRING::operator=(const STRING& other)	// 2025.04.08
+{
+	if (this == &other)
+		return *this;
+
+	len = other.len;
+	p.release();								// p.reset()과 다른 점을 공부하자
+	p = std::make_unique<char[]>(len);
+	memcpy(p.get(), other.p.get(), len);
+
+	if (관찰) {
+		std::println("[{:8}] {:16}, 자원수:{:<10}, 메모리:{:<12}, 자원메모리:{:<12}",
+			id, "복사할당연산자", len, (void*)this, (void*)p.get());
+	}
+
+	return *this;
+}
+
+//	이동생성과 이동할당연산자				// 2025.04.10
+STRING::STRING(STRING&& other)				// && -> rvalue reference
+	: id{ ++gid }, len{other.len}
+{
+	p.reset(other.p.release());
+
+	if (관찰) {
+		std::println("[{:8}] {:16}, 자원수:{:<10}, 메모리:{:<12}, 자원메모리:{:<12}",
+			id, "이동생성자", len, (void*)this, (void*)p.get());
+	}
+}
+
+STRING& STRING::operator=(STRING&& other)
+{
+	if (this == &other)
+		return *this;
+
+	len = other.len;
+	p.release();
+	p.reset(other.p.release());
+
+	other.len = 0;
+
+	if (관찰) {
+		std::println("[{:8}] {:16}, 자원수:{:<10}, 메모리:{:<12}, 자원메모리:{:<12}",
+			id, "이동할당연산자", len, (void*)this, (void*)p.get());
+	}
+
+	return *this;
+}
+
+// 2025. 04. 22 관계연산자들
+bool STRING::operator==(const STRING& rhs) const
+{
+	//if (len != rhs.len)
+	//	return false;
+	return std::equal(&p[0], &p[len], &rhs.p[0], &rhs.p[rhs.len]);
+}
+
+bool STRING::operator<(const STRING& rhs) const				// 2025.05.08
+{
+	return std::lexicographical_compare(p.get(), p.get() + len,
+		rhs.p.get(), rhs.p.get() + rhs.len);
+}
+
+size_t STRING::size() const 
+{
+	return len;
+}
+
+//	begin(), end()														2025.5.13
+char* STRING::begin()const
+{
+	return p.get();			// return &p[0];
+}
+char* STRING::end()const
+{
+	return p.get() + len;	// return &p[len];
+}
+
+std::ostream& operator<<(std::ostream& os, const STRING& str) 
+{
+	for (int i = 0; i < str.len; ++i)
+		os << str.p[i];
+	return os;
+}
+
+// 2025. 5. 1
+std::istream& operator>>(std::istream& is, STRING& str)
+{
+	std::string s;
+	is >> s;
+	str.len = s.length();
+	str.p.release();
+	str.p = std::make_unique<char[]>(str.len);
+	memcpy((char*)str.p.get(), s.data(), str.len);
+	return is;
+}
+
+size_t STRING::gid{};						// 2025.04.0
+
+
+=================================================
+저장한 시간: 2025-05-13 오후 1:52:49 화요일
+=================================================
+
+//------------------------------------------------------------------------------------------------
+//	2025 STL 화56목78				5월 13일 목요일					(10주 2일)
+//	6월 19일 목요일 15주 2일 - 기말시험
+//------------------------------------------------------------------------------------------------
+//	iterator
+//------------------------------------------------------------------------------------------------
+#include <iostream>
+#include<string>
+#include"STRING.h"
+#include "save.h"
+using namespace std;
+
+extern bool 관찰;				// 관찰하려면 true로 설정
+
+//---------
+int main() 
+//---------
+{
+	STRING s{ "2025 5 13" };
+
+	cout << s << endl;
+
+	// syntactic sugar
+	for (char c : s)		// 범위(range)는 STL에서 중요한 역할. 해당 줄은 범위 기반 for-loop이기 떄문에 원소의 처음부터 끝이 어디냐고 오류 띄운 것.
+		cout << c << " ";
+	// 위 코드는 아래 코드보다 꿀코드? 꿀문장? 꿀문법 여하튼 그럼.
+	//for (auto i = s.begin(); i != s.end(); ++i)
+	//	cout << *i << " ";
+	cout << endl;
+
+	save("STRING.h");
+	save("STRING.cpp");
+	save("main.cpp");
+}
+
+
+=================================================
+저장한 시간: 2025-05-13 오후 2:10:58 화요일
+=================================================
+
+//------------------------------------------------------------------------------------------------
+//	2025 STL 화56목78				5월 13일 목요일					(10주 2일)
+//	6월 19일 목요일 15주 2일 - 기말시험
+//------------------------------------------------------------------------------------------------
+//	iterator - Iterators are a generalization of pointers that
+//	allow a C++ program to work with different data structures in a uniform manner.
+//------------------------------------------------------------------------------------------------
+#include <iostream>
+#include<string>
+#include<iterator>
+#include"STRING.h"
+#include "save.h"
+using namespace std;
+
+extern bool 관찰;				// 관찰하려면 true로 설정
+
+//---------
+int main() 
+//---------
+{
+	//	반복자는 포인터를 일반화한 것이다.
+	ostream_iterator<char> p{ cout };
+
+	*p = 'A';
+	++p;
+	*p = 'B';
+	++p;
+	*p = 'C';
+	++p;
+	*p = '\n';
+
+	save("main.cpp");
+
+	//ABC
+	//"2025 1 STL 화56목78 강의저장.txt에 main.cpp을 덧붙였습니다. - 928 bytes"
+}
+
+
+=================================================
+저장한 시간: 2025-05-13 오후 2:17:27 화요일
+=================================================
+
+//------------------------------------------------------------------------------------------------
+//	2025 STL 화56목78				5월 13일 목요일					(10주 2일)
+//	6월 19일 목요일 15주 2일 - 기말시험
+//------------------------------------------------------------------------------------------------
+//	iterator - Iterators are a generalization of pointers that
+//	allow a C++ program to work with different data structures in a uniform manner.
+//------------------------------------------------------------------------------------------------
+#include <iostream>
+#include<string>
+#include<iterator>
+#include"STRING.h"
+#include "save.h"
+using namespace std;
+
+extern bool 관찰;				// 관찰하려면 true로 설정
+
+//---------
+int main() 
+//---------
+{
+	//	반복자는 포인터를 일반화한 것이다.
+	ostream_iterator<char> p{ cout };
+
+	//p.operator*() = 'A';
+	p = 'A';
+	*p = 'B';
+	*p = 'C';
+	*p = '\n';
+	//	커서는 내가 동작을 시키지 않아도 데이터가 들어가면 자동으로 옆으로 이동
+	//	++p 하지 않아도 넘어가는? 그런 거 인듯.
+
+	save("main.cpp");
+}
+
+
+=================================================
+저장한 시간: 2025-05-13 오후 2:37:43 화요일
+=================================================
+
+//------------------------------------------------------------------------------------------------
+//	2025 STL 화56목78				5월 13일 목요일					(10주 2일)
+//	6월 19일 목요일 15주 2일 - 기말시험
+//------------------------------------------------------------------------------------------------
+//	iterator - Iterators are a generalization of pointers that
+//	allow a C++ program to work with different data structures in a uniform manner.
+//------------------------------------------------------------------------------------------------
+#include <iostream>
+#include<string>
+#include<iterator>
+#include"STRING.h"
+#include "save.h"
+using namespace std;
+
+extern bool 관찰;				// 관찰하려면 true로 설정
+
+//---------
+int main() 
+//---------
+{
+	std::string s{ "2025 5 13" };
+
+	// [문제] s의 글자를 거꾸로 출력하라.
+
+	// c만 배웠다면? 또는 자료형이 char s[] {"2025 5 13"}; 이런 식으로 주어졌다면?
+	for (int i = s.size(); i != 0; --i)
+		cout << s[i - 1];
+	cout << endl;
+	
+	// reverse-begin()/reverse-end() 활용
+	for (auto p = s.rbegin(); p != s.rend(); ++p)
+		cout << *p;
+	cout << endl;
+
+	// 그 외에도 여러 방법 존재
+
+	save("main.cpp");
+}
+
+
+=================================================
+저장한 시간: 2025-05-13 오후 3:02:39 화요일
+=================================================
+
+//----------------------------------------------------------------------------------
+//	STRING.h - std::string과 유사한 클래스이다
+//			   STL의 container로 동작할 수 있게 코딩해 나간다
+//																	2025.4.8 시작
+//	>> 연산자															2025.5.1 
+//	>  연산자															2025.5.8
+//	begin(), end()														2025.5.13
+//	역방향 반복자는 반드시 클래스로 제공									2025.5.13
+//----------------------------------------------------------------------------------
+#pragma once
+#include<memory>
+#include<iostream>
+
+// 반복자 어댑터 (반복자 사기꾼)
+class STRING_Reverse_Iterator {
+public:
+	STRING_Reverse_Iterator(char* p) : p{ p } {}
+	
+	char operator*() const{
+		return *(p - 1);
+	}
+	void operator++() {
+		--p;
+	}
+	bool operator==(const STRING_Reverse_Iterator& rhs) const {
+		return p == rhs.p;
+	}
+private:
+	char* p;
+};
+
+class STRING {
+public:
+	STRING();						// 2025.04.08
+	~STRING();								// 2025.04.08
+											// 관찰을 위해 어쩔 수 없이
+
+	STRING(const char* s);
+
+	//	복사생성과 복사할당연산자
+	STRING(const STRING&);					// 2025.04.08
+	STRING& operator=(const STRING&);		// 2025.04.08
+
+	//	이동생성과 이동할당연산자				// 2025.04.10
+	
+	// int a;
+	// int* p = &a;		-----> adress a
+	// int& a = num;	-----> integer reference of a
+
+	STRING(STRING&&);				// && -> rvalue reference
+	STRING& operator=(STRING&&);
+
+	// 2025. 04. 22 관계연산자들
+	bool operator==(const STRING& rhs) const;
+	bool operator<(const STRING& rhs) const;// 2025.05.08
+
+	// 인터페이스 함수들
+	size_t size() const;
+
+	//	begin(), end()														2025.5.13
+	char* begin()const;
+	char* end()const;
+
+	STRING_Reverse_Iterator rbegin()const;
+	STRING_Reverse_Iterator rend()const;
+
+private:
+	size_t len{};
+	std::unique_ptr<char[]> p{};
+	size_t id;									// 2025.04.08
+
+	friend std::ostream& operator<<(std::ostream& os, const STRING& str);
+
+	// 2025. 5. 1
+	friend std::istream& operator>>(std::istream& is, STRING& str);
+
+	static size_t gid;						// 2025.04.08
+};
+
+
+=================================================
+저장한 시간: 2025-05-13 오후 3:02:39 화요일
+=================================================
+
+//----------------------------------------------------------------------------------
+//	STRING.cpp - std::string과 유사한 클래스이다
+//				 STL의 container로 동작할 수 있게 코딩해 나간다
+//																	2025.4.8 시작
+//	2025. 4.
+//	2025. 5. 1	>> 연산자
+//	2025. 5. 13	begin(), end()
+//----------------------------------------------------------------------------------
+#include<iostream>
+#include<memory>
+#include<print>
+#include<algorithm>
+#include<string>
+#include"STRING.h"
+
+// 관찰을 제어하기 위한 변수 추가				// 2025.04.08
+bool 관찰{ false };					// 2025.04.08
+
+STRING::STRING()							// 2025.04.08
+	: id{++gid}
+{
+	if(관찰){
+		std::println("[{:8}] {:16}, 자원수:{:<10}, 메모리:{:<12}, 자원메모리:{:<12}",
+			id, "디폴트생성", len, (void*)this, (void*)p.get());
+	}
+}
+
+STRING::~STRING()								// 2025.04.08
+{
+	if (관찰) {
+		std::println("[{:8}] {:16}, 자원수:{:<10}, 메모리:{:<12}, 자원메모리:{:<12}",
+			id, "소멸자", len, (void*)this, (void*)p.get());
+	}
+}
+
+STRING::STRING(const char* s) 
+	:id{++gid},len {	strlen(s)}
+{
+	p.reset();
+	p = std::make_unique<char[]>(len);
+	memcpy(p.get(), s, len);
+
+	if (관찰) {
+		std::println("[{:8}] {:16}, 자원수:{:<10}, 메모리:{:<12}, 자원메모리:{:<12}",
+			id, "생성자(char*)", len, (void*)this, (void*)p.get());
+	}
+};
+
+STRING::STRING(const STRING& other)			// 2025.04.08
+	:id{ ++gid }, len{ other.len }		// 여기에 두 번째 인자를 넣게 되면, 순서가 보장되지 않음
+{
+	p = std::make_unique<char[]>(len);
+	memcpy(p.get(), other.p.get(), len);
+
+	if (관찰) {
+		std::println("[{:8}] {:16}, 자원수:{:<10}, 메모리:{:<12}, 자원메모리:{:<12}",
+			id, "복사생성자", len, (void*)this, (void*)p.get());
+	}
+}
+
+STRING& STRING::operator=(const STRING& other)	// 2025.04.08
+{
+	if (this == &other)
+		return *this;
+
+	len = other.len;
+	p.release();								// p.reset()과 다른 점을 공부하자
+	p = std::make_unique<char[]>(len);
+	memcpy(p.get(), other.p.get(), len);
+
+	if (관찰) {
+		std::println("[{:8}] {:16}, 자원수:{:<10}, 메모리:{:<12}, 자원메모리:{:<12}",
+			id, "복사할당연산자", len, (void*)this, (void*)p.get());
+	}
+
+	return *this;
+}
+
+//	이동생성과 이동할당연산자				// 2025.04.10
+STRING::STRING(STRING&& other)				// && -> rvalue reference
+	: id{ ++gid }, len{other.len}
+{
+	p.reset(other.p.release());
+
+	if (관찰) {
+		std::println("[{:8}] {:16}, 자원수:{:<10}, 메모리:{:<12}, 자원메모리:{:<12}",
+			id, "이동생성자", len, (void*)this, (void*)p.get());
+	}
+}
+
+STRING& STRING::operator=(STRING&& other)
+{
+	if (this == &other)
+		return *this;
+
+	len = other.len;
+	p.release();
+	p.reset(other.p.release());
+
+	other.len = 0;
+
+	if (관찰) {
+		std::println("[{:8}] {:16}, 자원수:{:<10}, 메모리:{:<12}, 자원메모리:{:<12}",
+			id, "이동할당연산자", len, (void*)this, (void*)p.get());
+	}
+
+	return *this;
+}
+
+// 2025. 04. 22 관계연산자들
+bool STRING::operator==(const STRING& rhs) const
+{
+	//if (len != rhs.len)
+	//	return false;
+	return std::equal(&p[0], &p[len], &rhs.p[0], &rhs.p[rhs.len]);
+}
+
+bool STRING::operator<(const STRING& rhs) const				// 2025.05.08
+{
+	return std::lexicographical_compare(p.get(), p.get() + len,
+		rhs.p.get(), rhs.p.get() + rhs.len);
+}
+
+size_t STRING::size() const 
+{
+	return len;
+}
+
+//	begin(), end()														2025.5.13
+char* STRING::begin()const
+{
+	return p.get();			// return &p[0];
+}
+char* STRING::end()const
+{
+	return p.get() + len;	// return &p[len];
+}
+
+STRING_Reverse_Iterator STRING::rbegin()const
+{
+	return STRING_Reverse_Iterator{ p.get() + len };
+}
+STRING_Reverse_Iterator STRING::rend()const
+{
+	return STRING_Reverse_Iterator{ p.get() };
+}
+
+std::ostream& operator<<(std::ostream& os, const STRING& str) 
+{
+	for (int i = 0; i < str.len; ++i)
+		os << str.p[i];
+	return os;
+}
+
+// 2025. 5. 1
+std::istream& operator>>(std::istream& is, STRING& str)
+{
+	std::string s;
+	is >> s;
+	str.len = s.length();
+	str.p.release();
+	str.p = std::make_unique<char[]>(str.len);
+	memcpy((char*)str.p.get(), s.data(), str.len);
+	return is;
+}
+
+size_t STRING::gid{};						// 2025.04.0
+
+
+=================================================
+저장한 시간: 2025-05-13 오후 3:02:39 화요일
+=================================================
+
+//------------------------------------------------------------------------------------------------
+//	2025 STL 화56목78				5월 13일 목요일					(10주 2일)
+//	6월 19일 목요일 15주 2일 - 기말시험
+//------------------------------------------------------------------------------------------------
+//	iterator - Iterators are a generalization of pointers that
+//	allow a C++ program to work with different data structures in a uniform manner.
+// 
+//	반복자는 클래스로 코딩해야 합니다.
+//------------------------------------------------------------------------------------------------
+#include <iostream>
+#include<string>
+#include<iterator>
+#include"STRING.h"
+#include "save.h"
+using namespace std;
+
+extern bool 관찰;				// 관찰하려면 true로 설정
+
+//---------
+int main() 
+//---------
+{
+	STRING s{ "2025 5 13" };
+
+	// [문제] s의 글자를 거꾸로 출력하라.
+	// rbegin(), rend()의 정체 : reverse_iterator
+
+	// 시도 1
+	//for (auto p = s.end(); p != s.begin(); --p)
+	//	cout << *(p-1);
+	//cout << endl;
+	
+	for (auto i = s.rbegin(); i != s.rend(); ++i)
+		cout << *i;
+	cout << endl;
+
+	save("STRING.h");
+	save("STRING.cpp");
+	save("main.cpp");
+}
+
+
+=================================================
+저장한 시간: 2025-05-13 오후 3:11:04 화요일
+=================================================
+
+//------------------------------------------------------------------------------------------------
+//	2025 STL 화56목78				5월 13일 목요일					(10주 2일)
+//	6월 19일 목요일 15주 2일 - 기말시험
+//------------------------------------------------------------------------------------------------
+//	iterator - Iterators are a generalization of pointers that
+//	allow a C++ program to work with different data structures in a uniform manner.
+// 
+//	반복자는 클래스로 코딩해야 합니다.
+//------------------------------------------------------------------------------------------------
+#include <iostream>
+#include<string>
+#include<iterator>
+#include<array>
+#include<vector>
+#include<deque>
+#include<list>
+#include<forward_list>
+#include"STRING.h"
+#include "save.h"
+using namespace std;
+
+extern bool 관찰;				// 관찰하려면 true로 설정
+
+void f(array<int, 2>::iterator i)
+{
+	// 어떤 종류
+	cout << "array의 반복자 - " << typeid(i).name() << endl;
+}
+
+//---------
+int main() 
+//---------
+{
+	STRING s{ "2025 5 13" };
+
+	//	[문제] 반복자는 종류(6 category)가 있다.
+	//	함수 f는 반복자를 인자로 받아 어떤 종류의 반복자인지 화면에 출력하는 함수이다.
+	//	다음 코드가 문제없이 실행되게 하자.
+	
+	array<int, 2> a;
+	f(a.begin());
+
+	save("main.cpp");
+}
+
+
+=================================================
+저장한 시간: 2025-05-13 오후 3:13:00 화요일
+=================================================
+
+//------------------------------------------------------------------------------------------------
+//	2025 STL 화56목78				5월 13일 목요일					(10주 2일)
+//	6월 19일 목요일 15주 2일 - 기말시험
+//------------------------------------------------------------------------------------------------
+//	iterator - Iterators are a generalization of pointers that
+//	allow a C++ program to work with different data structures in a uniform manner.
+// 
+//	반복자는 클래스로 코딩해야 합니다.
+//------------------------------------------------------------------------------------------------
+#include <iostream>
+#include<string>
+#include<iterator>
+#include<array>
+#include<vector>
+#include<deque>
+#include<list>
+#include<forward_list>
+#include"STRING.h"
+#include "save.h"
+using namespace std;
+
+extern bool 관찰;				// 관찰하려면 true로 설정
+
+template<class 반복자>
+void f(반복자 i)
+{
+	// 어떤 종류
+	cout << "array의 반복자 - " << typeid(i).name() << endl;
+}
+
+//---------
+int main() 
+//---------
+{
+	STRING s{ "2025 5 13" };
+
+	//	[문제] 반복자는 종류(6 category)가 있다.
+	//	함수 f는 반복자를 인자로 받아 어떤 종류의 반복자인지 화면에 출력하는 함수이다.
+	//	다음 코드가 문제없이 실행되게 하자.
+	
+	array<int, 2> a;
+	f(a.begin());
+	//array의 반복자 - class std::_Array_iterator<int,2>
+
+	vector<int> v;
+	f(v.begin());
+
+	save("main.cpp");
+}
+
+
+=================================================
+저장한 시간: 2025-05-13 오후 3:17:07 화요일
+=================================================
+
+//------------------------------------------------------------------------------------------------
+//	2025 STL 화56목78				5월 13일 목요일					(10주 2일)
+//	6월 19일 목요일 15주 2일 - 기말시험
+//------------------------------------------------------------------------------------------------
+//	iterator - Iterators are a generalization of pointers that
+//	allow a C++ program to work with different data structures in a uniform manner.
+// 
+//	반복자는 클래스로 코딩해야 합니다.
+//------------------------------------------------------------------------------------------------
+#include <iostream>
+#include<string>
+#include<iterator>
+#include<array>
+#include<vector>
+#include<deque>
+#include<list>
+#include<forward_list>
+#include"STRING.h"
+#include "save.h"
+using namespace std;
+
+extern bool 관찰;				// 관찰하려면 true로 설정
+
+template<class 반복자>
+void f(반복자 i)
+{
+	// 어떤 종류
+	cout << "array의 반복자 - " << typeid(반복자::iterator_category).name() << endl;
+}
+
+//---------
+int main() 
+//---------
+{
+	STRING s{ "2025 5 13" };
+
+	//	[문제] 반복자는 종류(6 category)가 있다.
+	//	함수 f는 반복자를 인자로 받아 어떤 종류의 반복자인지 화면에 출력하는 함수이다.
+	//	다음 코드가 문제없이 실행되게 하자.
+	
+	array<int, 2> a;
+	f(a.begin());
+	//array의 반복자 - class std::_Array_iterator<int,2>
+
+	vector<int> v;
+	f(v.begin());
+	//class std::_Vector_iterator<class std::_Vector_val<struct std::_Simple_types<int> > >
+
+	save("main.cpp");
+}
+
+
+=================================================
+저장한 시간: 2025-05-13 오후 3:19:09 화요일
+=================================================
+
+//------------------------------------------------------------------------------------------------
+//	2025 STL 화56목78				5월 13일 목요일					(10주 2일)
+//	6월 19일 목요일 15주 2일 - 기말시험
+//------------------------------------------------------------------------------------------------
+//	iterator - Iterators are a generalization of pointers that
+//	allow a C++ program to work with different data structures in a uniform manner.
+// 
+//	반복자는 클래스로 코딩해야 합니다.
+//------------------------------------------------------------------------------------------------
+#include <iostream>
+#include<string>
+#include<iterator>
+#include<array>
+#include<vector>
+#include<deque>
+#include<list>
+#include<forward_list>
+#include"STRING.h"
+#include "save.h"
+using namespace std;
+
+extern bool 관찰;				// 관찰하려면 true로 설정
+
+template<class 반복자>
+void f(반복자 i)
+{
+	// 어떤 종류
+	cout << "반복자의 타입 - " << typeid(반복자::iterator_category).name() << endl;
+}
+
+//---------
+int main() 
+//---------
+{
+	STRING s{ "2025 5 13" };
+
+	//	[문제] 반복자는 종류(6 category)가 있다.
+	//	함수 f는 반복자를 인자로 받아 어떤 종류의 반복자인지 화면에 출력하는 함수이다.
+	//	다음 코드가 문제없이 실행되게 하자.
+	
+	array<int, 2> a;
+	f(a.begin());
+	//array의 반복자 - class std::_Array_iterator<int,2>
+
+	vector<int> v;
+	f(v.begin());
+	//class std::_Vector_iterator<class std::_Vector_val<struct std::_Simple_types<int> > >
+
+	f(deque<STRING>::iterator{});
+	f(list<int>{}.rbegin());
+	f(forward_list<int>::const_iterator{});
+
+	save("main.cpp");
+}
+
+
+=================================================
+저장한 시간: 2025-05-13 오후 3:19:58 화요일
+=================================================
+
+//------------------------------------------------------------------------------------------------
+//	2025 STL 화56목78				5월 13일 목요일					(10주 2일)
+//	6월 19일 목요일 15주 2일 - 기말시험
+//------------------------------------------------------------------------------------------------
+//	iterator - Iterators are a generalization of pointers that
+//	allow a C++ program to work with different data structures in a uniform manner.
+// 
+//	반복자는 클래스로 코딩해야 합니다.
+//------------------------------------------------------------------------------------------------
+#include <iostream>
+#include<string>
+#include<iterator>
+#include<array>
+#include<vector>
+#include<deque>
+#include<list>
+#include<forward_list>
+#include"STRING.h"
+#include "save.h"
+using namespace std;
+
+extern bool 관찰;				// 관찰하려면 true로 설정
+
+template<class 반복자>
+void f(반복자 i)
+{
+	// 어떤 종류
+	cout << "반복자의 타입 - " << typeid(반복자::iterator_category).name() << endl;
+}
+
+//---------
+int main() 
+//---------
+{
+	STRING s{ "2025 5 13" };
+
+	//	[문제] 반복자는 종류(6 category)가 있다.
+	//	함수 f는 반복자를 인자로 받아 어떤 종류의 반복자인지 화면에 출력하는 함수이다.
+	//	다음 코드가 문제없이 실행되게 하자.
+	
+	array<int, 2> a;
+	f(a.begin());
+	//array의 반복자 - class std::_Array_iterator<int,2>
+
+	vector<int> v;
+	f(v.begin());
+	//class std::_Vector_iterator<class std::_Vector_val<struct std::_Simple_types<int> > >
+
+	f(deque<STRING>::iterator{});
+	f(list<int>{}.rbegin());
+	f(forward_list<int>::const_iterator{});
+	f(ostream_iterator<char>{cout});
+	//	반복자의 타입 - struct std::random_access_iterator_tag
+	//	반복자의 타입 - struct std::random_access_iterator_tag
+	//	반복자의 타입 - struct std::random_access_iterator_tag
+	//	반복자의 타입 - struct std::bidirectional_iterator_tag
+	//	반복자의 타입 - struct std::forward_iterator_tag
+	//	반복자의 타입 - struct std::output_iterator_tag
+
+	save("main.cpp");
+}

@@ -4,10 +4,30 @@
 //																	2025.4.8 시작
 //	>> 연산자															2025.5.1 
 //	>  연산자															2025.5.8
+//	begin(), end()														2025.5.13
+//	역방향 반복자는 반드시 클래스로 제공									2025.5.13
 //----------------------------------------------------------------------------------
 #pragma once
 #include<memory>
 #include<iostream>
+
+// 반복자 어댑터 (반복자 사기꾼)
+class STRING_Reverse_Iterator {
+public:
+	STRING_Reverse_Iterator(char* p) : p{ p } {}
+	
+	char operator*() const{
+		return *(p - 1);
+	}
+	void operator++() {
+		--p;
+	}
+	bool operator==(const STRING_Reverse_Iterator& rhs) const {
+		return p == rhs.p;
+	}
+private:
+	char* p;
+};
 
 class STRING {
 public:
@@ -36,6 +56,13 @@ public:
 
 	// 인터페이스 함수들
 	size_t size() const;
+
+	//	begin(), end()														2025.5.13
+	char* begin()const;
+	char* end()const;
+
+	STRING_Reverse_Iterator rbegin()const;
+	STRING_Reverse_Iterator rend()const;
 
 private:
 	size_t len{};

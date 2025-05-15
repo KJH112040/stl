@@ -4,6 +4,7 @@
 //																	2025.4.8 시작
 //	2025. 4.
 //	2025. 5. 1	>> 연산자
+//	2025. 5. 13	begin(), end()
 //----------------------------------------------------------------------------------
 #include<iostream>
 #include<memory>
@@ -123,6 +124,25 @@ bool STRING::operator<(const STRING& rhs) const				// 2025.05.08
 size_t STRING::size() const 
 {
 	return len;
+}
+
+//	begin(), end()														2025.5.13
+char* STRING::begin()const
+{
+	return p.get();			// return &p[0];
+}
+char* STRING::end()const
+{
+	return p.get() + len;	// return &p[len];
+}
+
+STRING_Reverse_Iterator STRING::rbegin()const
+{
+	return STRING_Reverse_Iterator{ p.get() + len };
+}
+STRING_Reverse_Iterator STRING::rend()const
+{
+	return STRING_Reverse_Iterator{ p.get() };
 }
 
 std::ostream& operator<<(std::ostream& os, const STRING& str) 
