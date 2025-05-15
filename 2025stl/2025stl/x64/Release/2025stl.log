@@ -1,7 +1,47 @@
 ﻿  main.cpp
-  코드를 생성하고 있습니다.
-  11 of 1131 functions ( 1.0%) were compiled, the rest were copied from previous compilation.
-    2 functions were new in current compilation
-    10 functions had inline decision re-evaluated but remain unchanged
-  코드를 생성했습니다.
-  2025stl.vcxproj -> C:\github_local_repository\stl\2025stl\x64\Release\2025stl.exe
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\include\algorithm(8373,50): error C2676: 이항 '-': 'const _RanIt'이(가) 이 연산자를 정의하지 않거나 미리 정의된 연산자에 허용되는 형식으로의 변환을 정의하지 않습니다.
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\include\algorithm(8373,50): error C2676:         with
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\include\algorithm(8373,50): error C2676:         [
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\include\algorithm(8373,50): error C2676:             _RanIt=STRING_Iterator
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\include\algorithm(8373,50): error C2676:         ]
+  (소스 파일 'main.cpp'을(를) 컴파일하는 중)
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\include\xutility(4544,30):
+      'unknown-type std::operator -(const std::move_iterator<_Iter> &,const std::move_iterator<_Iter2> &) noexcept(<expr>)'일 수 있습니다.
+          C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\include\algorithm(8373,43):
+          'unknown-type std::operator -(const std::move_iterator<_Iter> &,const std::move_iterator<_Iter2> &) noexcept(<expr>)': 'const _RanIt'에서 'const std::move_iterator<_Iter> &'에 대한 템플릿 인수를 추론할 수 없습니다.
+          with
+          [
+              _RanIt=STRING_Iterator
+          ]
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\include\xutility(2007,30):
+      또는       'unknown-type std::operator -(const std::reverse_iterator<_BidIt> &,const std::reverse_iterator<_BidIt2> &) noexcept(<expr>)'
+          C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\include\algorithm(8373,43):
+          'unknown-type std::operator -(const std::reverse_iterator<_BidIt> &,const std::reverse_iterator<_BidIt2> &) noexcept(<expr>)': 'const _RanIt'에서 'const std::reverse_iterator<_BidIt> &'에 대한 템플릿 인수를 추론할 수 없습니다.
+          with
+          [
+              _RanIt=STRING_Iterator
+          ]
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\include\algorithm(8373,50):
+      템플릿 인스턴스화 컨텍스트(가장 오래된 인스턴스화 컨텍스트)가
+          C:\github_local_repository\stl\2025stl\2025stl\main.cpp(35,2):
+          컴파일되는 함수 템플릿 인스턴스화 'void std::sort<STRING_Iterator>(const _RanIt,const _RanIt)'에 대한 참조를 확인하세요.
+          with
+          [
+              _RanIt=STRING_Iterator
+          ]
+          C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\include\algorithm(8378,10):
+          컴파일되는 함수 템플릿 인스턴스화 'void std::sort<_RanIt,std::less<void>>(const _RanIt,const _RanIt,_Pr)'에 대한 참조를 확인하세요.
+          with
+          [
+              _RanIt=STRING_Iterator,
+              _Pr=std::less<void>
+          ]
+  
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\include\algorithm(8373,10): error C2672: 'std::_Sort_unchecked': 일치하는 오버로드된 함수가 없습니다.
+  (소스 파일 'main.cpp'을(를) 컴파일하는 중)
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\include\algorithm(8339,19):
+      'void std::_Sort_unchecked(_RanIt,_RanIt,conditional_t<std::_Is_from_primary<std::iterator_traits<remove_cv<remove_reference<_Ty>::type>::type>>,std::incrementable_traits<remove_cv<remove_reference<_Ty>::type>::type>,std::iterator_traits<remove_cv<remove_reference<_Ty>::type>::type>>::difference_type,_Pr)'일 수 있습니다.
+          C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\include\algorithm(8373,10):
+          'void std::_Sort_unchecked(_RanIt,_RanIt,conditional_t<std::_Is_from_primary<std::iterator_traits<remove_cv<remove_reference<_Ty>::type>::type>>,std::incrementable_traits<remove_cv<remove_reference<_Ty>::type>::type>,std::iterator_traits<remove_cv<remove_reference<_Ty>::type>::type>>::difference_type,_Pr)': 4개의 인수가 필요합니다. 3개가 제공되었습니다.
+  
+  STRING.cpp

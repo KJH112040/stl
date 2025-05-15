@@ -6,10 +6,41 @@
 //	>  연산자															2025.5.8
 //	begin(), end()														2025.5.13
 //	역방향 반복자는 반드시 클래스로 제공									2025.5.13
+//	반복자도 당연히 클래스로 코딩해야 함									2025.5.15
 //----------------------------------------------------------------------------------
 #pragma once
 #include<memory>
 #include<iostream>
+
+class STRING_Iterator {
+	// 표준 반복자라면 다음 다섯가지 물음에 대답할 수 있어야 한다
+public:
+	using difference_type = ptrdiff_t;
+	using value_type = char;
+	using pointer = char*;
+	using reference = char&;
+	using iterator_category = std::random_access_iterator_tag;
+
+	STRING_Iterator(char* p) : p{ p } {}
+
+	// 반복자라면 최소한 다음 기능을 제공해야 함
+	char operator*() const {
+		return *p;
+	}
+
+	char* operator++() {
+		return ++p;
+	}
+
+	bool operator==(const STRING_Iterator& rhs) const {
+		return p == rhs.p;
+	}
+
+private:
+	char* p;
+};
+
+
 
 // 반복자 어댑터 (반복자 사기꾼)
 class STRING_Reverse_Iterator {
@@ -58,8 +89,8 @@ public:
 	size_t size() const;
 
 	//	begin(), end()														2025.5.13
-	char* begin()const;
-	char* end()const;
+	STRING_Iterator begin()const;
+	STRING_Iterator end()const;
 
 	STRING_Reverse_Iterator rbegin()const;
 	STRING_Reverse_Iterator rend()const;
