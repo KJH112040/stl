@@ -5,6 +5,8 @@
 //	2025. 4.
 //	2025. 5. 1	>> 연산자
 //	2025. 5. 13	begin(), end()
+//	2025. 5. 22 <=> 연산자
+//	2025. 5. 22 std::less 특수화?
 //----------------------------------------------------------------------------------
 #include<iostream>
 #include<memory>
@@ -108,18 +110,18 @@ STRING& STRING::operator=(STRING&& other)
 }
 
 // 2025. 04. 22 관계연산자들
-bool STRING::operator==(const STRING& rhs) const
-{
-	//if (len != rhs.len)
-	//	return false;
-	return std::equal(&p[0], &p[len], &rhs.p[0], &rhs.p[rhs.len]);
-}
-
-bool STRING::operator<(const STRING& rhs) const				// 2025.05.08
-{
-	return std::lexicographical_compare(p.get(), p.get() + len,
-		rhs.p.get(), rhs.p.get() + rhs.len);
-}
+//bool STRING::operator==(const STRING& rhs) const
+//{
+//	//if (len != rhs.len)
+//	//	return false;
+//	return std::equal(&p[0], &p[len], &rhs.p[0], &rhs.p[rhs.len]);
+//}
+//
+//bool STRING::operator<(const STRING& rhs) const				// 2025.05.08
+//{
+//	return std::lexicographical_compare(p.get(), p.get() + len,
+//		rhs.p.get(), rhs.p.get() + rhs.len);
+//}
 
 size_t STRING::size() const 
 {
