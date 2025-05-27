@@ -105,8 +105,8 @@ public:
 	STRING& operator=(STRING&&);
 
 	// 2025. 04. 22 관계연산자들
-	//bool operator==(const STRING& rhs) const;
-	//bool operator<(const STRING& rhs) const;// 2025.05.08
+	bool operator==(const STRING& rhs) const;
+	bool operator<(const STRING& rhs) const;	// 2025.05.08
 
 	// 2025. 5. 22
 	// 모든 관계연산자를 대체하는 three-way comparison operator

@@ -16232,3 +16232,737 @@ int main()
 
 	save("main.cpp");
 }
+
+
+=================================================
+저장한 시간: 2025-05-27 오후 1:38:37 화요일
+=================================================
+
+//------------------------------------------------------------------------------------------------
+//	2025 STL 화56목78				5월 27일 화요일					(12주 2일)
+//	6월 19일 목요일 15주 2일 - 기말시험
+//------------------------------------------------------------------------------------------------
+//	Associative Container	- key와 연관된 value를 항상 정렬상태로 유지한다.
+//							  정렬은 key값을 기준으로 한다.
+//	set / multiset	- key == value
+//	map / multimap	- pair<key, value>
+//------------------------------------------------------------------------------------------------
+#include <iostream>
+#include<fstream>
+#include<vector>
+#include<set>
+#include<ranges>
+#include"STRING.h"
+#include "save.h"
+using namespace std;
+
+extern bool 관찰;				// 관찰하려면 true로 설정
+
+// 강의 자료 "이상한 나라의 앨리스.txt"를 다운
+// [1] 여기에 있는 모든 단어를 vector<STRING>에 저장하라.
+// [2] 모두 몇 단어인지 화면에 출력하라.
+
+//---------
+int main() 
+//---------
+{
+	ifstream in{ "이상한 나라의 앨리스.txt" };
+	if (!in) 
+	{
+		cout << "파일?" << endl;
+		return 20250527;
+	}
+
+	vector<STRING> v{ istream_iterator<STRING>{in},{} };
+
+	cout << "읽은 단어 수 - " << v.size() << endl;
+
+	save("main.cpp");
+}
+
+
+=================================================
+저장한 시간: 2025-05-27 오후 1:46:00 화요일
+=================================================
+
+//------------------------------------------------------------------------------------------------
+//	2025 STL 화56목78				5월 27일 화요일					(12주 2일)
+//	6월 19일 목요일 15주 2일 - 기말시험
+//------------------------------------------------------------------------------------------------
+//	Associative Container	- key와 연관된 value를 항상 정렬상태로 유지한다.
+//							  정렬은 key값을 기준으로 한다.
+//	set / multiset	- key == value
+//	map / multimap	- pair<key, value>
+//------------------------------------------------------------------------------------------------
+#include <iostream>
+#include<fstream>
+#include<vector>
+#include<algorithm>
+#include<set>
+#include<ranges>
+#include"STRING.h"
+#include "save.h"
+using namespace std;
+
+extern bool 관찰;				// 관찰하려면 true로 설정
+
+// 강의 자료 "이상한 나라의 앨리스.txt"를 다운
+// [1] 여기에 있는 모든 단어를 vector<STRING>에 저장하라.
+// [2] 모두 몇 단어인지 화면에 출력하라.
+// [3] 찾을 단어를 입력받아 있는지 없는지 알려주자.
+
+//---------
+int main() 
+//---------
+{
+	ifstream in{ "이상한 나라의 앨리스.txt" };
+	if (!in) 
+	{
+		cout << "파일?" << endl;
+		return 20250527;
+	}
+
+	vector<STRING> v{ istream_iterator<STRING>{in},{} };
+
+	cout << "읽은 단어 수 - " << v.size() << endl;
+	//읽은 단어 수 - 26626
+
+	save("main.cpp");
+
+	while (true) {
+		cout << "찾을 단어? ";
+		STRING word;
+		cin >> word;
+
+		auto p = find(v.begin(), v.end(), word);
+
+		if (p != v.end())
+			cout << "찾았습니다. - " << *p << endl;
+		else
+			cout << "못 찾았습니다." << endl;
+	}
+	//	찾을 단어 ? allice
+	//	못 찾았습니다.
+	//	찾을 단어 ? Allice
+	//	못 찾았습니다.
+	//	찾을 단어 ? Alice
+	//	찾았습니다. - Alice
+	//	찾을 단어 ? rabbit
+	//	찾았습니다. - rabbit
+	//	찾을 단어 ? hat
+	//	찾았습니다. - hat
+	//	찾을 단어 ? Java
+	//	못 찾았습니다.
+	//	찾을 단어 ?
+}
+
+
+=================================================
+저장한 시간: 2025-05-27 오후 1:49:12 화요일
+=================================================
+
+//------------------------------------------------------------------------------------------------
+//	2025 STL 화56목78				5월 27일 화요일					(12주 2일)
+//	6월 19일 목요일 15주 2일 - 기말시험
+//------------------------------------------------------------------------------------------------
+//	Associative Container	- key와 연관된 value를 항상 정렬상태로 유지한다.
+//							  정렬은 key값을 기준으로 한다.
+//	set / multiset	- key == value
+//	map / multimap	- pair<key, value>
+//------------------------------------------------------------------------------------------------
+#include <iostream>
+#include<fstream>
+#include<vector>
+#include<algorithm>
+#include<set>
+#include<ranges>
+#include"STRING.h"
+#include "save.h"
+using namespace std;
+
+extern bool 관찰;				// 관찰하려면 true로 설정
+
+// 강의 자료 "이상한 나라의 앨리스.txt"를 다운
+// [1] 여기에 있는 모든 단어를 vector<STRING>에 저장하라.
+// [2] 모두 몇 단어인지 화면에 출력하라.
+// [3] 찾을 단어를 입력받아 있는지 없는지 알려주자.
+// [4] 잘 찾기 위해서 set<STRING>으로 데이터를 복사하자. 
+
+//---------
+int main() 
+//---------
+{
+	ifstream in{ "이상한 나라의 앨리스.txt" };
+	if (!in) 
+	{
+		cout << "파일?" << endl;
+		return 20250527;
+	}
+
+	vector<STRING> v{ istream_iterator<STRING>{in},{} };
+
+	cout << "읽은 단어 수 - " << v.size() << endl;
+	//읽은 단어 수 - 26626
+
+	save("main.cpp");
+
+	// set<STRING>으로 복사
+	set<STRING> s{ v.begin(),v.end() };
+	cout << "set으로 복사한 단어의 수 - " << s.size() << endl;
+}
+
+
+=================================================
+저장한 시간: 2025-05-27 오후 1:54:18 화요일
+=================================================
+
+//------------------------------------------------------------------------------------------------
+//	2025 STL 화56목78				5월 27일 화요일					(12주 2일)
+//	6월 19일 목요일 15주 2일 - 기말시험
+//------------------------------------------------------------------------------------------------
+//	Associative Container	- key와 연관된 value를 항상 정렬상태로 유지한다.
+//							  정렬은 key값을 기준으로 한다.
+//	set / multiset	- key == value
+//	map / multimap	- pair<key, value>
+//------------------------------------------------------------------------------------------------
+#include <iostream>
+#include<fstream>
+#include<vector>
+#include<algorithm>
+#include<set>
+#include<ranges>
+#include"STRING.h"
+#include "save.h"
+using namespace std;
+
+extern bool 관찰;				// 관찰하려면 true로 설정
+
+// 강의 자료 "이상한 나라의 앨리스.txt"를 다운
+// [1] 여기에 있는 모든 단어를 vector<STRING>에 저장하라.
+// [2] 모두 몇 단어인지 화면에 출력하라.
+// [3] 찾을 단어를 입력받아 있는지 없는지 알려주자.
+// [4] 잘 찾기 위해서 set<STRING>으로 데이터를 복사하자. 
+// [5] set에서 찾는 단어가 있는지 알려주자.
+
+//---------
+int main() 
+//---------
+{
+	ifstream in{ "이상한 나라의 앨리스.txt" };
+	if (!in) 
+	{
+		cout << "파일?" << endl;
+		return 20250527;
+	}
+
+	vector<STRING> v{ istream_iterator<STRING>{in},{} };
+
+	cout << "읽은 단어 수 - " << v.size() << endl;
+	//읽은 단어 수 - 26626
+
+	save("main.cpp");
+
+	// set<STRING>으로 복사
+	set<STRING> s{ v.begin(),v.end() };
+	cout << "set으로 복사한 단어의 수 - " << s.size() << endl;
+	//set으로 복사한 단어의 수 - 2948
+
+	// set에서 찾기
+	// 애써 정렬한 단어를 sequence하게 찾아가는 방법임.
+	while (true) {
+		cout << "찾을 단어는? ";
+		STRING word;
+		cin >> word;
+
+		auto p = find(s.begin(), s.end(), word);
+
+		if (p != s.end())
+			cout << "찾았습니다! - " << *p << endl;
+		else
+			cout << "못 찾았습니다..." << endl;
+	}
+	//	찾을 단어는 ? Alice
+	//	찾았습니다!- Alice
+	//	찾을 단어는 ? Rabbit
+	//	찾았습니다!- Rabbit
+	//	찾을 단어는 ? rabbit
+	//	찾았습니다!- rabbit
+	//	찾을 단어는 ? trol
+	//	못 찾았습니다...
+	//	찾을 단어는 ? star
+	//	못 찾았습니다...
+	//	찾을 단어는 ? stars
+	//	못 찾았습니다...
+	//	찾을 단어는 ? sun
+	//	찾았습니다!- sun
+	//	찾을 단어는 ? moon
+	//	찾았습니다!- moon
+	//	찾을 단어는 ? mouse
+	//	찾았습니다!- mouse
+	//	찾을 단어는 ? container
+	//	못 찾았습니다...
+	//	찾을 단어는 ? algoritm
+	//	못 찾았습니다...
+	//	찾을 단어는 ?
+}
+
+
+=================================================
+저장한 시간: 2025-05-27 오후 2:06:53 화요일
+=================================================
+
+//------------------------------------------------------------------------------------------------
+//	2025 STL 화56목78				5월 27일 화요일					(12주 2일)
+//	6월 19일 목요일 15주 2일 - 기말시험
+//------------------------------------------------------------------------------------------------
+//	Associative Container	- key와 연관된 value를 항상 정렬상태로 유지한다.
+//							  정렬은 key값을 기준으로 한다.
+//	set / multiset	- key == value
+//	map / multimap	- pair<key, value>
+//------------------------------------------------------------------------------------------------
+#include <iostream>
+#include<fstream>
+#include<vector>
+#include<algorithm>
+#include<set>
+#include<ranges>
+#include"STRING.h"
+#include "save.h"
+using namespace std;
+
+extern bool 관찰;				// 관찰하려면 true로 설정
+
+// 강의 자료 "이상한 나라의 앨리스.txt"를 다운
+// [1] 여기에 있는 모든 단어를 vector<STRING>에 저장하라.
+// [2] 모두 몇 단어인지 화면에 출력하라.
+// [3] 찾을 단어를 입력받아 있는지 없는지 알려주자.
+// [4] 잘 찾기 위해서 set<STRING>으로 데이터를 복사하자. 
+// [5] set에서 찾는 단어가 있는지 알려주자.
+
+//---------
+int main() 
+//---------
+{
+	ifstream in{ "이상한 나라의 앨리스.txt" };
+	if (!in) 
+	{
+		cout << "파일?" << endl;
+		return 20250527;
+	}
+
+	vector<STRING> v{ istream_iterator<STRING>{in},{} };
+
+	cout << "읽은 단어 수 - " << v.size() << endl;
+	//읽은 단어 수 - 26626
+
+	save("main.cpp");
+
+	// set<STRING>으로 복사
+	set<STRING> s{ v.begin(),v.end() };
+	cout << "set으로 복사한 단어의 수 - " << s.size() << endl;
+	//set으로 복사한 단어의 수 - 2948  (중복 단어)
+
+	for (const STRING& 단어 : s)
+		cout << 단어 << " ";
+	cout << endl;
+
+	// set에서 찾기
+	// set에 포함된 함수 사용
+	while (true) {
+		cout << "찾을 단어는? ";
+		STRING word;
+		cin >> word;
+
+		if (s.contains(word))
+			cout << "찾았습니다! - " << word << endl;
+		else
+			cout << "못 찾았습니다..." << endl;
+	}
+}
+
+
+=================================================
+저장한 시간: 2025-05-27 오후 2:48:44 화요일
+=================================================
+
+//------------------------------------------------------------------------------------------------
+//	2025 STL 화56목78				5월 27일 화요일					(12주 2일)
+//	6월 19일 목요일 15주 2일 - 기말시험
+//------------------------------------------------------------------------------------------------
+//	Associative Container	- key와 연관된 value를 항상 정렬상태로 유지한다.
+//							  정렬은 key값을 기준으로 한다.
+//	set / multiset	- key == value
+//	map / multimap	- pair<key, value>
+//------------------------------------------------------------------------------------------------
+#include <iostream>
+#include<fstream>
+#include<vector>
+#include<algorithm>
+#include<set>
+#include<ranges>
+#include"STRING.h"
+#include "save.h"
+using namespace std;
+
+extern bool 관찰;				// 관찰하려면 true로 설정
+
+// 강의 자료 "이상한 나라의 앨리스.txt"를 다운
+// [1] 여기에 있는 모든 단어를 vector<STRING>에 저장하라.
+// [2] 모두 몇 단어인지 화면에 출력하라.
+// [3] 찾을 단어를 입력받아 있는지 없는지 알려주자.
+// [4] 잘 찾기 위해서 set<STRING>으로 데이터를 복사하자. 
+// [5] set에서 찾는 단어가 있는지 알려주자.
+// [6] 특정 문자가 있는 단어는 몇 개인가? (예 'A'가 있는 단어수는?)
+
+//---------
+int main() 
+//---------
+{
+	ifstream in{ "이상한 나라의 앨리스.txt" };
+	if (!in) 
+	{
+		cout << "파일?" << endl;
+		return 20250527;
+	}
+
+	vector<STRING> v{ istream_iterator<STRING>{in},{} };
+
+	cout << "읽은 단어 수 - " << v.size() << endl;
+	//읽은 단어 수 - 26626
+
+	save("main.cpp");
+
+	// set<STRING>으로 복사
+	set<STRING> s{ v.begin(),v.end() };
+	cout << "set으로 복사한 단어의 수 - " << s.size() << endl;
+	//set으로 복사한 단어의 수 - 2948 (중복 단어)
+
+	// set에서 찾기 - 특정 문자가 있는 단어 'A'	- abcAXde
+	while(true)
+	{
+		cout << "어떤 문자가 포함된 단어의 개수를 알려드릴까요? ";
+		char c;
+		cin >> c;
+
+		auto 개수 = count_if(s.begin(), s.end(), [c](const STRING& 단어) {
+			auto p = find(단어.begin(), 단어.end(), c);
+			if (p != 단어.end())
+				return true;
+			else return false;
+		});
+		cout << c << "가 포함된 단어의 수 - " << 개수 << endl;
+	}
+	//	어떤 문자가 포함된 단어의 개수를 알려드릴까요 ? A
+	//	A가 포함된 단어의 수 - 32
+	//	어떤 문자가 포함된 단어의 개수를 알려드릴까요 ? a
+	//	a가 포함된 단어의 수 - 1101
+	//	어떤 문자가 포함된 단어의 개수를 알려드릴까요 ? z
+	//	z가 포함된 단어의 수 - 25
+	//	어떤 문자가 포함된 단어의 개수를 알려드릴까요 ?
+}
+
+
+=================================================
+저장한 시간: 2025-05-27 오후 2:58:09 화요일
+=================================================
+
+//------------------------------------------------------------------------------------------------
+//	2025 STL 화56목78				5월 27일 화요일					(12주 2일)
+//	6월 19일 목요일 15주 2일 - 기말시험
+//------------------------------------------------------------------------------------------------
+//	Associative Container	- key와 연관된 value를 항상 정렬상태로 유지한다.
+//							  정렬은 key값을 기준으로 한다.
+//	set / multiset	- key == value
+//	map / multimap	- pair<key, value>
+//------------------------------------------------------------------------------------------------
+#include <iostream>
+#include<fstream>
+#include<vector>
+#include<algorithm>
+#include<set>
+#include<ranges>
+#include"STRING.h"
+#include "save.h"
+using namespace std;
+
+extern bool 관찰;				// 관찰하려면 true로 설정
+
+// 강의 자료 "이상한 나라의 앨리스.txt"를 다운
+// [1] 여기에 있는 모든 단어를 vector<STRING>에 저장하라.
+// [2] 모두 몇 단어인지 화면에 출력하라.
+// [3] 찾을 단어를 입력받아 있는지 없는지 알려주자.
+// [4] 잘 찾기 위해서 set<STRING>으로 데이터를 복사하자. 
+// [5] set에서 찾는 단어가 있는지 알려주자.
+// [6] 특정 문자가 있는 단어는 몇 개인가? (예 'A'가 있는 단어수는?)
+// [7] 특정 단어가 포함된 단어는 모두 몇 개인가? (예 "ion"이 들어간 단어의 수)
+
+//---------
+int main()
+//---------
+{
+	ifstream in{ "이상한 나라의 앨리스.txt" };
+	if (!in)
+	{
+		cout << "파일?" << endl;
+		return 20250527;
+	}
+
+	vector<STRING> v{ istream_iterator<STRING>{in},{} };
+
+	cout << "읽은 단어 수 - " << v.size() << endl;
+	//읽은 단어 수 - 26626
+
+	save("main.cpp");
+
+	// set<STRING>으로 복사
+	set<STRING> s{ v.begin(),v.end() };
+	cout << "set으로 복사한 단어의 수 - " << s.size() << endl;
+	//set으로 복사한 단어의 수 - 2948 (중복 단어)
+
+	// set에서 찾기 - 특정 단어를 포함 단어 'ion'	- animation
+	while (true)
+	{
+		cout << "어떤 단어가 포함된 단어의 개수를 알려드릴까요? ";
+		STRING 포함;
+		cin >> 포함;
+
+		auto 개수 = count_if(s.begin(), s.end(), [포함](const STRING& 단어) {
+			bool res = includes(단어.begin(), 단어.end(), 포함.begin(), 포함.end());
+			// includes는 각 단어가 포함되어 있으면 return
+			if (res)
+				cout << 단어 << endl;
+			return res;
+			});
+		cout << 포함 << "가 포함된 단어의 수 - " << 개수 << endl;
+	}
+	//	어떤 단어가 포함된 단어의 개수를 알려드릴까요 ? ion
+	//	Pigeon
+	//	diamonds
+	//	ion가 포함된 단어의 수 - 2
+	//	어떤 단어가 포함된 단어의 개수를 알려드릴까요 ?
+}
+
+
+=================================================
+저장한 시간: 2025-05-27 오후 3:08:13 화요일
+=================================================
+
+//------------------------------------------------------------------------------------------------
+//	2025 STL 화56목78				5월 27일 화요일					(12주 2일)
+//	6월 19일 목요일 15주 2일 - 기말시험
+//------------------------------------------------------------------------------------------------
+//	Associative Container	- key와 연관된 value를 항상 정렬상태로 유지한다.
+//							  정렬은 key값을 기준으로 한다.
+//	set / multiset	- key == value
+//	map / multimap	- pair<key, value>
+//------------------------------------------------------------------------------------------------
+#include <iostream>
+#include<fstream>
+#include<vector>
+#include<algorithm>
+#include<set>
+#include<ranges>
+#include"STRING.h"
+#include "save.h"
+using namespace std;
+
+extern bool 관찰;				// 관찰하려면 true로 설정
+
+// 강의 자료 "이상한 나라의 앨리스.txt"를 다운
+// [1] 여기에 있는 모든 단어를 vector<STRING>에 저장하라.
+// [2] 모두 몇 단어인지 화면에 출력하라.
+// [3] 찾을 단어를 입력받아 있는지 없는지 알려주자.
+// [4] 잘 찾기 위해서 set<STRING>으로 데이터를 복사하자. 
+// [5] set에서 찾는 단어가 있는지 알려주자.
+// [6] 특정 문자가 있는 단어는 몇 개인가? (예 'A'가 있는 단어수는?)
+// [7] 특정 단어가 포함된 단어는 모두 몇 개인가? (예 "ion"이 들어간 단어의 수)
+
+//---------
+int main()
+//---------
+{
+	ifstream in{ "이상한 나라의 앨리스.txt" };
+	if (!in)
+	{
+		cout << "파일?" << endl;
+		return 20250527;
+	}
+
+	vector<STRING> v{ istream_iterator<STRING>{in},{} };
+
+	cout << "읽은 단어 수 - " << v.size() << endl;
+	//읽은 단어 수 - 26626
+
+	save("main.cpp");
+
+	// set<STRING>으로 복사
+	set<STRING> s{ v.begin(),v.end() };
+	cout << "set으로 복사한 단어의 수 - " << s.size() << endl;
+	//set으로 복사한 단어의 수 - 2948 (중복 단어)
+
+	// set에서 찾기 - 특정 단어를 포함 단어 'ion'	- animation
+	while (true)
+	{
+		cout << "어떤 단어가 포함된 단어의 개수를 알려드릴까요? ";
+		STRING 포함;
+		cin >> 포함;
+
+		auto 개수 = count_if(s.begin(), s.end(), [포함](const STRING& 단어) {
+			auto p = search(단어.begin(), 단어.end(), 포함.begin(),포함.end());
+			
+			if (p != 단어.end()) {
+				cout << 단어 << endl;
+				return true;
+			}
+			else return false;
+		});
+		cout << 포함 << "가 포함된 단어의 수 - " << 개수 << endl;
+	}
+	//	어떤 단어가 포함된 단어의 개수를 알려드릴까요 ? ion
+	//	Ambition
+	//	Derision
+	//	Distraction
+	//	Multiplication
+	//	Uglification
+	//	accusation
+	//	adoption
+	//	affectionately
+	//	commotion
+	//	conclusion
+	//	confusion
+	//	consultation
+	//	conversation
+	//	conversations
+	//	cushion
+	//	direction
+	//	directions
+	//	editions
+	//	educations
+	//	exclamation
+	//	execution
+	//	executioner
+	//	executioner's
+	//	executions
+	//	explanation
+	//	explanations
+	//	expression
+	//	fashion
+	//	invitation
+	//	mentioned
+	//	notion
+	//	occasional
+	//	occasionally
+	//	onions
+	//	opinion
+	//	passion
+	//	passionate
+	//	position
+	//	procession
+	//	processions
+	//	protection
+	//	question
+	//	questions
+	//	sensation
+	//	station
+	//	usurpation
+	//	variations
+	//	ion가 포함된 단어의 수 - 47
+	//	어떤 단어가 포함된 단어의 개수를 알려드릴까요 ? z
+	//	Lizard
+	//	Lizard's
+	//	Prizes
+	//	breeze
+	//	crazy
+	//	doze
+	//	dozing
+	//	gazing
+	//	grazed
+	//	lazily
+	//	lazy
+	//	prize
+	//	prizes
+	//	puzzle
+	//	puzzled
+	//	puzzling
+	//	size
+	//	sizes
+	//	sneeze
+	//	sneezed
+	//	sneezes
+	//	sneezing
+	//	squeeze
+	//	squeezed
+	//	zigzag
+	//	z가 포함된 단어의 수 - 25
+	//	어떤 단어가 포함된 단어의 개수를 알려드릴까요 ?
+}
+
+
+=================================================
+저장한 시간: 2025-05-27 오후 3:18:54 화요일
+=================================================
+
+//------------------------------------------------------------------------------------------------
+//	2025 STL 화56목78				5월 27일 화요일					(12주 2일)
+//	6월 19일 목요일 15주 2일 - 기말시험
+//------------------------------------------------------------------------------------------------
+//	Associative Container	- key와 연관된 value를 항상 정렬상태로 유지한다.
+//							  정렬은 key값을 기준으로 한다.
+//	set / multiset	- key == value
+//	map / multimap	- pair<key, value>
+//------------------------------------------------------------------------------------------------
+#include <iostream>
+#include<fstream>
+#include<vector>
+#include<algorithm>
+#include<set>
+#include<ranges>
+#include"STRING.h"
+#include "save.h"
+using namespace std;
+
+extern bool 관찰;				// 관찰하려면 true로 설정
+
+// 강의 자료 "이상한 나라의 앨리스.txt"를 다운
+// [1] 여기에 있는 모든 단어를 multiset<STRING>에 저장하라.
+// [2] 모두 몇 단어인지 화면에 출력하라.
+
+//---------
+int main()
+//---------
+{
+	ifstream in{ "이상한 나라의 앨리스.txt" };
+	if (!in)
+	{
+		cout << "파일?" << endl;
+		return 20250527;
+	}
+
+	multiset<STRING> ms{ istream_iterator<STRING>{in},{} };
+	cout << "읽은 단어 수 - " << ms.size() << endl;
+	// 읽은 단어 수 - 26626
+
+	save("main.cpp");
+
+	for (const STRING& 단어 : ms) 
+		cout << 단어 << " ";
+	cout << endl;
+
+	// 동일 단어가 몇 개 있는지 알려주자
+	while (true) {
+		cout << "찾을 단어? ";
+		STRING 단어;
+		cin >> 단어;
+
+		cout << ms.count(단어) << "개가 있습니다." << endl;
+	}
+	//	set or multiset은 정렬된 상태
+	//	you가 들어갈 수 있는 하한선과 상한선을 찾음
+	//  you의 범위가 나옴. 그 부분 개수를 count
+	// 
+	//	찾을 단어 ? a
+	//	619개가 있습니다.
+	//	찾을 단어 ? the
+	//	1529개가 있습니다.
+	//	찾을 단어 ?
+}
