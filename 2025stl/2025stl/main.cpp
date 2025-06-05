@@ -1,50 +1,67 @@
 //------------------------------------------------------------------------------------------------
-//	2025 STL 화56목78				5월 29일 목요일					(13주 1일)
+//	2025 STL 화56목78				6월 5일 목요일					(13주 2일)
 //	6월 19일 목요일 15주 2일 - 기말시험
 //------------------------------------------------------------------------------------------------
-//	Associative Container	- key와 연관된 value를 항상 정렬상태로 유지한다.
-//							  정렬은 key값을 기준으로 한다.
-//	set / multiset	- key == value
-//	map / multimap	- pair<key, value>
+//	Unordered Associative Containers - hash 구조
 //------------------------------------------------------------------------------------------------
 #include <iostream>
-#include<fstream>
-#include<algorithm>
-#include<map>
+#include<unordered_set>
 #include<print>
-#include<format>
 #include"STRING.h"
 #include "save.h"
 using namespace std;
 
+// setprecision(43)은 구시대의 유물
+
 extern bool 관찰;				// 관찰하려면 true로 설정
 
-// 강의 자료 "이상한 나라의 앨리스.txt"를 다운
-// [1] 여기에 있는 모든 단어를 multimap<STRING,size_t>에 저장하라.
-// [2] 모두 몇 단어인지 화면에 출력하라.
-// [3] 단어와 사용 횟수를 화면에 출력하라.
-
+template<>
+struct std::hash<STRING> {
+	size_t operator()(const STRING& s) const {	// 일관성을 지키기 위해서 const가 변하지 않는다는 도장을 ) const 이렇게 찍는 것.
+		return hash<std::string>{}(string{ s.begin(),s.end() });
+	}
+	// template<class T>
+	// struct std::hash{
+	//		size_t operator()(const T&){
+	//			return 1;
+	//		}
+	// };
+	// 표준 hash callable???의 기본 모습?
+};
 
 //---------
 int main()
 //---------
 {
-	ifstream in{ "이상한 나라의 앨리스.txt" };
-	if (!in)
-	{
-		cout << "파일?" << endl;
-		return 20250529;
-	}
+	//  unordered Associative Container (교재 참조)
+	//	unordered_map(C++11)
+	//	unordered_multimap(C++11)
+	//	unordered_set(C++11)
+	//	unordered_multiset(C++11)
+	//	다 똑같은 애들.
 
-	map<STRING, size_t> wordNum;
-
-	STRING 단어;
-	while (in >> 단어)
-		wordNum[단어]++;
+	unordered_set<STRING, hash<STRING>> us{ "1","22","333","4444" };
+	// <STRING,hash<STRING>,equal_to<STRING>>
+	// equal_to 는 operator ==
 	
-	for (auto [단어, 개수] : wordNum)		// 단어가 STRING이라 formatting이 안 됨.
-		cout << 단어 << " - " << 개수 << endl;
-		//println("{:20} - {:}", (char*)(단어[0]), 개수);
+	for (const STRING& s : us)
+		cout << s << endl;
+
+	// 언오더드셋의 메모리를 화면에 출력한다.
+	for (size_t bc/*bucket count*/ = 0; bc < us.bucket_count(); ++bc) {
+		print("[{:3}] ", bc);
+		for (auto i = us.begin(bc); i != us.end(bc); ++i) {
+			print(" -> {:}", std::string{ i->begin(),i->end() });
+		}
+
+		cout << endl;
+
+		cout << "추가할 STRING - ";
+		STRING s;
+		cin >> s;
+
+		us.insert(s);
+	}
 
 	save("main.cpp");
 }
