@@ -1,66 +1,56 @@
 //------------------------------------------------------------------------------------------------
-//	2025 STL 화56목78				6월 5일 목요일					(13주 2일)
+//	2025 STL 화56목78				6월 10일 목요일					(14주 1일)
 //	6월 19일 목요일 15주 2일 - 기말시험
 //------------------------------------------------------------------------------------------------
-//	Unordered Associative Containers - hash 구조
+//	Algorithm - cppreference
 //------------------------------------------------------------------------------------------------
 #include <iostream>
-#include<unordered_set>
-#include<print>
 #include"STRING.h"
 #include "save.h"
 using namespace std;
 
-// setprecision(43)은 구시대의 유물
-
 extern bool 관찰;				// 관찰하려면 true로 설정
-
-template<>
-struct std::hash<STRING> {
-	size_t operator()(const STRING& s) const {	// 일관성을 지키기 위해서 const가 변하지 않는다는 도장을 ) const 이렇게 찍는 것.
-		return hash<std::string>{}(string{ s.begin(),s.end() });
-	}
-	// template<class T>
-	// struct std::hash{
-	//		size_t operator()(const T&){
-	//			return 1;
-	//		}
-	// };
-	// 표준 hash callable???의 기본 모습?
-};
 
 //---------
 int main()
 //---------
 {
-	//  unordered Associative Container (교재 참조)
-	//	unordered_map(C++11)
-	//	unordered_multimap(C++11)
-	//	unordered_set(C++11)
-	//	unordered_multiset(C++11)
-	//	다 똑같은 애들.
+	// cppreference
+	// ranges library
+	// algorithm library
 
-	unordered_set<STRING, hash<STRING>> us{ "1","22","333","4444" };
-	// <STRING,hash<STRING>,equal_to<STRING>>
-	// equal_to 는 operator ==
-	
-	for (const STRING& s : us)
+	//sort(v.begin(), v.end());
+	//ranges::sort(v)
+
+	// 지연 평가
+
+	// niebloid (사람 이름)
+
+	// Non-modifying sequence operations
+	// 수정하지 않으면서 sequencial 한 operations.
+	// 반복자 쌍을 받음. -> 순서대로 돌아감 -> sequencial
+	// 원소 수정 x
+
+	// all_of
+	// 조건을 전부 만족해?
+	// yes / no
+
+	// 인접한 같은 원소 찾기
+	// adjacent_find
+
+	// Modifying sequence operations
+	// Sequence를 바꾸는 애
+	// ex. copy
+
+	// 다음 시간에 sorting 관련 알고리즘 이해
+	string s{ "2025. 6. 10" };
+
+	// 잉것도 살리고
+	while(true)
+	{
 		cout << s << endl;
-
-	// 언오더드셋의 메모리를 화면에 출력한다.
-	for (size_t bc/*bucket count*/ = 0; bc < us.bucket_count(); ++bc) {
-		print("[{:3}] ", bc);
-		for (auto i = us.begin(bc); i != us.end(bc); ++i) {
-			print(" -> {:}", std::string{ i->begin(),i->end() });
-		}
-
-		cout << endl;
-
-		cout << "추가할 STRING - ";
-		STRING s;
-		cin >> s;
-
-		us.insert(s);
+		// 100ms 쉬고
+		rotate(s.begin(), s.end(), s.begin() + 1);
 	}
 
 	save("main.cpp");
